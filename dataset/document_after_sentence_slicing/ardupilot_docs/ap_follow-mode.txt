@@ -1,0 +1,18 @@
+Follow Mode
+When switched into Follow, the vehicle will attempt to follow another vehicle (or anything publishing its position) at a specified offset.
+The vehicle lead vehicle's position must be published to the vehicle in Follow mode using a telemetry system.
+The altitude is maintained with the altitude hold controller so the vehicle will attempt to hold its current altitude when the sticks are placed with 10% of mid-throttle.
+It will climb or descend at up to 2.5m/s (this speed is adjustable with the  and  parameters).
+The acceleration used to establish these speeds is set by .
+The following parameters can be used to tune Follow Mode's performance:
+
+: set to 1 to enable follow mode and refresh parameters
+: MAVLink system id of lead vehicle (&quot;0&quot; means follow the first vehicle &quot;seen&quot;)
+: if lead vehicle is more than this many meters away, give up on following and hold position
+, , : 3D offset (in meters) from the lead vehicle
+: set to 0 if offsets are North-East-Down, 1 if offsets are relative to lead vehicle's heading
+: controls whether follow points in the same direction as lead vehicle or always towards it
+: gain which controls how aggressively this vehicle moves towards lead vehicle (limited by )
+: allows selecting whether to use lead vehicle's relative-to-home or relative-to-sea-level altitude
+: set bit 0 to &quot;1&quot; to enable the  to follow the target vehicle.
+
