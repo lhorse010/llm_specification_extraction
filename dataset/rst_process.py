@@ -96,6 +96,12 @@ def split_sentences_rst(rst_text):
 def simplify_refs(text):
     return re.sub(r':ref:`([^`]+)`', r'\1', text)
 
+def preprocess_text(text):
+    text = re.sub(r'\n\s*\n', '\n\n', text)
+    paragraphs = text.split('\n\n')
+    processed_paragraphs = [re.sub(r'\n', ' ', p.strip()) for p in paragraphs]
+    return '\n\n'.join(processed_paragraphs)
+
 def process_rst_files(input_dir, output_dir, table_dir):
     # Ensure output and table directories exist
     for directory in [output_dir, table_dir]:
@@ -114,6 +120,7 @@ def process_rst_files(input_dir, output_dir, table_dir):
         with open(rst_file, 'r', encoding='utf-8') as f:
             rst_content = f.read()
 
+        rst_content = preprocess_text(rst_content)
         rst_content = simplify_refs(rst_content)
         # Extract tables
         tables = extract_tables(rst_content)
