@@ -25,6 +25,7 @@ def generate_prompt(doc):
 def extract(prompt, model_name, result_file):
     # clear context, triple try, merge
     # client = PoeApi(tokens=tokens, proxy=proxy_config)
+    print(tokens)
     client = PoeApi(tokens=tokens)
     bot=model_name
     chatId = None    

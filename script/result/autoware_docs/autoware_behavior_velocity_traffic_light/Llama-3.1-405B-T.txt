@@ -1,0 +1,81 @@
+After carefully reading the document and following the steps outlined, I have identified the sentences that convey information about state transition pre-requirements, constraints, expected post-actions, and expected state changes. Here are the annotated sentences in JSON format:
+
+```json
+{
+    "specifications": [
+        {
+            "section-id": 1,
+            "sentence-id": 1
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 0
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 1
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 2
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 4
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 7
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 8
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 10
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 11
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 4
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 5
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 8
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 9
+        }
+    ]
+}
+```
+
+These sentences convey the following information:
+
+* Constraints:
+	+ The algorithm depends on object detection and perception accuracy considering traffic light (Section 1, Sentence 1).
+	+ The vehicle can't pass through the stop line during yellow lamp (Section 4, Sentence 4).
+	+ The vehicle can't stop under deceleration and jerk limit (Section 4, Sentence 5).
+* Expected post-actions:
+	+ If a corresponding traffic light signal is found but timed out, it treats as a signal to stop (Section 3, Sentence 2).
+	+ If an elapsed time to receive stop signal is less than stop_time_hysteresis, it treats as a signal to pass (Section 3, Sentence 4).
+	+ When vehicle current velocity is higher than 2.0m/s, pass judge (Section 3, Sentence 7).
+	+ When vehicle current velocity is lower than 2.0m/s, stop (Section 3, Sentence 8).
+* Expected state changes:
+	+ If the vehicle can't stop before the stop line, autoware chooses one of the following behaviors (Section 3, Sentence 10).
+	+ "Can pass through" stop line during yellow lamp => pass (Section 3, Sentence 10).
+	+ "Can't pass through" stop line during yellow lamp => emergency stop (Section 3, Sentence 11).
+	+ Vehicle can pass through stop line during yellow lamp (Section 4, Sentence 8).
+	+ Vehicle can stop under deceleration and jerk limit (Section 4, Sentence 9).
+* State transition pre-requirements:
+	+ This module is activated when there is traffic light in ego lane (Section 2, Sentence 0).
+	+ If a corresponding traffic light signal have never been found, it treats as a signal to pass (Section 3, Sentence 1).

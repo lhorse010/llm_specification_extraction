@@ -1,0 +1,54 @@
+Based on the given document and the steps provided, the following sentences are annotated as specifications:
+
+```json
+{
+  "specifications": [
+    {
+      "section-id": 2,
+      "sentence-id": 0
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 0
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 1
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 2
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 3
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 4
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 7
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 8
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 10
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 11
+    }
+  ]
+}
+```
+
+These sentences are annotated as specifications because they convey the following information:
+1. Requirements the system must meet for state transition (e.g., "If a corresponding traffic light signal is found but timed out, it treats as a signal to stop.").
+2. Constraints the system must adhere to (e.g., "Uses the highest reliability one of the traffic light recognition result and if the color of that was not green or corresponding arrow signal, generates a stop point.").
+3. Expected post-actions the system will execute when entering a particular state (e.g., "If an elapsed time to receive stop signal is less than stop_time_hysteresis, it treats as a signal to pass.").
+4. Expected state changes the system will carry out in response to specific commands or settings (e.g., "When vehicle current velocity is higher than 2.0m/s ⇒ pass judge(using next slide formula)").

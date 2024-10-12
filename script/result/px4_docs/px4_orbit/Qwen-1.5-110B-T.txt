@@ -1,0 +1,71 @@
+```json
+{
+    "specifications": [
+        {
+            "section-id": 1,
+            "sentence-id": 0,
+            "type": "state transition pre-requirement"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 1,
+            "type": "constraint"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 2,
+            "type": "constraint"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 3,
+            "type": "constraint"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 4,
+            "type": "state transition pre-requirement"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 5,
+            "type": "constraint"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 6,
+            "type": "constraint"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 1,
+            "type": "expected state change"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 17,
+            "type": "expected state change"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 0,
+            "type": "constraint"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 1,
+            "type": "constraint"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 2,
+            "type": "constraint"
+        },
+        {
+            "section-id": 5,
+            "sentence-id": 1,
+            "type": "expected post-action"
+        }
+    ]
+}
+```
