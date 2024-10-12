@@ -7,6 +7,7 @@ from docutils.core import publish_parts
 from docutils.parsers.rst import roles
 from docutils.parsers.rst.directives import register_directive
 from docutils.parsers.rst import Directive
+import html
 
 nltk.download('punkt', quiet=True)  # Download sentence tokenizer
 
@@ -29,10 +30,13 @@ register_directive('youtube', DummyDirective)
 register_directive('toctree', DummyDirective)
 
 def extract_tables(text):
-    """Extract RST tables"""
-    table_pattern = r'\+[-+]+\+\n((?:\|[^\n]+\|\n)+)\+[-+]+\+'
-    tables = re.findall(table_pattern, text, re.MULTILINE)
-    return tables
+    grid_table_pattern = r'\+[-+]+\+\n((?:\|[^\n]+\|\n)+)\+[-+]+\+'
+    simple_table_pattern = r'(===\s+=+\n(?:(?!===).+\n)+===\s+=+\n)'
+    
+    grid_tables = re.findall(grid_table_pattern, text, re.MULTILINE)
+    simple_tables = re.findall(simple_table_pattern, text, re.MULTILINE)
+    
+    return grid_tables + simple_tables
 
 def remove_rst_formatting(text):
     # Remove links
@@ -88,6 +92,10 @@ def split_sentences_rst(rst_text):
     
     return sentence_paragraphs
 
+
+def simplify_refs(text):
+    return re.sub(r':ref:`([^`]+)`', r'\1', text)
+
 def process_rst_files(input_dir, output_dir, table_dir):
     # Ensure output and table directories exist
     for directory in [output_dir, table_dir]:
@@ -106,6 +114,7 @@ def process_rst_files(input_dir, output_dir, table_dir):
         with open(rst_file, 'r', encoding='utf-8') as f:
             rst_content = f.read()
 
+        rst_content = simplify_refs(rst_content)
         # Extract tables
         tables = extract_tables(rst_content)
         
@@ -120,7 +129,7 @@ def process_rst_files(input_dir, output_dir, table_dir):
 
         # Create output filename
         relative_path = os.path.relpath(rst_file, input_dir)
-        output_file = os.path.join(output_dir, relative_path[:-4] + '.txt')
+        output_file = os.path.join(output_dir, "text_only", relative_path[:-4] + '.txt')
 
         # Ensure output file directory exists
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
@@ -130,7 +139,7 @@ def process_rst_files(input_dir, output_dir, table_dir):
             for paragraph in sentence_paragraphs:
                 for sentence in paragraph:
                     if sentence.strip():  # Only write non-empty sentences
-                        f.write(sentence.strip() + '\n')
+                        f.write(html.unescape(sentence.strip()) + '\n')
                 f.write('\n')  # Add empty line between paragraphs
 
     print(f"Processed {len(rst_files)} RST files.")

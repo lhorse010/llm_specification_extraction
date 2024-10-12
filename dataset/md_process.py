@@ -3,6 +3,7 @@ import re
 import nltk
 import argparse
 from tqdm import tqdm
+import html
 
 nltk.download('punkt', quiet=True)  # Download sentence tokenizer
 
@@ -86,7 +87,7 @@ def process_md_files(input_dir, output_dir, table_dir):
 
         # Create output filename
         relative_path = os.path.relpath(md_file, input_dir)
-        output_file = os.path.join(output_dir, relative_path[:-3] + '.txt')
+        output_file = os.path.join(output_dir, "text_only", relative_path[:-3] + '.txt')
 
         # Ensure output file directory exists
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
@@ -96,7 +97,7 @@ def process_md_files(input_dir, output_dir, table_dir):
             for paragraph in sentence_paragraphs:
                 for sentence in paragraph:
                     if sentence.strip():  # Only write non-empty sentences
-                        f.write(sentence.strip() + '\n')
+                        f.write(html.unescape(sentence.strip()) + '\n')
                 f.write('\n')  # Add empty line between paragraphs
 
     print(f"Processed {len(md_files)} Markdown files.")
