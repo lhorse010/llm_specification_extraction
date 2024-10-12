@@ -1,0 +1,141 @@
+{
+  "title": "ZigZag Mode",
+  "sections": [
+    {
+      "section-id": 0,
+      "title": "ZigZag Mode",
+      "sentences": [
+        {
+          "sentence-id": 0,
+          "text": "ZigZag mode is a semi-autonomous mode designed to make it easier for a pilot to fly a vehicle back and forth across a field which can be useful for crop spraying"
+        },
+        {
+          "sentence-id": 1,
+          "text": "The way it works is:"
+        },
+        {
+          "sentence-id": 2,
+          "text": "1.A two or preferably three position auxiliary switch is set to \"ZigZag SaveWP\" (i.e. RC7_OPTION = 61)"
+        },
+        {
+          "sentence-id": 3,
+          "text": "2.The pilot arms the vehicle in Loiter mode, takes off and then changes to ZigZag mode (in the future we may make it possible to arm and take-off in ZigZag mode)"
+        },
+        {
+          "sentence-id": 4,
+          "text": "3.The vehicle is flown manually (it flies like Loiter) to one side of the field and then the auxiliary switch is moved to the highest or lowest position (it doesn't matter which) to record that side"
+        },
+        {
+          "sentence-id": 5,
+          "text": "4.The vehicle is flown to the other side of the field and the switch is moved to the opposite position"
+        },
+        {
+          "sentence-id": 6,
+          "text": "5.The switch can now be used to start the vehicle flying autonomously (at the current height) to either side of the field."
+        },
+        {
+          "sentence-id": 7,
+          "text": "Once the vehicle reaches the other side it will revert to manual control."
+        },
+        {
+          "sentence-id": 8,
+          "text": "The pilot can also regain manual control by moving the auxiliary switch to the middle position or by changing the flight mode."
+        },
+        {
+          "sentence-id": 9,
+          "text": "6.If a downward facing range finder is used, the vehicle will follow the terrain when flying."
+        },
+        {
+          "sentence-id": 10,
+          "text": "If the range finder becomes unhealthy while traversing from one side to the other, the vehicle will revert to manual control and come to a stop."
+        },
+        {
+          "sentence-id": 11,
+          "text": "When flown manually ZigZag uses Loiter mode's parameters."
+        },
+        {
+          "sentence-id": 12,
+          "text": "For example the top speed can be configured with LOIT_SPEED."
+        },
+        {
+          "sentence-id": 13,
+          "text": "When autonomously flying from one side of the field to the other, the Auto mode parameters are used."
+        },
+        {
+          "sentence-id": 14,
+          "text": "For example the top speed can be configured with WPNAV_SPEED.."
+        }
+      ]
+    },
+    {
+      "section-id": 1,
+      "title": "ZigZag Mode : Note",
+      "sentences": [
+        {
+          "sentence-id": 0,
+          "text": "ZigZag is available in Copter-4.0 (and higher)"
+        }
+      ]
+    },
+    {
+      "section-id": 2,
+      "title": "Automatic Operation",
+      "sentences": [
+        {
+          "sentence-id": 0,
+          "text": "After the field's side points are registered, if you have an RC switch configured with RCx_OPTION = 83 (ZigZag Auto Mode), you can automatically cover the field side to side at a programmable distance interval, also enabling a sprayer, if equipped."
+        },
+        {
+          "sentence-id": 1,
+          "text": "To use:"
+        },
+        {
+          "sentence-id": 2,
+          "text": "1.Fly to one side of the field and register the ZigZagWP A, as above, then fly to ZigZagWP B and set it."
+        },
+        {
+          "sentence-id": 3,
+          "text": "2.Then switch the ZigZag Auto Mode switch you had setup."
+        },
+        {
+          "sentence-id": 4,
+          "text": "The vehicle will proceed as shown in the diagram, automatically enabling a sprayer, if setup."
+        },
+        {
+          "sentence-id": 5,
+          "text": "See sprayer for instructions."
+        },
+        {
+          "sentence-id": 6,
+          "text": "3.Upon activation, the vehicle will move in ZIGZ_DIRECTION with respect to its heading for ZIGZ_SIDE_DIST, then proceed to cross the field until the opposite ZigZagWP is reached."
+        },
+        {
+          "sentence-id": 7,
+          "text": "It will then wait for ZIGZ_WP_DELAY to allow sprayer to fully stop and then move ZIGZ_SIDE_DIST down the side of the field again to proceed back across the area."
+        },
+        {
+          "sentence-id": 8,
+          "text": "It will do this for ZIGZ_LINE_NUM times (-1 = infinite until switched out of this mode, =0 will only move to the first field crossing position, but not proceed further)."
+        },
+        {
+          "sentence-id": 9,
+          "text": "Moving the ZigZag Auto switch to the low position immediately stops this mode and returns to normal ZIGZAG mode."
+        }
+      ]
+    },
+    {
+      "section-id": 3,
+      "title": "Automatic Operation : Note",
+      "sentences": [
+        {
+          "sentence-id": 0,
+          "text": "This feature will be available in Copter-4.1.0"
+        },
+        {
+          "sentence-id": 1,
+          "text": "this function must be enabled with ZIGZ_AUTO_ENABLE = 1, and parameters reloaded, before any parameters are visible and the feature enabled."
+        }
+      ]
+    }
+  ]
+}
