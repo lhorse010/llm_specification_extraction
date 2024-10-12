@@ -1,0 +1,69 @@
+{
+  "specifications": [
+    {
+      "section-id": 2,
+      "sentence-id": 0,
+      "sentence": "This module is activated when there is traffic light in ego lane.\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 1,
+      "sentence": "If a corresponding traffic light signal have never been found, it treats as a signal to pass.\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 2,
+      "sentence": "If a corresponding traffic light signal is found but timed out, it treats as a signal to stop.\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 3,
+      "sentence": "Uses the highest reliability one of the traffic light recognition result and if the color of that was not green or corresponding arrow signal, generates a stop point.\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 4,
+      "sentence": "If an elapsed time to receive stop signal is less than `stop_time_hysteresis`, it treats as a signal to pass.\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 6,
+      "sentence": "When vehicle current velocity is\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 7,
+      "sentence": "higher than 2.0m/s ⇒ pass judge(using next slide formula)\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 8,
+      "sentence": "lower than 2.0m/s ⇒ stop\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 9,
+      "sentence": "When it to be judged that vehicle can’t stop before stop line, autoware chooses one of the following behaviors\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 10,
+      "sentence": "\"can pass through\" stop line during yellow lamp => pass\n"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 11,
+      "sentence": "\"can’t pass through\" stop line during yellow lamp => emergency stop\n"
+    },
+    {
+      "section-id": 4,
+      "sentence-id": 5,
+      "sentence": "vehicle can’t stop under deceleration and jerk limit.(left side of the pass judge curve)⇒emergency stop(relax deceleration and jerk limitation in order to observe the traffic regulation)\n"
+    },
+    {
+      "section-id": 4,
+      "sentence-id": 9,
+      "sentence": "vehicle can stop under deceleration and jerk limit.(right side of the pass judge curve)⇒ stop(autoware selects the safety choice)"
+    }
+  ]
+}

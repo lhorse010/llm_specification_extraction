@@ -1,0 +1,104 @@
+{
+  "specifications": [
+    {
+      "section-id": 0,
+      "sentence-id": 0,
+      "sentence": "_Altitude mode_ is a _relatively_ easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the \"front\" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.\n"
+    },
+    {
+      "section-id": 0,
+      "sentence-id": 1,
+      "sentence": "When the sticks are released/centered the vehicle will level and maintain the current _altitude_.\n"
+    },
+    {
+      "section-id": 0,
+      "sentence-id": 2,
+      "sentence": "If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance.\n"
+    },
+    {
+      "section-id": 0,
+      "sentence-id": 3,
+      "sentence": "If the wind blows the aircraft will drift in the direction of the wind.\n"
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 1,
+      "sentence": "It is just like [Stabilized](../flight_modes_mc/manual_stabilized.md) mode but additionally locks the vehicle altitude when the sticks are released.\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 0,
+      "sentence": "RC/manual mode like [Stabilized mode](../flight_modes_mc/manual_stabilized.md) but with _altitude stabilization_ (centred sticks level vehicle and hold it to fixed altitude).\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 1,
+      "sentence": "The horizontal position of the vehicle can move due to wind (or pre-existing momentum).\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 2,
+      "sentence": "Centered sticks (inside deadband):\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 3,
+      "sentence": "RPY sticks levels vehicle.\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 4,
+      "sentence": "Throttle (~50%) holds current altitude steady against wind.\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 5,
+      "sentence": "Outside center:\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 6,
+      "sentence": "Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 7,
+      "sentence": "Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 8,
+      "sentence": "Yaw stick controls rate of angular rotation above the horizontal plane.\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 10,
+      "sentence": "When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 13,
+      "sentence": "Manual control input is required (such as RC control, joystick).\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 14,
+      "sentence": "Roll, Pitch: Assistance from autopilot to stabilize the attitude.\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 15,
+      "sentence": "Position of RC stick maps to the orientation of vehicle.\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 16,
+      "sentence": "Throttle: Assistance from autopilot to hold position against wind.\n"
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 17,
+      "sentence": "Yaw: Assistance from autopilot to stabilize the attitude rate."
+    }
+  ]
+}
