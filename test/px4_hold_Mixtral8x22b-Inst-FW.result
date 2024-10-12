@@ -1,0 +1,72 @@
+{
+  "specifications": [
+    {
+      "section-id": 0,
+      "sentence-id": 0
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 0
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 0
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 1
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 2
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 3
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 4
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 5
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 6
+    },
+    {
+      "section-id": 2,
+      "sentence-id": 7
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 0
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 1
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 2
+    }
+  ]
+}
+
+Explanation:
+
+1. The _Hold_ flight mode causes the vehicle to stop and hover at its current GPS position and altitude. (specification: expected post-action)
+2. _Hold mode_ can be used to pause a mission or to help you regain control of a vehicle in an emergency. (specification: expected post-action)
+3. Mode is automatic - no user intervention is _required_ to control the vehicle. (specification: constraint)
+4. Mode requires a global 3d position estimate (from GPS or inferred from a local position). (specification: state transition pre-requirement)
+5. Flying vehicles can't switch to this mode without global position. (specification: constraint)
+6. Flying vehicles will failsafe if they lose the position estimate. (specification: expected state change)
+7. Disarmed vehicles can switch to mode without valid position estimate but can't arm. (specification: expected state change)
+8. Mode requires wind and flight time are within allowed limits (specified via parameters). (specification: constraint)
+9. RC control switches can be used to change flight modes on any vehicle. (specification: expected state change)
+10. RC stick movement will by default change the vehicle to Position mode unless handling a critical battery failsafe. (specification: expected state change)
+11. The vehicle hovers at the current position and altitude. (specification: expected post-action)
+12. The vehicle will first ascend to NAV_MIN_LTR_ALT if the mode is engaged below this altitude. (specification: expected state change)
+13. RC stick movement will change the vehicle to Position mode (by default). (specification: expected state change)
