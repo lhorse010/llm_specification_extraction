@@ -3,10 +3,6 @@
     "specifications": [
         {
             "section-id": 0,
-            "sentence-id": 1
-        },
-        {
-            "section-id": 0,
             "sentence-id": 4
         },
         {
@@ -43,7 +39,7 @@
         },
         {
             "section-id": 2,
-            "sentence-id": 9
+            "sentence-id": 8
         },
         {
             "section-id": 2,

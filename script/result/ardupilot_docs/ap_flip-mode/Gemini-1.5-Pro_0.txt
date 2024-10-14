@@ -1,0 +1,76 @@
+```json
+{
+  "specifications": [
+    {
+      "section-id": 0,
+      "sentence-id": 0
+    },
+    {
+      "section-id": 0,
+      "sentence-id": 1
+    },
+    {
+      "section-id": 0,
+      "sentence-id": 2
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 1
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 2
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 3
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 4
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 5
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 7
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 8
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 9
+    }
+  ]
+}
+```
+
+**Reasoning:**
+
+**Step 1: Read the document thoroughly.**  The provided document describes the "Flip Mode" functionality for a vehicle, likely a drone. It details how the flip is initiated, the conditions for flipping, and the expected behavior during the flip.
+
+**Step 2 & 3: Categorize and Annotate:**
+
+* **Section 0:**
+    * Sentence 0: "Vehicle will flip on its roll or pitch axis depending upon the pilot's roll and pitch stick position." - **Specification (expected state change)**. This describes how the system should react to pilot input.
+    * Sentence 1: "Vehicle will rise for 1 second and then rapidly flip." - **Specification (expected post-action)**. This describes the vehicle's behavior after initiating a flip.
+    * Sentence 2: "The vehicle will not flip again until the switch is brought low and back to high." - **Specification (constraint/state transition pre-requirement)**.  This describes a condition that must be met before another flip can be initiated.
+    * Sentence 3: "Give yourself at least 10m of altitude before trying flip for the first time!" - This is advice for the user, not a system specification.
+
+* **Section 1:**
+    * Sentence 0: "Controls:" - This is a heading, not a specification.
+    * Sentence 1: "1.An RCx_OPTION parameter must be set to \"Flip\" which is \"2\"" - **Specification (constraint/state transition pre-requirement)**. This describes a configuration requirement.
+    * Sentence 2: "2.Pilot switches to Stabilize, Acro or AltHold flight mode and puts ch7/ch8 switch to ON position" - **Specification (state transition pre-requirement)**. This describes the steps required to initiate the flip.
+    * Sentence 3: "3.Vehicle will Roll right by default but if roll or pitch stick is held slightly left, forward or back it will flip in that direction" - **Specification (expected state change)**. This describes how the system reacts to pilot input during the flip.
+    * Sentence 4: "4.Vehicle should complete the roll within 2.5sec and will then return to the original flight mode it was in before flip was triggered" - **Specification (expected post-action/constraint)**. This describes the expected behavior after the flip and a time constraint.
+    * Sentence 5: "5.Pilot may manually exit flip by switching off ch7/ch8 or by moving roll stick to >40deg left or right" - **Specification (state transition pre-requirement)**. This describes how the pilot can interrupt the flip.
+    * Sentence 6: "State machine approach:" - This is a heading, not a specification.
+    * Sentence 7: "1.Flip_Start (while copter is leaning <45deg) : roll right at 400deg/sec, increase throttle" - **Specification (expected post-action)**. This describes the system's behavior in the "Flip_Start" state.
+    * Sentence 8: "2.Flip_Roll (while copter is between +45deg ~ -90) : roll right at 400deg/sec, reduce throttle" - **Specification (expected post-action)**.  This describes the system's behavior in the "Flip_Roll" state.
+    * Sentence 9: "3.Flip_Recover (while copter is between -90deg and original target angle) : use earth frame angle controller to return vehicle to original attitude" - **Specification (expected post-action)**. This describes the system's behavior in the "Flip_Recover" state.
+
+**Step 4: Format in JSON.** The final JSON output is presented above, including only the sentences identified as specifications.

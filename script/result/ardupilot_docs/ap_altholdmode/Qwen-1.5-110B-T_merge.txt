@@ -1,0 +1,199 @@
+{
+  "specifications": [
+    {
+      "section-id": 3,
+      "sentence-id": 1,
+      "specification-type": "expected state change"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 2,
+      "specification-type": "expected state change"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 3,
+      "specification-type": "expected state change"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 4,
+      "specification-type": "expected state change"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 5,
+      "specification-type": "expected state change"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 6,
+      "specification-type": "expected state change"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 7,
+      "specification-type": "constraint"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 8,
+      "specification-type": "constraint"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 9,
+      "specification-type": "state transition pre-requirement"
+    },
+    {
+      "section-id": 3,
+      "sentence-id": 10,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 4,
+      "sentence-id": 0,
+      "specification-type": "state transition pre-requirement"
+    },
+    {
+      "section-id": 4,
+      "sentence-id": 1,
+      "specification-type": "constraint"
+    },
+    {
+      "section-id": 4,
+      "sentence-id": 2,
+      "specification-type": "constraint"
+    },
+    {
+      "section-id": 4,
+      "sentence-id": 3,
+      "specification-type": "constraint"
+    },
+    {
+      "section-id": 4,
+      "sentence-id": 4,
+      "specification-type": "constraint"
+    },
+    {
+      "section-id": 4,
+      "sentence-id": 5,
+      "specification-type": "constraint"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 0,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 1,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 2,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 3,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 4,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 5,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 6,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 7,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 8,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 9,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 10,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 11,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 12,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 13,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 14,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 15,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 16,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 17,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 18,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 6,
+      "sentence-id": 19,
+      "specification-type": "expected post-action"
+    },
+    {
+      "section-id": 7,
+      "sentence-id": 0,
+      "specification-type": "state transition pre-requirement"
+    },
+    {
+      "section-id": 7,
+      "sentence-id": 1,
+      "specification-type": "constraint"
+    },
+    {
+      "section-id": 8,
+      "sentence-id": 0,
+      "specification-type": "constraint"
+    }
+  ]
+}

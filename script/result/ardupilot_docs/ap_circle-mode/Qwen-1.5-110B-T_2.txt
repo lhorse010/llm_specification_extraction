@@ -1,0 +1,120 @@
+Based on the provided document, here are the sentences annotated as specifications according to the given categories:
+
+```json
+{
+    "specifications": [
+        {
+            "section-id": 0,
+            "sentence-id": 0,
+            "category": "expected state change"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 1,
+            "category": "expected state change"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 2,
+            "category": "state transition pre-requirement"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 4,
+            "category": "constraint"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 0,
+            "category": "constraint"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 0,
+            "category": "state transition pre-requirement"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 1,
+            "category": "state transition pre-requirement"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 2,
+            "category": "state transition pre-requirement"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 3,
+            "category": "expected post-action"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 4,
+            "category": "expected post-action"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 5,
+            "category": "expected post-action"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 6,
+            "category": "expected post-action"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 7,
+            "category": "expected post-action"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 8,
+            "category": "expected post-action"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 9,
+            "category": "expected post-action"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 11,
+            "category": "constraint"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 12,
+            "category": "constraint"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 13,
+            "category": "constraint"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 16,
+            "category": "expected state change"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 17,
+            "category": "expected state change"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 18,
+            "category": "expected state change"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 2,
+            "category": "state transition pre-requirement"
+        }
+    ]
+}
+```
+
+Please note that the categories are inferred based on the context and the information conveyed in each sentence. The JSON structure provided does not include the actual sentences for brevity, but each "sentence-id" corresponds to the unique identifier in the input document.

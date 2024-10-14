@@ -1,0 +1,18 @@
+ap_altholdmode Claude-3.5-Sonnet 13 26 12
+ap_altholdmode Gemini-1.5-Pro 13 26 10
+ap_altholdmode GPT-4o 18 26 14
+ap_altholdmode Mixtral8x22b-Inst-FW 48 26 25
+ap_altholdmode Llama-3.1-405B-T 30 26 18
+ap_altholdmode Qwen-1.5-110B-T 39 26 18
+ap_circle-mode Claude-3.5-Sonnet 24 26 22
+ap_circle-mode Gemini-1.5-Pro 24 26 23
+ap_circle-mode GPT-4o 17 26 16
+ap_circle-mode Mixtral8x22b-Inst-FW 32 26 25
+ap_circle-mode Llama-3.1-405B-T 22 26 21
+ap_circle-mode Qwen-1.5-110B-T 42 26 18
+ap_flip-mode Claude-3.5-Sonnet 11 11 11
+ap_flip-mode Gemini-1.5-Pro 11 11 11
+ap_flip-mode GPT-4o 9 11 9
+ap_flip-mode Mixtral8x22b-Inst-FW 10 11 10
+ap_flip-mode Llama-3.1-405B-T 8 11 8
+ardupilot_docs ap_flip-mode Qwen-1.5-110B-T 11 11 11

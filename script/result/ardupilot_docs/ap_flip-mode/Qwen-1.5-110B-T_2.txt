@@ -1,0 +1,54 @@
+Based on the provided document, here are the sentences annotated as specifications according to the given categories:
+
+```json
+{
+    "specifications":[
+        {
+            "section-id": 0,
+            "sentence-id": 0
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 1
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 2
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 1
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 2
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 3
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 4
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 5
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 7
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 8
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 9
+        }
+    ]
+}
+```
+
+These sentences are considered specifications as they convey requirements, constraints, expected post-actions, or expected state changes for the "Flip Mode" in the context of a vehicle's control system. Sentences like "Give yourself at least 10m of altitude before trying flip for the first time!" are not annotated as they are more of a recommendation or safety advice rather than a strict system specification.

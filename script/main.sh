@@ -1,3 +1,6 @@
+# clear result_all.txt
+> ./result/result_all.txt
+
 # Define the array
 models=("Claude-3.5-Sonnet" "Gemini-1.5-Pro" "GPT-4o" "Mixtral8x22b-Inst-FW" "Llama-3.1-405B-T" "Qwen-1.5-110B-T")
 

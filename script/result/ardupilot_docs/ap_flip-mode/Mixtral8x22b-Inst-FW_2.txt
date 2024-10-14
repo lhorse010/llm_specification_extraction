@@ -1,0 +1,56 @@
+{
+  "specifications": [
+    {
+      "section-id": 0,
+      "sentence-id": 1
+    },
+    {
+      "section-id": 0,
+      "sentence-id": 2
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 1
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 2
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 3
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 4
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 5
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 7
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 8
+    },
+    {
+      "section-id": 1,
+      "sentence-id": 9
+    }
+  ]
+}
+
+Explanation:
+1. Section 0, Sentence 1: This sentence conveys the expected post-action the system will execute when entering the flip mode.
+2. Section 0, Sentence 2: This sentence conveys a constraint the system must adhere to regarding when the vehicle will initiate another flip.
+3. Section 1, Sentence 1: This sentence conveys a requirement the system must meet for state transition into flip mode.
+4. Section 1, Sentence 2: This sentence conveys a requirement the system must meet for state transition into flip mode.
+5. Section 1, Sentence 3: This sentence conveys an expected state change the system will carry out in response to specific commands or settings.
+6. Section 1, Sentence 4: This sentence conveys an expected post-action the system will execute when exiting the flip mode.
+7. Section 1, Sentence 5: This sentence conveys an expected state change the system will carry out in response to specific commands or settings.
+8. Section 1, Sentence 7: This sentence conveys an expected state change the system will carry out in response to specific commands or settings.
+9. Section 1, Sentence 8: This sentence conveys an expected state change the system will carry out in response to specific commands or settings.
+10. Section 1, Sentence 9: This sentence conveys an expected state change the system will carry out in response to specific commands or settings.
