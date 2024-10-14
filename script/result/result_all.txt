@@ -1,18 +1,25 @@
-ap_altholdmode Claude-3.5-Sonnet 13 26 12
-ap_altholdmode Gemini-1.5-Pro 13 26 10
-ap_altholdmode GPT-4o 18 26 14
-ap_altholdmode Mixtral8x22b-Inst-FW 48 26 25
-ap_altholdmode Llama-3.1-405B-T 30 26 18
-ap_altholdmode Qwen-1.5-110B-T 39 26 18
-ap_circle-mode Claude-3.5-Sonnet 24 26 22
-ap_circle-mode Gemini-1.5-Pro 24 26 23
-ap_circle-mode GPT-4o 17 26 16
-ap_circle-mode Mixtral8x22b-Inst-FW 32 26 25
-ap_circle-mode Llama-3.1-405B-T 22 26 21
-ap_circle-mode Qwen-1.5-110B-T 42 26 18
-ap_flip-mode Claude-3.5-Sonnet 11 11 11
-ap_flip-mode Gemini-1.5-Pro 11 11 11
-ap_flip-mode GPT-4o 9 11 9
-ap_flip-mode Mixtral8x22b-Inst-FW 10 11 10
-ap_flip-mode Llama-3.1-405B-T 8 11 8
+ardupilot_docs ap_altholdmode Claude-3.5-Sonnet 16 26 15
+ardupilot_docs ap_altholdmode Gemini-1.5-Pro 11 26 11
+ardupilot_docs ap_altholdmode GPT-4o 16 26 13
+ardupilot_docs ap_altholdmode Llama-3.1-405B-T 30 26 18
+ardupilot_docs ap_altholdmode Qwen-1.5-110B-T 39 26 18
+ardupilot_docs ap_circle-mode Claude-3.5-Sonnet 23 26 22
+ardupilot_docs ap_circle-mode Gemini-1.5-Pro 25 26 24
+ardupilot_docs ap_circle-mode GPT-4o 18 26 17
+ardupilot_docs ap_circle-mode Mixtral8x22b-Inst-FW 30 26 25
+ardupilot_docs ap_circle-mode Llama-3.1-405B-T 23 26 21
+ardupilot_docs ap_circle-mode Qwen-1.5-110B-T 20 26 16
+ardupilot_docs ap_flip-mode Claude-3.5-Sonnet 11 11 11
+ardupilot_docs ap_flip-mode Gemini-1.5-Pro 11 11 11
+ardupilot_docs ap_flip-mode GPT-4o 10 11 10
+ardupilot_docs ap_flip-mode Mixtral8x22b-Inst-FW 10 11 10
+ardupilot_docs ap_flip-mode Llama-3.1-405B-T 8 11 8
 ardupilot_docs ap_flip-mode Qwen-1.5-110B-T 11 11 11
+autoware_docs autoware_motion_velocity_out_of_lane Claude-3.5-Sonnet 26 21 18
+autoware_docs autoware_motion_velocity_out_of_lane Gemini-1.5-Pro 21 21 16
+autoware_docs autoware_motion_velocity_out_of_lane GPT-4o 20 21 15
+autoware_docs autoware_motion_velocity_out_of_lane Mixtral8x22b-Inst-FW 33 21 20
+autoware_docs autoware_behavior_velocity_traffic_light Claude-3.5-Sonnet 14 13 11
+autoware_docs autoware_behavior_velocity_traffic_light Gemini-1.5-Pro 13 13 11
+autoware_docs autoware_behavior_velocity_traffic_light GPT-4o 15 13 12
+autoware_docs autoware_behavior_velocity_traffic_light Mixtral8x22b-Inst-FW 13 13 10
