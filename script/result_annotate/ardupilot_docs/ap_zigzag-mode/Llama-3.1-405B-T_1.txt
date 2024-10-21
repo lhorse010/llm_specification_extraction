@@ -1,0 +1,89 @@
+After carefully reading the document and following the steps outlined, I have identified the sentences that convey information about state transition pre-requirements, constraints, expected post-actions, and expected state changes. Here are the annotated sentences in JSON format:
+
+```json
+{
+    "specifications": [
+        {
+            "section-id": 0,
+            "sentence-id": 2
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 3
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 4
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 5
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 6
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 7
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 8
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 10
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 2
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 3
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 6
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 7
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 8
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 9
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 1
+        }
+    ]
+}
+```
+
+These annotated sentences correspond to the following information:
+
+* State transition pre-requirements:
+	+ Section 0, Sentence 2: "1.A two or preferably three position auxiliary switch is set to \"ZigZag SaveWP\" (i.e. RC7_OPTION = 61)"
+	+ Section 0, Sentence 3: "2.The pilot arms the vehicle in Loiter mode, takes off and then changes to ZigZag mode (in the future we may make it possible to arm and take-off in ZigZag mode)"
+	+ Section 2, Sentence 2: "1.Fly to one side of the field and register the ZigZagWP A, as above, then fly to ZigZagWP B and set it."
+* Constraints:
+	+ Section 0, Sentence 10: "If the range finder becomes unhealthy while traversing from one side to the other, the vehicle will revert to manual control and come to a stop."
+	+ Section 3, Sentence 1: "this function must be enabled with ZIGZ_AUTO_ENABLE = 1, and parameters reloaded, before any parameters are visible and the feature enabled."
+* Expected post-actions:
+	+ Section 0, Sentence 6: "5.The switch can now be used to start the vehicle flying autonomously (at the current height) to either side of the field."
+	+ Section 0, Sentence 7: "Once the vehicle reaches the other side it will revert to manual control."
+	+ Section 2, Sentence 6: "3.Upon activation, the vehicle will move in ZIGZ_DIRECTION with respect to its heading for ZIGZ_SIDE_DIST, then proceed to cross the field until the opposite ZigZagWP is reached."
+	+ Section 2, Sentence 7: "It will then wait for ZIGZ_WP_DELAY to allow sprayer to fully stop and then move ZIGZ_SIDE_DIST down the side of the field again to proceed back across the area."
+* Expected state changes:
+	+ Section 0, Sentence 4: "3.The vehicle is flown manually (it flies like Loiter) to one side of the field and then the auxiliary switch is moved to the highest or lowest position (it doesn't matter which) to record that side"
+	+ Section 0, Sentence 5: "4.The vehicle is flown to the other side of the field and the switch is moved to the opposite position"
+	+ Section 0, Sentence 8: "The pilot can also regain manual control by moving the auxiliary switch to the middle position or by changing the flight mode."
+	+ Section 2, Sentence 3: "2.Then switch the ZigZag Auto Mode switch you had setup."
+	+ Section 2, Sentence 9: "Moving the ZigZag Auto switch to the low position immediately stops this mode and returns to normal ZIGZAG mode."

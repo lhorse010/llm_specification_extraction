@@ -1,0 +1,147 @@
+[
+  {
+    "section-id": 1,
+    "sentence-id": 1,
+    "sentence": "2.Mode requires at least a valid local position estimate (does not require a global position)."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 2,
+    "sentence": "Flying vehicles can't switch to this mode without valid local position."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 3,
+    "sentence": "Flying vehicles will failsafe if they lose the position estimate."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 4,
+    "sentence": "4.Mode prevents arming (vehicle must be armed when switching to this mode)."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 5,
+    "sentence": "5.Mode requires wind and flight time are within allowed limits (specified via parameters)."
+  },
+  {
+    "section-id": 2,
+    "sentence-id": 0,
+    "sentence": "The vehicle will automatically yaw to face and follow the target from a specified relative angle, distance and height and altitude, depending on the altitude control mode."
+  },
+  {
+    "section-id": 2,
+    "sentence-id": 1,
+    "sentence": "By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home (arming) position."
+  },
+  {
+    "section-id": 3,
+    "sentence-id": 0,
+    "sentence": "Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode."
+  },
+  {
+    "section-id": 3,
+    "sentence-id": 1,
+    "sentence": "If you exit Follow-Me mode and activate it again the values will be reset to their defaults."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 0,
+    "sentence": "The following flight precautions should be observed:"
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 4,
+    "sentence": "2.It is _safer_ to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off)."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 6,
+    "sentence": "4.Be ready to switch back to Position mode if something goes wrong, in particular when using follow-me mode for the first time."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 7,
+    "sentence": "5.You can't switch follow-me mode off using RC stick movements (as that will adjust the properties)."
+  },
+  {
+    "section-id": 5,
+    "sentence-id": 0,
+    "sentence": "Follow-me mode does not implement any type of obstacle avoidance."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 10,
+    "sentence": "4.Switch into follow-me mode."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 11,
+    "sentence": "The copter will first ascend to minimum safety altitude of 1 meters above the ground or home, depending on the presence of a distance sensor."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 0,
+    "sentence": "The altitude control mode determine whether the vehicle altitude is relative to the home position, terrain height, or the altitude reported by the follow target."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 1,
+    "sentence": "1.2D tracking (the default altitude mode) makes the drone follow at a height relative to the fixed home position (takeoff altitude)."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 3,
+    "sentence": "2.2D + Terrain makes the drone follow at a fixed height relative to the terrain underneath it, using information from a distance sensor."
+  },
+  {
+    "section-id": 9,
+    "sentence-id": 0,
+    "sentence": "Do not set the Altitude mode (FLW_TGT_ALT_M) to 3D Tracking when using QGC for Android (or more generally, without checking that FOLLOW_TARGET.altitude is an AMSL value)."
+  },
+  {
+    "section-id": 9,
+    "sentence-id": 1,
+    "sentence": "The MAVLink FOLLOW_TARGET message definition expects an altitude relative to mean sea level (AMSL) while QGC on Android is sending an altitude relative to the GPS ellipsoid."
+  },
+  {
+    "section-id": 9,
+    "sentence-id": 3,
+    "sentence": "The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected."
+  },
+  {
+    "section-id": 10,
+    "sentence-id": 0,
+    "sentence": "1.Set the follow distance to more than 12 meters (8 meters is a \"recommended minimum\")."
+  },
+  {
+    "section-id": 10,
+    "sentence-id": 4,
+    "sentence": "2.The speed at which you can change the follow angle depends on the maximum tangential velocity setting."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 7,
+    "sentence": "7.The follow target must also be able to supply position information."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 1,
+    "sentence": "1.Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 12,
+    "sentence": "It will ascend until it is 3 meters within the follow height to avoid potential collisions before moving horizontally."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 13,
+    "sentence": "Copter will always adjust it's heading to face the target"
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 8,
+    "sentence": "3.3D tracking mode makes the drone follow at a height relative to the follow target, as supplied by its GPS sensor."
+  }
+]

@@ -2,7 +2,6 @@ from poe_api_wrapper import PoeApi
 import sys
 import os
 import json
-import re
 
 tokens = {
     'p-b': os.getenv('ENV_P_B'), 
@@ -11,8 +10,10 @@ tokens = {
 
 # proxy 
 proxy_config = [
-    {"https://": os.getenv('HTTPS_POE_PROXY'),
-     "http://": os.getenv('HTTP_POE_PROXY')}
+    {
+        "https://": os.getenv('HTTPS_POE_PROXY'),
+        "http://": os.getenv('HTTP_POE_PROXY')
+    }
 ]
 
 # Repeat to merge
@@ -130,8 +131,8 @@ if __name__ == "__main__":
     
     prompt = generate_prompt(doc)
 
-    # result_file: result/doc_dir/mode_name/model.txt
-    result_file_dir = "./result/" + doc_dir_name + "/" + doc_file_name
+    # result_file: result_annotate/doc_dir/mode_name/model.txt
+    result_file_dir = "./result_annotate/" + doc_dir_name + "/" + doc_file_name
     create_directory_if_not_exists(result_file_dir)
     
     for i in range(0, Repeat_Number):
@@ -158,26 +159,26 @@ if __name__ == "__main__":
     with open(result_file_name, 'w', encoding='utf-8') as outfile:
         json.dump(result, outfile, ensure_ascii=False, indent=2)
 
-    result_data = load_json(result_file_name)
-    groundtruth_file_name = "../dataset/ground_truth/" + doc_dir_name + "/location/" + doc_file_name + ".txt"
-    groundtruth_data = load_json(groundtruth_file_name)
-    result_count = count_specifications(result_data)
-    groundtruth_count = count_specifications(groundtruth_data)
+    # result_data = load_json(result_file_name)
+    # groundtruth_file_name = "../dataset/ground_truth/" + doc_dir_name + "/location/" + doc_file_name + ".txt"
+    # groundtruth_data = load_json(groundtruth_file_name)
+    # result_count = count_specifications(result_data)
+    # groundtruth_count = count_specifications(groundtruth_data)
 
-    result_set = get_specification_set(result_data)
-    groundtruth_set = get_specification_set(groundtruth_data)
-    intersection = result_set.intersection(groundtruth_set)
-    intersection_count = len(intersection)
+    # result_set = get_specification_set(result_data)
+    # groundtruth_set = get_specification_set(groundtruth_data)
+    # intersection = result_set.intersection(groundtruth_set)
+    # intersection_count = len(intersection)
 
-    output = f"{doc_dir_name} "
-    output += f"{doc_file_name} "
-    output += f"{model_name} "
-    # result_count: 
-    output += f"{result_count} "
-    # groundtruth_count: 
-    output += f"{groundtruth_count} "
-    # intersection_count: 
-    output += f"{intersection_count}\n"
+    # output = f"{doc_dir_name} "
+    # output += f"{doc_file_name} "
+    # output += f"{model_name} "
+    # # result_count: 
+    # output += f"{result_count} "
+    # # groundtruth_count: 
+    # output += f"{groundtruth_count} "
+    # # intersection_count: 
+    # output += f"{intersection_count}\n"
 
-    with open('./result/result_all.txt', 'a') as file:
-        file.write(output)
+    # with open('./result/result_all.txt', 'a') as file:
+    #     file.write(output)

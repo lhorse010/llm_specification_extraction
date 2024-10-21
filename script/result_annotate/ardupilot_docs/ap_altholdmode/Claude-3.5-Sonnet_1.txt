@@ -1,0 +1,62 @@
+I've read through the document and analyzed each sentence to determine if it conveys information about state transition pre-requirements, constraints, expected post-actions, or expected state changes. Based on this analysis, I've identified the sentences that qualify as specifications. Here's the JSON output with the annotated specifications:
+
+```json
+{
+    "specifications": [
+        {
+            "section-id": 0,
+            "sentence-id": 0
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 0
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 1
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 1
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 2
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 3
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 6
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 7
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 8
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 9
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 10
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 4
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 2
+        }
+    ]
+}
+```
+
+These sentences were selected because they provide clear and specific information about system requirements, constraints, expected post-actions, or state changes in the context of the Altitude Hold Mode for the copter system.

@@ -1,0 +1,137 @@
+[
+  {
+    "section-id": 0,
+    "sentence-id": 1,
+    "sentence": "Release the sticks and the vehicle will maintain its current attitude and will not return to level (attitude hold)."
+  },
+  {
+    "section-id": 0,
+    "sentence-id": 5,
+    "sentence": "Pure rate mode stabilization, utilizing only the gyros with no attitude feedback from the accelerometers, can be forced by setting bit 1 of ACRO_OPTIONS to one."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 0,
+    "sentence": "1.The throttle is completely manual with no compensation for tilt angle of the vehicle."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 1,
+    "sentence": "If the pilot puts the throttle completely down the motors will go to their minimum rate and stabilization will cease."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 3,
+    "sentence": "2.Copter includes an Acro Trainer functionality that can be turned on/off to make learning to fly Acro easier."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 4,
+    "sentence": "3.Stick inputs are interpreted in the \"body frame\" (as opposed to Sport mode in which they are \"earth frame\")."
+  },
+  {
+    "section-id": 2,
+    "sentence-id": 1,
+    "sentence": "While Acro mode does not necessarily require GPS, switching to RTL in case of emergency does."
+  },
+  {
+    "section-id": 2,
+    "sentence-id": 2,
+    "sentence": "Make sure you do have a reliable position estimate prior to arming, most commonly provided by 3D GPS fix with sufficient HDOP."
+  },
+  {
+    "section-id": 3,
+    "sentence-id": 0,
+    "sentence": "Acro mode can be setup to provide full stabilization at idle throttle."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 1,
+    "sentence": "1. 0 = disabled."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 2,
+    "sentence": "This means the pilot operates in full Rate control with no automatic leveling nor angle-limiting performed by the autopilot."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 3,
+    "sentence": "2. 1 = automatic leveling."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 4,
+    "sentence": "The vehicle will automatically return to the level when the pilot releases the sticks."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 8,
+    "sentence": "3. 2 (Default) = automatic leveling and lean angle limited."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 9,
+    "sentence": "Includes the automatic leveling as option #1 but in addition the vehicle will not lean more than 45 degrees (this angle can be configured with the ANGLE_MAX parameter)."
+  },
+  {
+    "section-id": 5,
+    "sentence-id": 3,
+    "sentence": "By setting the ACRO_BAL_ROLL and ACRO_BAL_PITCH parameters to non-zero values, this feature takes effect."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 0,
+    "sentence": "This feature is not active when ACRO_TRAINER is active"
+  },
+  {
+    "section-id": 7,
+    "sentence-id": 0,
+    "sentence": "1.ACRO_RP_RATE controls the rotation rate for the roll and pitch axis."
+  },
+  {
+    "section-id": 7,
+    "sentence-id": 1,
+    "sentence": "The default, 4.5, will command a 200deg/sec rotation rate."
+  },
+  {
+    "section-id": 7,
+    "sentence-id": 2,
+    "sentence": "Higher values lead to higher rotation rates, lower to slower rotation rates."
+  },
+  {
+    "section-id": 7,
+    "sentence-id": 3,
+    "sentence": "2.ACRO_Y_RATE controls the rotation rate for the yaw axis."
+  },
+  {
+    "section-id": 7,
+    "sentence-id": 4,
+    "sentence": "The default, 4.5, like roll and pitch, will command a 200deg/sec rotation rate."
+  },
+  {
+    "section-id": 7,
+    "sentence-id": 5,
+    "sentence": "3.ACRO_RP_EXPO and ACRO_Y_EXPO are an amount of Exponential to apply to the pilots stick inputs that only applies to ACRO mode."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 3,
+    "sentence": "1.ATC_ACCEL_R_MAX and ATC_ACCEL_P_MAX: Maximum acceleration in roll/pitch axis measured in Centi-degres/sec/sec."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 10,
+    "sentence": "2.ATC_ACCEL_Y_MAX: Maximum acceleration in Yaw axis measured in Centi-degress/sec/sec."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 12,
+    "sentence": "3.ATC_THR_MIX_MAN: Balance between attitude and throttle control."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 13,
+    "sentence": "This value can be increased to improve attitude control when the throttle is cut for better Airmode handling, however a stable tune is essential before it can be increased."
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "section-id": 0,
+    "sentence-id": 0,
+    "sentence": "This package generates a trajectory that is kinematically-feasible to drive and collision-free based on the input path, drivable area."
+  },
+  {
+    "section-id": 0,
+    "sentence-id": 1,
+    "sentence": "Only position and orientation of trajectory are updated in this module, and velocity is just taken over from the one in the input path."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 1,
+    "sentence": "1.make the trajectory inside the drivable area as much as possible"
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 3,
+    "sentence": "2.insert stop point before the planned footprint will be outside the drivable area"
+  },
+  {
+    "section-id": 3,
+    "sentence-id": 0,
+    "sentence": "When one of the following conditions are met, trajectory optimization will be executed."
+  },
+  {
+    "section-id": 3,
+    "sentence-id": 3,
+    "sentence": "1.Ego moves longer than replan.max_ego_moving_dist in one cycle. (default: 3.0 [m])"
+  },
+  {
+    "section-id": 3,
+    "sentence-id": 5,
+    "sentence": "2.Trajectory's end, which is considered as the goal pose, moves longer than replan.max_goal_moving_dist in one cycle. (default: 15.0 [ms])"
+  },
+  {
+    "section-id": 3,
+    "sentence-id": 7,
+    "sentence": "3.Time passes. (default: 1.0 [s])"
+  },
+  {
+    "section-id": 3,
+    "sentence-id": 9,
+    "sentence": "4.The input path changes laterally longer than replan.max_path_shape_around_ego_lat_dist in one cycle. (default: 2.0)"
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 0,
+    "sentence": "This module makes the trajectory kinematically-feasible and collision-free."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 2,
+    "sentence": "This optimization considers vehicle kinematics and collision checking with road boundary and obstacles."
+  },
+  {
+    "section-id": 4,
+    "sentence-id": 4,
+    "sentence": "The trajectory just in front of the ego must not be changed a lot so that the steering wheel will be stable."
+  },
+  {
+    "section-id": 5,
+    "sentence-id": 0,
+    "sentence": "Velocity is assigned in the optimized trajectory from the velocity in the behavior path."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 0,
+    "sentence": "Optimized trajectory is too short for velocity planning, therefore extend the trajectory by concatenating the optimized trajectory and the behavior path considering drivability."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 1,
+    "sentence": "Generated trajectory is checked if it is inside the drivable area or not, and if outside drivable area, output a trajectory inside drivable area with the behavior path or the previously generated trajectory."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 5,
+    "sentence": "1.If optimized trajectory is inside the drivable area, and the remained trajectory is inside/outside the drivable area, the output trajectory will be just concatenation of those two trajectories."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 7,
+    "sentence": "2.If optimized trajectory is outside the drivable area, and the remained trajectory is inside/outside the drivable area, and if the previously generated trajectory is memorized, the output trajectory will be the previously generated trajectory, where zero velocity is inserted to the point firstly going outside the drivable area; and if the previously generated trajectory is not memorized, the output trajectory will be a part of trajectory just transformed from the behavior path, where zero velocity is inserted to the point firstly going outside the drivable area."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 9,
+    "sentence": "The output trajectory is memorized as a previously generated trajectory for the next cycle."
+  },
+  {
+    "section-id": 7,
+    "sentence-id": 0,
+    "sentence": "In the current design, since there are some modelling errors, the constraints are considered to be soft constraints."
+  },
+  {
+    "section-id": 7,
+    "sentence-id": 1,
+    "sentence": "Therefore, we have to make sure that the optimized trajectory is inside the drivable area or not after optimization."
+  },
+  {
+    "section-id": 13,
+    "sentence-id": 1,
+    "sentence": "This parameter describes how much margin to make between the trajectory and road boundaries."
+  },
+  {
+    "section-id": 13,
+    "sentence-id": 2,
+    "sentence": "Due to the model error for optimization, the constraint such as collision-free is not fully met."
+  },
+  {
+    "section-id": 13,
+    "sentence-id": 5,
+    "sentence": "The point on the vehicle, offset forward with this parameter from the base link` tries to follow the reference path."
+  },
+  {
+    "section-id": 15,
+    "sentence-id": 2,
+    "sentence": "if the trajectory after MPT is not robust, make mpt.weight.steer_input_weight or mpt.weight.steer_rate_weight larger, which are stability of steering wheel along the trajectory."
+  },
+  {
+    "section-id": 16,
+    "sentence-id": 0,
+    "sentence": "option.enable_skip_optimization skips MPT optimization."
+  },
+  {
+    "section-id": 16,
+    "sentence-id": 1,
+    "sentence": "option.enable_calculation_time_info enables showing each calculation time for functions and total calculation time on the terminal."
+  },
+  {
+    "section-id": 16,
+    "sentence-id": 2,
+    "sentence": "option.enable_outside_drivable_area_stop enables stopping just before the generated trajectory point will be outside the drivable area."
+  },
+  {
+    "section-id": 13,
+    "sentence-id": 4,
+    "sentence": "2.modify mpt.kinematics.optimization_center_offset"
+  }
+]

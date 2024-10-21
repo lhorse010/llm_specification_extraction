@@ -1,0 +1,77 @@
+[
+  {
+    "section-id": 1,
+    "sentence-id": 1,
+    "sentence": "2.Mode requires at least a valid local position estimate (does not require a global position)."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 2,
+    "sentence": "Flying vehicles can't switch to this mode without valid local position."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 3,
+    "sentence": "Flying vehicles will failsafe if they lose the position estimate."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 4,
+    "sentence": "4.Mode prevents arming (vehicle must be armed when switching to this mode)."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 5,
+    "sentence": "5.Mode requires wind and flight time are within allowed limits (specified via parameters)."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 6,
+    "sentence": "6.This mode is currently only supported on multicopter (or VTOL in MC mode)."
+  },
+  {
+    "section-id": 1,
+    "sentence-id": 7,
+    "sentence": "7.The follow target must also be able to supply position information."
+  },
+  {
+    "section-id": 2,
+    "sentence-id": 0,
+    "sentence": "The vehicle will automatically yaw to face and follow the target from a specified relative angle, distance and height and altitude, depending on the altitude control mode."
+  },
+  {
+    "section-id": 2,
+    "sentence-id": 1,
+    "sentence": "By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home (arming) position."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 11,
+    "sentence": "The copter will first ascend to minimum safety altitude of 1 meters above the ground or home, depending on the presence of a distance sensor."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 12,
+    "sentence": "It will ascend until it is 3 meters within the follow height to avoid potential collisions before moving horizontally."
+  },
+  {
+    "section-id": 6,
+    "sentence-id": 13,
+    "sentence": "Copter will always adjust it's heading to face the target"
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 1,
+    "sentence": "1.2D tracking (the default altitude mode) makes the drone follow at a height relative to the fixed home position (takeoff altitude)."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 3,
+    "sentence": "2.2D + Terrain makes the drone follow at a fixed height relative to the terrain underneath it, using information from a distance sensor."
+  },
+  {
+    "section-id": 8,
+    "sentence-id": 8,
+    "sentence": "3.3D tracking mode makes the drone follow at a height relative to the follow target, as supplied by its GPS sensor."
+  }
+]
