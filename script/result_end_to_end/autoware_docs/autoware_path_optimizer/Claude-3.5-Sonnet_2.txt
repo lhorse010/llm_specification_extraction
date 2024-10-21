@@ -1,0 +1,42 @@
+I'll extract the specifications from the document and express them using Metric Temporal Logic (MTL) formulas. Then, I'll format the converted sentences in JSON as requested.
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(¬outside_drivable_area)",
+            "explanation": "The trajectory should always be inside the drivable area. This is expressed using the 'globally' operator to ensure it holds at all times."
+        },
+        {
+            "formula": "G(kinematically_feasible)",
+            "explanation": "The trajectory should always be kinematically feasible. This is expressed using the 'globally' operator to ensure it holds at all times."
+        },
+        {
+            "formula": "G(collision_free)",
+            "explanation": "The trajectory should always be collision-free. This is expressed using the 'globally' operator to ensure it holds at all times."
+        },
+        {
+            "formula": "G(ego_moving_dist ≤ 3.0) → X(replan)",
+            "explanation": "If the ego vehicle moves more than 3.0 meters in one cycle, replanning should occur in the next state. This uses the 'globally' operator to check the condition at all times, and the 'next' operator to specify the replanning action."
+        },
+        {
+            "formula": "G(goal_moving_dist ≤ 15.0) → X(replan)",
+            "explanation": "If the goal pose moves more than 15.0 meters in one cycle, replanning should occur in the next state. This uses the 'globally' operator to check the condition at all times, and the 'next' operator to specify the replanning action."
+        },
+        {
+            "formula": "G(time_passed ≥ 1.0) → X(replan)",
+            "explanation": "If 1.0 second or more has passed since the last optimization, replanning should occur in the next state. This uses the 'globally' operator to check the condition at all times, and the 'next' operator to specify the replanning action."
+        },
+        {
+            "formula": "G(path_lateral_change ≤ 2.0) → X(replan)",
+            "explanation": "If the input path changes laterally more than 2.0 meters in one cycle, replanning should occur in the next state. This uses the 'globally' operator to check the condition at all times, and the 'next' operator to specify the replanning action."
+        },
+        {
+            "formula": "G(outside_drivable_area → X(velocity = 0))",
+            "explanation": "If the trajectory goes outside the drivable area, the velocity should be set to zero in the next state. This uses the 'globally' operator to check the condition at all times, and the 'next' operator to specify the zero velocity action."
+        }
+    ]
+}
+```
+
+These MTL formulas capture the key specifications extracted from the document. They focus on ensuring the trajectory remains inside the drivable area, is kinematically feasible, collision-free, and handles replanning conditions. The formulas also capture the requirement to set velocity to zero when outside the drivable area.

@@ -1,0 +1,72 @@
+[
+    {
+        "sentence": "Stabilize mode allows you to fly your vehicle manually, but self-levels the roll and pitch axis.",
+        "formula": "G(S → (M ∧ L))",
+        "explanation": "S represents Stabilize mode, M represents manual flight, and L represents self-leveling of roll and pitch. The formula states that globally, when in Stabilize mode, the vehicle can be flown manually while simultaneously self-leveling."
+    },
+    {
+        "sentence": "While stabilize mode does not necessarily require GPS, switching to RTL in case of emergency does.",
+        "formula": "G(E → (R → GPS)",
+        "explanation": "GPS is GPS requirement, E is emergency, and R is RTL mode. The formula expresses that Stabilize mode can operate without GPS, but in an emergency, switching to RTL requires GPS."
+    },
+    {
+        "sentence": "Make sure you do have a reliable position estimate prior to arming, most commonly provided by 3D GPS fix with sufficient HDOP.",
+        "formula": "G(A → P)",
+        "explanation": "A represents arming, and P represents a reliable position estimate. The formula states that globally, arming should only occur if there's a reliable position estimate, implicitly including GPS fix and HDOP considerations."
+    },
+    {
+        "sentence": "Pilot's roll and pitch input control the lean angle of the copter.",
+        "formula": "G((R ∨ P) → L)",
+        "explanation": "R, P represents pilot's roll and pitch input, and L represents the copter's lean angle. The formula indicates that globally, pilot input directly influences the lean angle."
+    },
+    {
+        "sentence": "When the pilot releases the roll and pitch sticks the vehicle automatically levels itself.",
+        "formula": "G(R → X(G(ML)))",
+        "explanation": "R represents the release of roll and pitch sticks, and ML represents the vehicle leveling. The formula states that globally, when the sticks are released, in the next state, the vehicle levels itself."
+    },
+    {
+        "sentence": "Pilot will need to regularly input roll and pitch commands to keep the vehicle in place as it is pushed around by the wind.",
+        "formula": "G(W → F(I))",
+        "explanation": "W represents wind pushing the vehicle and the vehicle keep place, and I represents pilot input. The formula expresses that globally, when wind is present, there will eventually be pilot input to maintain position."
+    },
+    {
+        "sentence": "Pilot's yaw input controls the rate of change of the heading.",
+        "formula": "G(Y → X(C))",
+        "explanation": "Y represents pilot's yaw input, and C represents change in heading rate. The formula states that globally, yaw input directly influences the rate of heading change."
+    },
+    {
+        "sentence": "When the pilot releases the yaw stick the vehicle will maintain its current heading.",
+        "formula": "G(R → G(H))",
+        "explanation": "R represents releasing the yaw stick, and H represents maintaining current heading. The formula indicates that globally, when the yaw stick is released, the current heading is maintained indefinitely."
+    },
+    {
+        "sentence": "Pilot's throttle input controls the average motor speed meaning that constant adjustment of the throttle is required to maintain altitude.",
+        "formula": "G(T → S) ∧ G(A → F(T))",
+        "explanation": "T represents throttle input, S represents motor speed, and A represents maintaining altitude. The formula expresses that throttle controls speed, and to maintain altitude, there will always eventually be throttle adjustments."
+    },
+    {
+        "sentence": "If the pilot puts the throttle completely down the motors will go to their minimum rate (MOT_SPIN_ARMED) and if the vehicle is flying it will lose attitude control and tumble.",
+        "formula": "G((D ∧ F) → X(M ∧ L))",
+        "explanation": "D represents throttle down, F represents flying, M represents minimum motor rate, and L represents loss of control. The formula states that if the throttle is down while flying, the motors go to minimum and in the next state, control is lost."
+    },
+    {
+        "sentence": "However, this behavior can be changed by enabling :ref:airmode.",
+        "formula": "G(A → ¬G((D ∧ F) → X(M ∧ L)))",
+        "explanation": "A represents airmode enabled."
+    },
+    {
+        "sentence": ":ref:ANGLE_MAX<ANGLE_MAX> controls the maximum lean angle which by default is 4500 (i.e. 45 degrees)",
+        "formula": "G(S ∧ M → LM)",
+        "explanation": "S represents Stabilize mode, M represents ANGLE_MAX being set, and LM represents the lean angle <= ANGLE_MAX. The formula expresses that when ANGLE_MAX is set, the lean angle is always less than or equal to 45 degrees."
+    },
+    {
+        "sentence": "ANGLE_RATE_MAX controls the maximum requested rotation rate in the roll and pitch axis which by default is 18000 (180deg/sec).",
+        "formula": "G(S ∧ R → SR)",
+        "explanation": "S represents Stabilize mode, R represents ANGLE_RATE_MAX being set, and SR represents the rotation speed <= ANGLE_RATE_MAX. The formula states that when ANGLE_RATE_MAX is set, the rotation speed is always less than or equal to 180 degrees per second."
+    },
+    {
+        "sentence": ":ref:ACRO_Y_RATE<ACRO_Y_RATE> controls how quickly copter rotates based on a pilot's yaw input.",
+        "formula": "G(A → (Y → S))",
+        "explanation": "A represents ACRO_Y_RATE being set, Y represents yaw input, and S represents rotation speed change. The formula indicates that when ACRO_Y_RATE is set, yaw input directly influences rotation speed."
+    }
+]

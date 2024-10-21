@@ -1,0 +1,102 @@
+[
+  {
+    "sentence": "When switched into Smart RTL, like regular RTL, the vehicle will attempt to return home.",
+    "formula": "G(S → F(H))",
+    "explanation": "S represents 'switched into Smart RTL', and H represents 'attempt to return home'. This formula states that globally, whenever S occurs, eventually H will occur."
+  },
+  {
+    "sentence": "The vehicle must have a good position estimate (LEDs should be green) when the vehicle is armed or SmartRTL will be disabled.",
+    "formula": "G(A → (P ∨ ¬R))",
+    "explanation": "A represents 'vehicle is armed', P represents 'good position estimate', and R represents 'SmartRTL is enabled'. This formula states that globally, when the vehicle is armed, either it has a good position estimate or SmartRTL is not enabled."
+  },
+  {
+    "sentence": "If the vehicle is armed without a good position estimate, \"SmartRTL deactivated: bad position\" will be sent to the ground station.",
+    "formula": "G((A ∧ ¬P) → F(M))",
+    "explanation": "A represents 'vehicle is armed', P represents 'good position estimate', and M represents 'message sent to ground station'. This formula states that globally, if the vehicle is armed without a good position estimate, eventually the message will be sent."
+  },
+  {
+    "sentence": "The path is \"simplified\" (meaning curved paths are turned into a series of straight lines) and \"pruned\" (meaning loops are removed).",
+    "formula": "G(C → F(S ∧ L))",
+    "explanation": "C represents 'path is computed', S represents 'simplified', and L represents 'loops removed'. This formula states that globally, when a path is computed, eventually it will be simplified and have loops removed."
+  },
+  {
+    "sentence": "The buffer is of a limited size (see below) and once it is full, \"SmartRTL deactivated: buffer full\" will appear on the ground stations's HUD and the user will no longer be able to switch into this mode.",
+    "formula": "G(Fu → F(M ∧ G(¬S)))",
+    "explanation": "Fu represents 'buffer is full', M represents 'message appears on HUD', and S represents 'ability to switch to SmartRTL'. This formula states that globally, when the buffer becomes full, eventually a message will appear and from that point on, switching to SmartRTL will always be impossible."
+  },
+  {
+    "sentence": "SmartRTL saves points at a maximum of 3 per second, but only if the vehicle has moved at least :ref:`SRTL_ACCURACY <SRTL_ACCURACY>` meters from the previous point.",
+    "formula": "G(S → (T ∧ M))",
+    "explanation": "T represents 'time interval < 1/3 second', M represents 'moved SRTL_ACCURACY meters', and S represents 'save point'. This formula states that globally, for each 1/3 second interval, if the vehicle has moved the required distance, a point is saved."
+  },
+  {
+    "sentence": "After 50 points are saved it goes back and simplifies them into lines again using that :ref:`SRTL_ACCURACY <SRTL_ACCURACY>`.",
+    "formula": "G(PS → F(S))",
+    "explanation": "PS represents '50 points are saved', and S represents 'simplify into lines'. This formula states that globally, whenever 50 points are saved, eventually the simplification process occurs."
+  },
+  {
+    "sentence": "It will replace a string of points with just two end points if all the intermediate points are no more than :ref:`SRTL_ACCURACY <SRTL_ACCURACY>` from the line between the end points.",
+    "formula": "G(C → (A → R))",
+    "explanation": "C represents 'checking a string of points', A represents 'all intermediate points within SRTL_ACCURACY', and R represents 'replace with end points'. This formula states that globally, when checking a string of points, if all intermediate points are within the accuracy threshold, then the string is replaced with end points."
+  },
+  {
+    "sentence": "Either through user selected, or through failsafe selections.",
+    "formula": "G(S → (U ∨ FS))",
+    "explanation": "S represents 'switch to SmartRTL', U represents 'user selection', and FS represents 'failsafe selection'. This formula states that globally, a switch to SmartRTL implies either user selection or failsafe selection."
+  },
+  {
+    "sentence": "The :ref:`FS_GCS_ENABLE <FS_GCS_ENABLE>` and :ref:`FS_THR_ENABLE <FS_THR_ENABLE>` parameters set to 4 or 5 the vehicle will switch to SmartRTL->RTL or SmartRTL->Land based on whether the correct conditions allows the mode.",
+    "formula": "G((P ∧ C) → F(S ∧ (R ∨ L)))",
+    "explanation": "P represents 'parameters set to 4 or 5', C represents 'correct conditions', S represents 'switch to SmartRTL', R represents 'RTL', and L represents 'Land'. This formula states that globally, when the parameters are set and conditions are met, eventually there will be a switch to SmartRTL followed by either RTL or Land."
+  },
+  {
+    "sentence": "The setting indicates that it will try SmartRTL first, then downgrade to RTL (4) or Land (5)",
+    "formula": "G(FS → F(S ∨ (¬S → (R ∨ L))))",
+    "explanation": "FS represents 'failsafe triggered', S represents 'SmartRTL successful', R represents 'RTL', and L represents 'Land'. This formula states that globally, when a failsafe is triggered, eventually SmartRTL will be attempted, and if it's not successful, either RTL or Land will occur."
+  },
+  {
+    "sentence": "Additional Failsafes that may be set to switch to SmartRTL are: :ref:`BATT_FS_CRT_ACT <BATT_FS_CRT_ACT>`, :ref:`BATT_FS_LOW_ACT <BATT_FS_LOW_ACT>`, :ref:`BATT2_FS_LOW_ACT <BATT2_FS_LOW_ACT>`, and :ref:`BATT2_FS_CRT_ACT <BATT2_FS_CRT_ACT>`.",
+    "formula": "G((B1 ∨ B2 ∨ B3 ∨ B4) → F(S))",
+    "explanation": "B1, B2, B3, and B4 represent the different battery failsafe conditions, and S represents 'switch to SmartRTL'. This formula states that globally, if any of these battery failsafes occur, eventually there will be a switch to SmartRTL."
+  },
+  {
+    "sentence": ":ref:`RTL_SPEED <RTL_SPEED>` can be used to set the speed (in meters/second) at which the vehicle will return to home.",
+    "formula": "G(R → F(S))",
+    "explanation": "R represents 'RTL_SPEED is set', and S represents 'vehicle returns at specified speed'. This formula states that globally, when RTL_SPEED is set, eventually the vehicle will return at that speed."
+  },
+  {
+    "sentence": "By default this parameter is zero meaning the :ref:`WPNAV_SPEED <WPNAV_SPEED>`  parameter value will be used.",
+    "formula": "G(Z → W)",
+    "explanation": "Z represents 'RTL_SPEED parameter =  zero value', and W represents 'WPNAV_SPEED is used'. This formula states that globally, when RTL_SPEED is zero, WPNAV_SPEED is used."
+  },
+  {
+    "sentence": ":ref:`RTL_ALT_FINAL<RTL_ALT_FINAL>` if set to 0, will land at home, otherwise will stop and hover above home at this altitude upon completion of the return.",
+    "formula": "G(R → ((Z → L) ∧ (¬Z → H)))",
+    "explanation": "R represents 'RTL_ALT_FINAL is set', Z represents 'zero value', L represents 'land at home', and H represents 'hover at specified altitude'. This formula states that globally, when RTL_ALT_FINAL is set, if it's zero, landing occurs, otherwise hovering occurs."
+  },
+  {
+    "sentence": "The simplify algorithm will turn curved paths into straight lines but the line should never be more than this distance from the original path.",
+    "formula": "G(S → (L ∧ ¬F(D)))",
+    "explanation": "S represents 'simplify algorithm runs', L represents 'curved paths become straight lines', and D represents 'distance exceeds threshold'. This formula states that globally, when the simplify algorithm runs, paths become straight lines and it's never the case in the future that the distance threshold is exceeded."
+  },
+  {
+    "sentence": ":ref:`SRTL_POINTS <SRTL_POINTS>` controls the maximum number of points that can be stored.",
+    "formula": "G(E <= SRTL_POINTS)",
+    "explanation": "E represents 'points number'. This formula states that globally, when SRTL_POINTS is set, it's never the case in the future that the maximum number of points is exceeded."
+  },
+  {
+    "sentence": "If the maximum number of points is exhausted, \"SmartRTL deactivated: buffer full\" will be sent to the ground station and the user will not be able to switch into SmartRTL.",
+    "formula": "G(E → F(M ∧ G(¬S)))",
+    "explanation": "E represents 'maximum points exhausted', M represents 'message sent', and S represents 'switch to SmartRTL'. This formula states that globally, if the maximum points are exhausted, eventually a message is sent and from that point on, it's always impossible to switch to SmartRTL."
+  },
+  {
+    "sentence": ":ref:`SRTL_OPTIONS<SRTL_OPTIONS>` has one bit, currently, bit 2, that if set (value of \"4\") will ignore pilot yaw commands while in SmartRTL.",
+    "formula": "G((O ∧ S) → ¬Y)",
+    "explanation": "O represents 'SRTL_OPTIONS bit 2 set', S represents 'in SmartRTL mode', and Y represents 'respond to yaw commands'. This formula states that globally, when the option is set and the vehicle is in SmartRTL mode, yaw commands are not responded to."
+  },
+  {
+    "sentence": "SmartRTL can be deactivated as a mode by simply setting :ref:`SRTL_POINTS <SRTL_POINTS>` to \"0\".",
+    "formula": "G((P ∧ Z) → ¬F(S))",
+    "explanation": "P represents 'SRTL_POINTS is set', Z represents 'zero value', and S represents 'SmartRTL active'. This formula states that globally, when SRTL_POINTS is set to zero, it's never the case in the future that SmartRTL is active."
+  }
+]

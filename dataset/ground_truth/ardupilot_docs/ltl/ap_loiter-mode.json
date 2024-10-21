@@ -1,0 +1,77 @@
+[
+    {
+        "sentence": "Loiter Mode automatically attempts to maintain the current location, heading and altitude.",
+        "formula": "G(L → (M ∧ H ∧ A))",
+        "explanation": "This formula states that globally (G), if Loiter Mode (L) is active, it implies (→) that the current location (M), heading (H), and altitude (A) are maintained. The continuous nature of this maintenance is captured by the global operator."
+    },
+    {
+        "sentence": "The pilot may fly the copter in Loiter mode as if it were in a more manual flight mode but when the sticks are released, the vehicle will slow to a stop and hold position.",
+        "formula": "G(L ∧ (C → (F(S ∧ P))))",
+        "explanation": "This formula expresses that globally (G), in Loiter mode (L), if the control sticks are released (C), it implies (→) that eventually (F) the vehicle will slow to a stop (S) and hold position (P). The flexibility of pilot control is implicit in the formula's structure."
+    },
+    {
+        "sentence": "The pilot can control the copter's position with the control sticks.",
+        "formula": "G(C → X(P))",
+        "explanation": "This formula states that globally (G), if the control sticks are manipulated (C), it implies (→) that in the next state (X), the copter's position (P) will change. The immediate effect of control inputs is captured by the 'next' operator."
+    },
+    {
+        "sentence": "Horizontal location can be adjusted with the Roll and Pitch control sticks with the default maximum horizontal speed being 5m/s (see Tuning section below on how to adjust this).",
+        "formula": "G((R ∨ T) → X(H ∧ (S → V)))",
+        "explanation": "This formula expresses that globally (G), if Roll (R) or (∨) Pitch (T) controls are used, it implies (→) that in the next state (X), the horizontal location (H) changes, and if the speed (S) is adjusted, it's limited by the maximum value (V). The speed limit is implicitly represented."
+    },
+    {
+        "sentence": "When the pilot releases the sticks the copter will slow to a stop.",
+        "formula": "G(R → F(S))",
+        "explanation": "This formula states that globally (G), if the control sticks are released (R), it implies (→) that eventually (F) the copter will slow to a stop (S). The eventual nature of stopping is captured by the 'finally' operator."
+    },
+    {
+        "sentence": "Altitude can be controlled with the Throttle control stick just as in :ref:AltHold mode <altholdmode_controls>",
+        "formula": "G(T → X(A))",
+        "explanation": "This formula expresses that globally (G), if the Throttle control (T) is used, it implies (→) that in the next state (X), the altitude (A) will change. The immediate effect on altitude is captured by the 'next' operator."
+    },
+    {
+        "sentence": "The heading can be set with the Yaw control stick",
+        "formula": "G(Y → X(H))",
+        "explanation": "This formula states that globally (G), if the Yaw control (Y) is used, it implies (→) that in the next state (X), the heading (H) will change. The immediate effect on heading is captured by the 'next' operator."
+    },
+    {
+        "sentence": "The vehicle can be armed in Loiter mode but only once the GPS has 3D lock and the HDOP has dropped below 1.4.",
+        "formula": "G(L ∧ G ∧ D → CA)",
+        "explanation": "This formula expresses that globally (G), if Loiter mode is active (L), GPS has 3D lock (G), and HDOP is below the threshold (D), it implies (→) that the vehicle can be armed (CA)."
+    },
+    {
+        "sentence": ":ref:LOIT_SPEED <LOIT_SPEED>: max horizontal speed in cm/s (i.e. 1250 = 12.5m/s)",
+        "formula": "G(L → SV)",
+        "explanation": "This formula states that globally (G), in Loiter mode (L), the speed is limited by the maximum value (SV). The continuous nature of this limit is captured by the global operator."
+    },
+    {
+        "sentence": ":ref:LOIT_ACC_MAX <LOIT_ACC_MAX>: max acceleration in cm/s/s. Higher values cause the copter to accelerate and stop more quickly",
+        "formula": "G(L → AM)",
+        "explanation": "This formula expresses that globally (G), in Loiter mode (L), the acceleration is limited by the maximum value (AM). The continuous nature of this limit is captured by the global operator."
+    },
+    {
+        "sentence": ":ref:LOIT_ANG_MAX <LOIT_ANG_MAX>: max lean angle in degrees (i.e. 30deg).",
+        "formula": "G(L → LAX)",
+        "explanation": "This formula states that globally (G), in Loiter mode (L), the lean angle is limited by the maximum value (LAX). The continuous nature of this limit is captured by the global operator."
+    },
+    {
+        "sentence": "By default this value is zero which causes the :ref:PSC_ANGLE_MAX<PSC_ANGLE_MAX> or :ref:ANGLE_MAX <ANGLE_MAX> parameter's value to be used",
+        "formula": "G(L ∧ ¬X → (P ∨ A))",
+        "explanation": "This formula expresses that globally (G), in Loiter mode (L), if the LOIT_ANG_MAX is not set (¬X), it implies (→) that either PSC_ANGLE_MAX (P) or ANGLE_MAX (A) is used. The 'or' operator captures the alternative parameter usage."
+    },
+    {
+        "sentence": ":ref:LOIT_BRK_ACCEL <LOIT_BRK_ACCEL>: max acceleration in cm/s/s while braking (i.e. pilot has moved sticks to center).",
+        "formula": "G(L ∧ B → AM)",
+        "explanation": "This formula states that globally (G), in Loiter mode (L) and during braking (B), the acceleration is limited by the maximum value (AM). The braking-specific nature is captured by the additional condition B."
+    },
+    {
+        "sentence": ":ref:LOIT_BRK_DELAY <LOIT_BRK_DELAY>: the delay in seconds before braking starts once the pilot has centered the sticks",
+        "formula": "G(L ∧ C → F[D,D](B))",
+        "explanation": "This formula expresses that globally (G), in Loiter mode (L), if the sticks are centered (C), it implies (→) that after a delay of D seconds (F[D,D]), braking (B) will start. The precise timing is captured by the bounded 'finally' operator."
+    },
+    {
+        "sentence": ":ref:LOIT_BRK_JERK <LOIT_BRK_JERK>: max change in acceleration in cm/s/s/s while braking.",
+        "formula": "G(L ∧ B → JK)",
+        "explanation": "This formula states that globally (G), in Loiter mode (L) and during braking (B), the jerk (rate of change of acceleration) is limited by the maximum value (JK). The braking-specific nature is captured by the additional condition B."
+    }
+]

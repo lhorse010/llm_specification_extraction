@@ -1,0 +1,142 @@
+[
+    {
+        "sentence": "Release the sticks and the vehicle will maintain its current attitude and will not return to level (attitude hold).",
+        "formula": "G(R → X(G(M ∧ ¬L)))",
+        "explanation": "This formula captures the persistent effect of releasing the sticks (R). Once R occurs, it globally (G) implies that the vehicle maintains its attitude (M) and doesn't return to level (¬L) for all future states. The nested G operators ensure these conditions hold indefinitely after R."
+    },
+    {
+        "sentence": "Pure rate mode stabilization, utilizing only the gyros with no attitude feedback from the accelerometers, can be forced by setting bit 1 of :ref:ACRO_OPTIONS<ACRO_OPTIONS> to one.",
+        "formula": "G(S → P)",
+        "explanation": "Here, S represents setting the bit to one, and P represents pure rate mode stabilization. The formula states that globally, whenever S occurs, it implies P. This captures the causal relationship between the setting and the stabilization mode, which is an important aspect in system configuration."
+    },
+    {
+        "sentence": "Attitude will still have an open loop correction applied in this mode, similar to \"heading hold\" tail gyros, but attitude can drift over time.",
+        "formula": "G(M → (C ∧ F(D)))",
+        "explanation": "In this formula, M represents the mode, C represents the open loop correction, and D represents drift. Globally, when in this mode (M), there's always a correction (C) applied, but there's also the possibility of future drift (F(D)). This elegantly captures both the consistent behavior and the potential for change over time."
+    },
+    {
+        "sentence": "The throttle is completely manual with no compensation for tilt angle of the vehicle.",
+        "formula": "G(M ∧ ¬C)",
+        "explanation": "Here, M represents manual throttle control, and C represents compensation for tilt. The formula states that globally, the throttle is manual (M) and there's no compensation (¬C). This persistent state is crucial for understanding the system's behavior in all future states."
+    },
+    {
+        "sentence": "If the pilot puts the throttle completely down the motors will go to their minimum rate and stabilization will cease.",
+        "formula": "G(T → F(M ∧ ¬S))",
+        "explanation": "T represents throttle down, M represents minimum motor rate, and S represents stabilization. The formula captures that globally, when T occurs, it leads to both M and the cessation of S. This immediate cause-effect relationship is crucial in understanding system responses to pilot inputs."
+    },
+    {
+        "sentence": "However, this behavior can be changed by enabling :ref:airmode",
+        "formula": "G(E → ¬(T → (M ∧ ¬S)))",
+        "explanation": "E represents enabling airmode. This formula states that globally, when E occurs, it negates the previous behavior. This captures the system's ability to override default behaviors through configuration changes, a key aspect in flexible system design."
+    },
+    {
+        "sentence": "Copter includes an Acro Trainer functionality that can be turned on/off to make learning to fly Acro easier.",
+        "formula": "G(F(A ∨ ¬A))",
+        "explanation": "A represents the Acro Trainer being on. The formula states that globally, it's always possible in the future to either turn on or off the Acro Trainer. This captures the persistent availability of this option, which is crucial for adaptable learning environments."
+    },
+    {
+        "sentence": "For example when pitched forward at 45 degrees, when left yaw is applied if using an earth frame controller (i.e. Sport mode) the copter will maintain its pitch and roll angles as its heading changes.",
+        "formula": "G((P ∧ Y ∧ E) → (M U H))",
+        "explanation": "P represents pitched forward, Y represents left yaw, E represents earth frame controller, M represents maintaining angles, and H represents heading change. The formula captures that globally, when P, Y, and E occur together, M will hold until H occurs. This precisely describes the behavior in Sport mode."
+    },
+    {
+        "sentence": "With a body frame controller like Acro it will rotate about the vehicle's vertical axis meaning the pitch angle will become the roll angle and the roll angle will become the pitch angle.",
+        "formula": "G((B ∧ R) → X(P' ∧ R'))",
+        "explanation": "B represents body frame controller, R represents rotation, P' represents new pitch angle, and R' represents new roll angle. The formula states that globally, when B and R occur, in the next state (X) the angles will have changed (P' and R'). This captures the immediate effect of rotation in Acro mode."
+    },
+    {
+        "sentence": "While Acro mode does not necessarily require GPS, switching to RTL in case of emergency does.",
+        "formula": "G(A → ¬G) ∧ G(R → G)",
+        "explanation": "A represents Acro mode, R represents RTL mode, and G represents GPS requirement. The formula states that globally, Acro doesn't imply GPS requirement, but RTL does. This concisely captures the different GPS requirements for different modes, crucial for system planning and emergency procedures."
+    },
+    {
+        "sentence": "Make sure you do have a reliable position estimate prior to arming, most commonly provided by 3D GPS fix with sufficient HDOP.",
+        "formula": "G(A → P)",
+        "explanation": "A represents arming, and P represents reliable position estimate. The formula states that globally, arming should only occur if there's a reliable position estimate. This captures a critical safety requirement, emphasizing the importance of proper initialization before system activation."
+    },
+    {
+        "sentence": "Acro mode can be setup to provide full stabilization at idle throttle.",
+        "formula": "F(A ∧ S)",
+        "explanation": "This formula expresses that it's possible in the future (F) for Acro mode (A) to be set up with full stabilization (S) at idle throttle. The 'can be' aspect is captured by the future operator, indicating this potential configuration."
+    },
+    {
+        "sentence": "0 = disabled.",
+        "formula": "G(Z → D)",
+        "explanation": "Here, Z represents the zero setting, and D represents the disabled state. The formula globally (G) implies that whenever Z is true, D is also true, capturing the persistent relationship between this setting and its effect."
+    },
+    {
+        "sentence": "This means the pilot operates in full Rate control with no automatic leveling nor angle-limiting performed by the autopilot.",
+        "formula": "G(D → (R ∧ ¬L ∧ ¬A))",
+        "explanation": "D represents the disabled state, R is full Rate control, L is automatic leveling, and A is angle-limiting. The formula expresses that globally, when disabled, the pilot has full Rate control without leveling or angle-limiting, capturing the complex state of the system in this mode."
+    },
+    {
+        "sentence": "1 = automatic leveling.",
+        "formula": "G(O → L)",
+        "explanation": "O represents the setting of 1, and L represents automatic leveling. This formula captures that globally, when O is true, L is also true, establishing the persistent effect of this setting."
+    },
+    {
+        "sentence": "The vehicle will automatically return to the level when the pilot releases the sticks.",
+        "formula": "G(R → F(L))",
+        "explanation": "R represents releasing the sticks, and L represents returning to level. The formula states that globally, whenever R occurs, it will eventually (F) lead to L. This captures the causal relationship with a temporal aspect."
+    },
+    {
+        "sentence": "The default of 1.0 will cause it to return to level at up to 30deg/sec.",
+        "formula": "G(D → (R → S))",
+        "explanation": "D represents the default setting, R is returning to level, and S is the speed of 30deg/sec. This formula expresses that globally, when the default is set, returning to level implies doing so at the specified speed."
+    },
+    {
+        "sentence": "Higher values will make it return more quickly.",
+        "formula": "G(H → X(Q))",
+        "explanation": "H represents higher values, and Q represents quicker return. The formula states that globally, when H is true, in the next state (X), Q will be true. This captures the immediate effect of changing the parameter."
+    },
+    {
+        "sentence": "2 (Default) = automatic leveling and lean angle limited.",
+        "formula": "G(T → (L ∧ A))",
+        "explanation": "T represents the setting of 2, L is automatic leveling, and A is angle limiting. The formula expresses that globally, when T is true, both L and A are true, capturing the dual effect of this setting."
+    },
+    {
+        "sentence": "Includes the automatic leveling as option #1 but in addition the vehicle will not lean more than 45 degrees (this angle can be configured with the :ref:ANGLE_MAX<ANGLE_MAX> parameter).",
+        "formula": "G(T → (L ∧ G(¬E)))",
+        "explanation": "T represents the setting, L is automatic leveling, and E represents exceeding 45 degrees. This formula captures that globally, when T is true, L is true and it's always the case that E is false, expressing the ongoing angle limitation."
+    },
+    {
+        "sentence": "The trainer can be enabled/disabled using the Ch7/Ch8 switches or a channel setup via its RCx_OPTION parameter.",
+        "formula": "G(F(T) ∧ F(¬T))",
+        "explanation": "T represents the trainer being enabled. This formula expresses that globally, it's always possible in the future to either enable or disable the trainer, capturing the persistent availability of this option."
+    },
+    {
+        "sentence": "With a 3 position switch the off position (i.e. PWM < 1200) will disable the trainer, middle position will enable option #1 (automatic leveling) and the top position (i.e. PWM > 1800) will enable option #2 (leveling and lean angle limited).",
+        "formula": "G((L → ¬T) ∧ (M → O) ∧ (H → T))",
+        "explanation": "L represents low position, M middle, H high, T trainer disabled, O option 1, and T option 2. This formula captures the global relationship between switch positions and their effects, expressing complex system configuration options."
+    },
+    {
+        "sentence": "With a 2 position switch only options #0 (disabled) and option #2 (leveling & limited) are possible.",
+        "formula": "G((L → D) ∧ (H → T))",
+        "explanation": "L represents low position, H high position, D disabled, and T option 2. This formula expresses the more limited options available with a 2-position switch, capturing the restricted configuration possibilities."
+    },
+    {
+        "sentence": "By setting the :ref:ACRO_BAL_ROLL<ACRO_BAL_ROLL> and :ref:ACRO_BAL_PITCH<ACRO_BAL_PITCH> parameters to non-zero values, this feature takes effect.",
+        "formula": "G((R ∧ P) → F)",
+        "explanation": "R represents non-zero roll parameter, P non-zero pitch parameter, and F the feature taking effect. This formula captures the causal relationship between parameter settings and feature activation."
+    },
+    {
+        "sentence": "Otherwise, when the helicopter clears it will jump to the accumulated commanded attitude when skids clear, perhaps surprisingly.",
+        "formula": "G(¬(R ∧ P) → (C → X(J)))",
+        "explanation": "C represents clearing, and J represents jumping to commanded attitude. This formula expresses that globally, when the previous condition isn't met, clearing leads to an immediate jump in the next state, capturing the potential surprise element."
+    },
+    {
+        "sentence": "This feature is not active when :ref:ACRO_TRAINER<ACRO_TRAINER> is active",
+        "formula": "G(T → ¬F)",
+        "explanation": "T represents ACRO_TRAINER being active, and F represents the feature. This formula captures the mutual exclusivity of these two features, an important system constraint."
+    },
+    {
+        "sentence": "The default, 4.5, will command a 200deg/sec rotation rate.",
+        "formula": "G(D → R)",
+        "explanation": "D represents the default setting, and R represents the 200deg/sec rotation rate. This formula expresses the persistent effect of the default setting on the rotation rate."
+    },
+    {
+        "sentence": "The default, 4.5, like roll and pitch, will command a 200deg/sec rotation rate.",
+        "formula": "G(D → (Rr ∧ Rp ∧ Ry))",
+        "explanation": "D represents the default setting, Rr, Rp, and Ry represent 200deg/sec rotation rates for roll, pitch, and yaw respectively. This formula captures the uniform effect of the default setting across all axes."
+    }
+]

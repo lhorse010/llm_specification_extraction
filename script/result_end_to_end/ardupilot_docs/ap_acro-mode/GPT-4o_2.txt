@@ -1,0 +1,30 @@
+```json
+{
+    "specifications": [
+        {
+            "formula": "G (throttle_down → motors_min_rate)",
+            "explanation": "If the throttle is completely down, the motors will go to their minimum rate, and stabilization will cease."
+        },
+        {
+            "formula": "G (¬GPS_available → ¬switch_to_RTL)",
+            "explanation": "Switching to RTL in case of emergency requires GPS; therefore, RTL cannot be activated without a reliable GPS fix."
+        },
+        {
+            "formula": "G (ACRO_TRAINER = 1 → F(level_return))",
+            "explanation": "If ACRO_TRAINER is set to 1, the vehicle will automatically return to level when the pilot releases the sticks."
+        },
+        {
+            "formula": "G (ACRO_TRAINER = 2 → F(level_return ∧ angle_limit ≤ 45))",
+            "explanation": "If ACRO_TRAINER is set to 2, the vehicle will automatically return to level and will not lean more than 45 degrees."
+        },
+        {
+            "formula": "G (RCx_OPTION_set → (PWM < 1200 → ¬trainer_active) ∧ (1200 ≤ PWM ≤ 1800 → trainer_option1) ∧ (PWM > 1800 → trainer_option2))",
+            "explanation": "The trainer can be enabled/disabled using switches: below 1200 PWM disables it, 1200 to 1800 PWM enables option 1, and above 1800 PWM enables option 2."
+        },
+        {
+            "formula": "G (ATC_ACCEL_R_MAX_set → error_reduction)",
+            "explanation": "Setting ATC_ACCEL_R_MAX helps reduce error during rapid roll maneuvers to prevent overshoot and bounce-back."
+        }
+    ]
+}
+```

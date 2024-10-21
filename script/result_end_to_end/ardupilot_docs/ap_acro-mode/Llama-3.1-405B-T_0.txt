@@ -1,0 +1,66 @@
+Based on the provided document, I have extracted the specifications and expressed them using Metric Temporal Logic (MTL) formulas. Here are the results in the required JSON format:
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(throttle_manual -> X(motors_minimum_rate))",
+            "explanation": "If the throttle is completely manual, then the motors will go to their minimum rate in the next time step."
+        },
+        {
+            "formula": "G(airmode_enabled -> G(full_stabilization))",
+            "explanation": "If AirMode is enabled, then full stabilization will always be provided."
+        },
+        {
+            "formula": "G(acro_trainer_disabled -> G(no_automatic_leveling))",
+            "explanation": "If the Acro Trainer is disabled, then no automatic leveling will be performed."
+        },
+        {
+            "formula": "G(acro_trainer_enabled -> F(automatic_leveling))",
+            "explanation": "If the Acro Trainer is enabled, then automatic leveling will eventually be performed."
+        },
+        {
+            "formula": "G(roll_pitch_rate_control -> X(rotation_rate_control))",
+            "explanation": "If the roll and pitch rates are controlled, then the rotation rate will be controlled in the next time step."
+        },
+        {
+            "formula": "G(yaw_rate_control -> X(rotation_rate_control))",
+            "explanation": "If the yaw rate is controlled, then the rotation rate will be controlled in the next time step."
+        },
+        {
+            "formula": "G(expo_applied -> X(stick_response_control))",
+            "explanation": "If exponential is applied to the pilot's stick inputs, then the stick response will be controlled in the next time step."
+        },
+        {
+            "formula": "G(max_acceleration_reached -> X(error_reduction))",
+            "explanation": "If the maximum acceleration is reached, then error reduction will be performed in the next time step."
+        },
+        {
+            "formula": "G(attitude_control_priority -> X(throttle_control_balance))",
+            "explanation": "If attitude control has priority, then throttle control will be balanced in the next time step."
+        }
+    ]
+}
+```
+
+Note that I have used the following abbreviations in the MTL formulas:
+
+* `throttle_manual`: The throttle is completely manual.
+* `motors_minimum_rate`: The motors are at their minimum rate.
+* `airmode_enabled`: AirMode is enabled.
+* `full_stabilization`: Full stabilization is provided.
+* `acro_trainer_disabled`: The Acro Trainer is disabled.
+* `no_automatic_leveling`: No automatic leveling is performed.
+* `acro_trainer_enabled`: The Acro Trainer is enabled.
+* `automatic_leveling`: Automatic leveling is performed.
+* `roll_pitch_rate_control`: The roll and pitch rates are controlled.
+* `rotation_rate_control`: The rotation rate is controlled.
+* `yaw_rate_control`: The yaw rate is controlled.
+* `expo_applied`: Exponential is applied to the pilot's stick inputs.
+* `stick_response_control`: The stick response is controlled.
+* `max_acceleration_reached`: The maximum acceleration is reached.
+* `error_reduction`: Error reduction is performed.
+* `attitude_control_priority`: Attitude control has priority.
+* `throttle_control_balance`: Throttle control is balanced.
+
+These abbreviations are used to make the MTL formulas more readable and concise.

@@ -1,0 +1,106 @@
+Follow-Me Mode (Multicopter)
+
+Follow-Me Mode (Multicopter)
+_Follow Me_ mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the FOLLOW_TARGET MAVLink message.
+
+Follow-Me Mode (Multicopter) : info
+1.Mode is automatic - no user intervention is _required_ to control the vehicle.
+2.Mode requires at least a valid local position estimate (does not require a global position).
+Flying vehicles can't switch to this mode without valid local position.
+Flying vehicles will failsafe if they lose the position estimate.
+4.Mode prevents arming (vehicle must be armed when switching to this mode).
+5.Mode requires wind and flight time are within allowed limits (specified via parameters).
+6.This mode is currently only supported on multicopter (or VTOL in MC mode).
+7.The follow target must also be able to supply position information.
+8.Follow-me mode is supported by _QGroundControl_ on Android devices with a GPS module, and MAVSDK.
+
+Overview
+The vehicle will automatically yaw to face and follow the target from a specified relative angle, distance and height and altitude, depending on the altitude control mode.
+By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home (arming) position.
+Users can adjust the follow angle, height and distance using an RC controller as shown above:
+1._Follow Height_ is controlled with the up-down input ("Throttle").
+Center the stick to keep follow the target at a constant hight.
+Raise or lower the stick to adjust height.
+2._Follow Distance_ is controlled with the forward-back input ("Pitch").
+Pushing the stick forward increases the follow distance, pulling it back decreases the distance.
+3._Follow Angle_ is controlled with the left-right input ("Roll").
+The movement is from the user's perspective, so if you face the drone and move the stick left, it will move to your left.
+From above if you move the stick left the drone will move counter-clockwise.
+Follow Angle is defined as increasing in clockwise direction relative to the target's heading (which is 0 degrees)
+
+Overview : info
+Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode.
+If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
+
+Safety Precautions
+The following flight precautions should be observed:
+1.Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc.
+Set the follow-me height to a value that is well above any surrounding obstructions.
+By _default_ this is 8 metres above the home (arming) position.
+2.It is _safer_ to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off).
+3.Give your vehicle sufficient room to stop, especially when it is moving fast.
+4.Be ready to switch back to Position mode if something goes wrong, in particular when using follow-me mode for the first time.
+5.You can't switch follow-me mode off using RC stick movements (as that will adjust the properties).
+You either need to have a GroundStation that can send flight mode switch signals or a flight mode switch configured in your RC transmitter.
+
+Safety Precautions : warning
+Follow-me mode does not implement any type of obstacle avoidance.
+Special care must be taken when this mode is used.
+
+Follow-Me with QGroundControl
+_Follow Me_ mode is supported using _QGroundControl_ as a target on ground station hardware that has a GPS module.
+The recommended configuration is a USB OTG-capable Android device with two telemetry radios.
+To setup _Follow Me_ mode:
+1.Connect a telemetry radio to your ground station device and another to the vehicle (this allows positioning information to be relayed between the two radios).
+2.Disable sleep-mode on your Android device:
+This setting can usually be found under: Settings > Display.
+It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals.
+3.Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported).
+Set the vehicle on the ground, press the safety switch and step back at least 10 meters.
+Arm the vehicle and takeoff.
+4.Switch into follow-me mode.
+The copter will first ascend to minimum safety altitude of 1 meters above the ground or home, depending on the presence of a distance sensor.
+It will ascend until it is 3 meters within the follow height to avoid potential collisions before moving horizontally.
+Copter will always adjust it's heading to face the target
+At this point you can start moving, and the drone will be following you.
+The mode has been tested on the following Android devices: Galaxy S10, Nexus 7 Tablet
+
+Follow-me with MAVSDK
+MAVSDK supports Follow Me, allowing you to create a drone app that is a follow-me target.
+For more information see the Follow Me class documentation as well as the Follow Me Example.
+
+Configuration : Altitude Control Mode
+The altitude control mode determine whether the vehicle altitude is relative to the home position, terrain height, or the altitude reported by the follow target.
+1.2D tracking (the default altitude mode) makes the drone follow at a height relative to the fixed home position (takeoff altitude).
+The relative distance to the drone to the target will change as you ascend and descend (use with care in hilly terrain).
+2.2D + Terrain makes the drone follow at a fixed height relative to the terrain underneath it, using information from a distance sensor.
+If the vehicle does not have a distance sensor following will be identical to 2D tracking.
+Distance sensors aren't always accurate and vehicles may be "jumpy" when flying in this mode.
+Note that that height is relative to the ground underneath the vehicle, not the follow target.
+The drone may not follow altitude changes of the target!
+3.3D tracking mode makes the drone follow at a height relative to the follow target, as supplied by its GPS sensor.
+This adapts to target altitude changes, such as when you walk up a hill.
+
+Configuration : warning
+Do not set the Altitude mode (FLW_TGT_ALT_M) to 3D Tracking when using QGC for Android (or more generally, without checking that FOLLOW_TARGET.altitude is an AMSL value).
+The MAVLink FOLLOW_TARGET message definition expects an altitude relative to mean sea level (AMSL) while QGC on Android is sending an altitude relative to the GPS ellipsoid.
+This can differ as much as 200 meters!
+The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected.
+If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.
+
+Tips and tricks
+1.Set the follow distance to more than 12 meters (8 meters is a "recommended minimum").
+There is an inherent position bias (3 ~ 5 meters) between the target and the drone's GPS sensor, which makes the drone follow a 'ghost target' somewhere near the actual target.
+This is more obvious when the follow distance is very small.
+We recommend that the follow distance is set to be large enough such that the GPS bias is not significant.
+2.The speed at which you can change the follow angle depends on the maximum tangential velocity setting.
+Experimentation shows that values between 5 m/s are 10 m/s are usually suitable.
+3.Using the RC Adjustment for height, distance and angle, you can get some creative camera shots.
+This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close).
+Which allows a perspective as shot from a satellite.
+
+Known Issues
+1.The SiK 915 Mhz telemetry radio is known to interfere with the GPS signal being received by some Android devices.
+Keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.
+2.QGC for Android reports an incorrect altitude (altitude above elipsoid rather than AMSL).
+The follow altitude can be off by up to 200m!

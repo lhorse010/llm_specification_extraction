@@ -1,0 +1,72 @@
+[
+    {
+    "sentence": "The user has direct control of Yaw and Pitch, but Roll is controlled by the autopilot.",
+    "formula": "G(Y ∧ P ∧ ¬R)",
+    "explanation": "G(Y ∧ P ∧ ¬R) captures the continuous nature of control. Y and P represent user control of Yaw and Pitch, while ¬R indicates that Roll is not under user control. The G operator ensures this holds globally throughout the flight."
+    },
+    {
+    "sentence": "The user has completely manual control over the throttle as in :ref:Stabilize mode <stabilize-mode>.",
+    "formula": "G(T)",
+    "explanation": "G(T) represents the constant manual control over throttle (T). The G operator indicates this control persists globally, reflecting the 'completely manual' aspect mentioned."
+    },
+    {
+    "sentence": "You \"fly\" the MultiCopter with the right stick (on Mode 2 controllers) controls Pitch and Yaw.",
+    "formula": "G(R → X(P ∧ Y))",
+    "explanation": "G(R → X(P ∧ Y)) shows that whenever the right stick (R) is used, it controls both Pitch (P) and Yaw (Y). The G operator ensures this relationship holds throughout the flight."
+    },
+    {
+    "sentence": "You use the left stick primarily for altitude control but not for yaw directly.",
+    "formula": "G(L → X(A ∧ ¬Y))",
+    "explanation": "G(L → X(A ∧ ¬Y)) indicates that when the left stick (L) is used, it controls altitude (A) but not yaw (¬Y). The G operator ensures this holds globally during the flight."
+    },
+    {
+    "sentence": "When you push the right stick forward or back the copter will pitch (and accelerate) in the appropriate direction.",
+    "formula": "G(R → X(P ∧ A))",
+    "explanation": "G(R → X(P ∧ A)) shows that pushing the right stick (R) leads to pitching (P) and acceleration (A) in the next state. The X operator captures the immediate response to the control input."
+    },
+    {
+    "sentence": "When you push the right stick towards one side or the other the right or to the left the copter will turn in the direction specified.",
+    "formula": "G(R → X(T))",
+    "explanation": "G(R → X(T)) indicates that pushing the right stick (R) sideways results in turning (T) in the next state. The X operator represents the immediate response to the control input."
+    },
+    {
+    "sentence": "The copter will also bank at the same time so as to make a coordinated turn in that direction.",
+    "formula": "G(T → B)",
+    "explanation": "G(T → B) shows that whenever there's a turn (T), there's also banking (B). The G operator ensures this coordination happens throughout the flight."
+    },
+    {
+    "sentence": "When turning with the right stick yaw is automatically applied and sufficient roll is added to cancel the copters velocity in the roll axis.",
+    "formula": "G(R ∧ T → (Y ∧ S))",
+    "explanation": "G(R ∧ T → (Y ∧ S)) captures that when turning (T) with the right stick (R), yaw (Y) and sufficient roll (S) are applied. The G operator ensures this automatic behavior occurs globally."
+    },
+    {
+    "sentence": "Letting go of the sticks effectively turns on a speed brake in the Pitch axis that slows the copter to a stop over a two second period.",
+    "formula": "G(¬S → F[0,2](B ∧ ¬V))",
+    "explanation": "G(¬S → F[0,2](B ∧ ¬V)) shows that releasing the sticks (¬S) leads to brake activation (B) and zero velocity (¬V) within 2 seconds. The F[0,2] operator represents the 'over a two second period' constraint."
+    },
+    {
+    "sentence": "A copter in Drift Mode with the right stick in the center will loosely hold horizontal position (It will slowly drift in the wind.)",
+    "formula": "G(D ∧ C → H)",
+    "explanation": "G(D ∧ C → H) indicates that in Drift Mode (D) with centered stick (C), the copter holds position (H). The G operator ensures this behavior persists, allowing for slight drift not captured in the formula."
+    },
+    {
+    "sentence": "If the pilot puts the throttle completely down the motors will go to their minimum rate (MOT_SPIN_ARMED) and if the vehicle is flying it will lose attitude control and tumble.",
+    "formula": "G(T → (M ∧ (F → L)))",
+    "explanation": "G(T → (M ∧ (F → L))) shows that full throttle down (T) leads to minimum motor rate (M), and if flying (F), loss of control (L) occurs. The G operator ensures this critical behavior is always true."
+    },
+    {
+    "sentence": "Drift Mode relies on your GPS for control.",
+    "formula": "G(D → GPS)",
+    "explanation": "G(D → GPS) captures that Drift Mode (D) always requires GPS (GPS). The outer G operator ensures this dependency holds throughout the flight."
+    },
+    {
+    "sentence": "If you lose your GPS signal in flight while in Drift Mode, your copter will either land or enter altitude hold based on your failsafe_gps_enabled setting.",
+    "formula": "G(D ∧ ¬GPS → (L ∨ A))",
+    "explanation": "G(D ∧ ¬GPS → (L ∨ A)) shows that in Drift Mode (D) with GPS loss (¬GPS), the copter will either land (L) or enter altitude hold (A). The G operator ensures this failsafe behavior is always active."
+    },
+    {
+    "sentence": "In the Mission Planner Configuration Section under flight modes select Drift Mode to apply to an appropriate switch setting.",
+    "formula": "F(C ∧ S → D)",
+    "explanation": "F(C ∧ S → D) indicates that at some point (F), configuring (C) and setting a switch (S) will enable Drift Mode (D). This formula captures the one-time setup nature of the instruction."
+    }
+]

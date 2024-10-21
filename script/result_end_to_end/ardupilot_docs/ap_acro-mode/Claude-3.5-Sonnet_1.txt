@@ -1,0 +1,40 @@
+Let's go through the steps to extract and express the specifications using Metric Temporal Logic (MTL) formulas.
+
+Step 1: I have thoroughly read the document.
+
+Step 4: Extracting specifications and expressing them using metric temporal logic formulas.
+
+Step 5: Formatting the converted sentences in JSON.
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(throttle = 0 → X(motor_rate = minimum ∧ ¬stabilization))",
+            "explanation": "Globally, if the throttle is completely down (0), then in the next state, the motors will go to their minimum rate and stabilization will cease. This corresponds to the specification: 'If the pilot puts the throttle completely down the motors will go to their minimum rate and stabilization will cease.'"
+        },
+        {
+            "formula": "G(acro_trainer = 1 → F(attitude = level))",
+            "explanation": "Globally, if acro_trainer is set to 1 (automatic leveling), then eventually the attitude will return to level. This represents the specification: 'The vehicle will automatically return to the level when the pilot releases the sticks.'"
+        },
+        {
+            "formula": "G(acro_trainer = 2 → G(lean_angle ≤ 45°))",
+            "explanation": "Globally, if acro_trainer is set to 2 (automatic leveling and lean angle limited), then it's always true that the lean angle is less than or equal to 45 degrees. This corresponds to the specification: 'Includes the automatic leveling as option #1 but in addition the vehicle will not lean more than 45 degrees.'"
+        },
+        {
+            "formula": "G(rcx_option < 1200 → acro_trainer = 0) ∧ G(1200 ≤ rcx_option < 1800 → acro_trainer = 1) ∧ G(rcx_option ≥ 1800 → acro_trainer = 2)",
+            "explanation": "This formula represents the channel switch logic for enabling/disabling the acro trainer. It states that globally, if the RC channel option is less than 1200, acro_trainer is disabled (0); if it's between 1200 and 1800, acro_trainer is set to automatic leveling (1); and if it's 1800 or above, acro_trainer is set to leveling and lean angle limited (2)."
+        },
+        {
+            "formula": "G(acro_rp_rate = 4.5 → rotation_rate = 200°/s)",
+            "explanation": "Globally, if ACRO_RP_RATE is set to 4.5, then the rotation rate for roll and pitch will be 200 degrees per second. This corresponds to the specification: 'The default, 4.5, will command a 200deg/sec rotation rate.'"
+        },
+        {
+            "formula": "G(acro_y_rate = 4.5 → yaw_rotation_rate = 200°/s)",
+            "explanation": "Globally, if ACRO_Y_RATE is set to 4.5, then the yaw rotation rate will be 200 degrees per second. This represents the specification: 'The default, 4.5, like roll and pitch, will command a 200deg/sec rotation rate.'"
+        }
+    ]
+}
+```
+
+These MTL formulas capture the key specifications from the document, focusing on clear and specific rules that the vehicle needs to meet in Acro mode. The formulas use the provided logical and temporal modal operators to express the behavior of the system over time.

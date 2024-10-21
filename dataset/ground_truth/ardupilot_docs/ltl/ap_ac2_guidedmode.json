@@ -1,0 +1,137 @@
+[
+    {
+        "sentence": "Guided mode is a capability of Copter to dynamically guide the copter to a target location wirelessly using a telemetry radio module and ground station application.",
+        "formula": "G(C → (T ∧ R ∧ G))",
+        "explanation": "This formula states that globally (G), if Copter is in Guided mode (C), then it implies the presence of a target location (T), telemetry radio (R), and ground station (G). The global operator captures the persistent nature of this capability."
+    },
+    {
+        "sentence": "Guided Mode can also be used by LUA scripts and companion computers to command vehicle movement and navigation.",
+        "formula": "G(C → ((L ∨ P) → (M ∧ N)))",
+        "explanation": "This formula represents that globally (G), when in Guided Mode (C), if LUA scripts (L) or companion computers (P) are used, it leads to vehicle movement (M) and navigation (N). The nested implication captures the causal relationship."
+    },
+    {
+        "sentence": "The guided mode capability is enabled using a ground station application (such as Mission Planner) and a :ref:telemetry radio <common-telemetry-landingpage>.",
+        "formula": "G((GS ∧ R) → C)",
+        "explanation": "This formula states that globally (G), the presence of a ground station application (GS) and telemetry radio (R) enables Guided mode capability (C). The implication captures the enabling relationship."
+    },
+    {
+        "sentence": "This capability allows the pilot to interactively command the copter to travel to a target location by clicking on a point on the Mission Planner Flight Data map.",
+        "formula": "G(C ∧ M → F(T))",
+        "explanation": "This formula represents that globally (G), when Guided mode is active (C) and a map click occurs (M), it leads to a future state (F) where the copter travels to the target location (T). The future operator captures the sequential nature of the action."
+    },
+    {
+        "sentence": "Once the location is reached, the copter will hover at that location, waiting for the next target.",
+        "formula": "G(T → X(H U N))",
+        "explanation": "This formula expresses that globally (G), when the target is reached (T), in the next state (X), the copter hovers (H) until (U) a new target is set (N). The until operator captures the waiting behavior."
+    },
+    {
+        "sentence": "Follow Me mode also uses Guided Mode to make the copter follow the pilot around the field.",
+        "formula": "G(Fo ∧ P → C)",
+        "explanation": "This formula states that globally (G), when Follow Me mode is active (Fo), it implies the use of Guided Mode (C) and following the pilot (P). The conjunction captures the dual aspects of this mode."
+    },
+    {
+        "sentence": "To use guided mode, you'll need a :ref:telemetry radio <common-telemetry-landingpage> allowing your computer and autopilot to communicate during flight, a ground station computer or tablet, and a ground station application such as :ref:Mission Planner <planner:home>.",
+        "formula": "G(C → (R ∧ A ∧ (G ∨ T) ∧ S))",
+        "explanation": "This formula represents that globally (G), using Guided mode (C) requires a telemetry radio (R), autopilot communication (A), either a ground station computer or tablet (G ∨ T), and a ground station application (S). The conjunction captures all necessary components."
+    },
+    {
+        "sentence": "A \"Guided\" target should appear on the map and the orange line (which indicates the target heading) should point to this guided target.",
+        "formula": "G(C → F(M ∧ L))",
+        "explanation": "This formula expresses that globally (G), when Guided mode is active (C), it leads to a future state (F) where a target appears on the map (M) and an orange line points to it (L). The future operator captures the expected visual feedback."
+    },
+    {
+        "sentence": "The vehicle should fly to the target location and wait there until you enter another location or switch to another mode.",
+        "formula": "G(T → F(V U (N ∨ M)))",
+        "explanation": "This formula states that globally (G), when a target is set (T), it leads to a future state (F) where the vehicle flies to the location (V) until (U) either a new location is entered (N) or the mode is switched (M). The until operator captures the waiting behavior."
+    },
+    {
+        "sentence": "The maximum horizontal speed of the copter can be adjusted with the Speed (:ref:WPNAV_SPEED<WPNAV_SPEED>) parameter from the Mission Planner's Config/Tuning >> Copter Pids screen (see blue box above).",
+        "formula": "G(S → X(H))",
+        "explanation": "This formula represents that globally (G), when the Speed parameter is adjusted (S), it affects the horizontal speed (H) in the next state (X). The next operator captures the immediate effect of the parameter change."
+    },
+    {
+        "sentence": "The vertical speeds up and down can similar be adjusted with the Speed Up (:ref:WPNAV_SPEED_UP<WPNAV_SPEED_UP>) and Speed Dn (:ref:WPNAV_SPEED_DN<WPNAV_SPEED_DN>) parameters.",
+        "formula": "G((U ∨ D) → X(V))",
+        "explanation": "This formula expresses that globally (G), when either the Speed Up (U) or Speed Down (D) parameters are adjusted, it affects the vertical speed (V) in the next state (X). The disjunction captures the two separate parameters."
+    },
+    {
+        "sentence": ":ref:WPNAV_ACCEL_Z<WPNAV_ACCEL_Z> determines how fast the speed can change.",
+        "formula": "G(A → X(C))",
+        "explanation": "This formula states that globally (G), when the WPNAV_ACCEL_Z parameter is set (A), it determines the rate of speed change (C) in the next state (X). The next operator captures the immediate effect on acceleration."
+    },
+    {
+        "sentence": "Speed can also be controlled while in GUIDED mode with :ref:MAVLink commands <common-mavlink-mission-command-messages-mav_cmd> like :ref:DO_CHANGE_SPEED<mav_cmd_do_change_speed>.",
+        "formula": "G(C ∧ M → X(S))",
+        "explanation": "This formula represents that globally (G), when in Guided mode (C) and a MAVLink command (M) is issued, it leads to a speed change (S) in the next state (X). The next operator captures the immediate effect of the command."
+    },
+    {
+        "sentence": "The :ref:GUID_OPTIONS<GUID_OPTIONS> parameter allows several guided mode behavior changes",
+        "formula": "G(O → C)",
+        "explanation": "This formula represents that globally (G), if the GUID_OPTIONS parameter (O) is set, it implies changes in guided mode behavior (C). The global operator captures the persistent nature of this parameter's effect."
+    },
+    {
+        "sentence": "Bit 0 (e.g. \"1\") allowing arming in Guided mode from the RC transmitter",
+        "formula": "G((Gu ∧ A) → B0)",
+        "explanation": "This formula expresses that globally (G), if Bit 0 is set (B0), then being in Guided mode (Gu) allows arming (A) from the RC transmitter. The nested implication captures the conditional nature of this feature."
+    },
+    {
+        "sentence": "Bit 2 (e.g. \"4\") disables the pilot's ability to change the vehicle's heading using the RC transmitter",
+        "formula": "G(B2 → ¬(R → H))",
+        "explanation": "This formula states that globally (G), if Bit 2 is set (B2), it negates the implication that RC transmitter input (R) leads to heading changes (H). The negation captures the disabling effect."
+    },
+    {
+        "sentence": "Bit 3 (e.g. \"8\") changes the interpretation of the SET_ATTITUDE_TARGET command's thrust field to be pure thrust expressed as a value between 0 and 1, instead of a climb rate.",
+        "formula": "G(B3 → (S → (T ∧ ¬C))",
+        "explanation": "This formula represents that globally (G), if Bit 3 is set (B3), the SET_ATTITUDE_TARGET command (S) implies pure thrust (T) and not climb rate (C). The conjunction captures the change in interpretation."
+    },
+    {
+        "sentence": "Bit 4 (e.g. \"16\") disables the position controller's XY axis position error correction.",
+        "formula": "G(B4 → ¬X)",
+        "explanation": "This formula expresses that globally (G), if Bit 4 is set (B4), it disables XY axis position error correction (X). The negation captures the disabling effect."
+    },
+    {
+        "sentence": "Bit 5 (e.g. \"32\") is the same as above but affects the position controller's velocity error correction",
+        "formula": "G(B5 → ¬V)",
+        "explanation": "Similar to the previous formula, this globally (G) states that if Bit 5 is set (B5), it disables velocity error correction (V). The structure mirrors the previous bit's effect."
+    },
+    {
+        "sentence": "Bit 6 (e.g. \"64\") enables S-Curve path planning (the same as is used in :ref:Auto mode <auto-mode>) to reach the position target.",
+        "formula": "G(B6 → S)",
+        "explanation": "This formula represents that globally (G), if Bit 6 is set (B6), it enables S-Curve path planning (S). The implication captures the enabling effect of this bit."
+    },
+    {
+        "sentence": "This also allows object avoidance path planning (e.g. Bendy Ruler and Dijkstras) to be used in Guided mode",
+        "formula": "G(B6 ∧ Gu → O)",
+        "explanation": "This formula extends the previous one, stating that globally (G), if Bit 6 is set (B6), then Guided mode (Gu) allows object avoidance path planning (O). The nested implication captures the additional feature enabled by this bit."
+    },
+    {
+        "sentence": "Bit 7 (e.g. \"128\") enables :ref:weathervaning <weathervaning>",
+        "formula": "G(B7 → W)",
+        "explanation": "This formula expresses that globally (G), if Bit 7 is set (B7), it enables weathervaning (W). The simple implication captures the straightforward enabling effect of this bit."
+    },
+    {
+        "sentence": "The :ref:GUID_TIMEOUT<GUID_TIMEOUT> parameter holds the timeout (in seconds) when the vehicle is being controlled using attitude, velocity and/or acceleration commands.",
+        "formula": "G((A ∨ V ∨ C) → F[0,T](¬(A ∨ V ∨ C)))",
+        "explanation": "This formula represents that globally (G), if attitude (A), velocity (V), or acceleration (C) commands are being used, it implies that within T seconds in the future (F[0,T]), these commands will no longer be active. The future operator captures the timeout behavior."
+    },
+    {
+        "sentence": "If no commands are received from the companion computer for this many seconds, the vehicle will slow to a stop (if velocity and/or acceleration commands were being provided) or hold a level hover (if attitude commands were provided).",
+        "formula": "G(¬R → F[T,T](S ∧ H))",
+        "explanation": "This formula states that globally (G), if no commands are received (¬R), then after T seconds (F[T,T]), velocity or acceleration commands lead to stopping (S), while attitude commands lead to hovering (H). The future operator captures the delayed response to lack of commands."
+    },
+    {
+        "sentence": "This variation of Guided mode does not require a GPS but it only accepts attitude targets.",
+        "formula": "G(N → A)",
+        "explanation": "This formula expresses that globally (G), if in this no-GPS Guided mode variation (N), it implies no GPS requirement and only attitude targets are accepted (A). The conjunction captures both aspects of this mode."
+    },
+    {
+        "sentence": "Because it does not accept position or velocity targets like regular Guided mode it is generally not useful for regular users.",
+        "formula": "G(N → ¬(P ∨ V))",
+        "explanation": "This formula represents that globally (G), if in this no-GPS Guided mode (N), it implies neither position (P) nor velocity (V) targets are accepted. The negation of the disjunction captures the limitation of this mode."
+    },
+    {
+        "sentence": "Guided_NoGPS does not allow a vehicle to hold position without a GPS (i.e. non-GPS navigation).",
+        "formula": "G(N → ¬(¬GPS ∧ H))",
+        "explanation": "This formula states that globally (G), if in Guided_NoGPS mode (N), it's not the case that lack of GPS (¬GPS) allows position holding (H). The nested negation and implication capture the inability to perform this function without GPS."
+    }
+]

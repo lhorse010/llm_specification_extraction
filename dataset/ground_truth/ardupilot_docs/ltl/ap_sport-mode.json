@@ -1,0 +1,37 @@
+[
+    {
+        "sentence": "Sport Mode is also known as \"rate controlled stabilize\" plus Altitude Hold.",
+        "formula": "G(S ↔ (R ∧ A))",
+        "explanation": "This formula states that globally (G), Sport Mode (S) is equivalent to the conjunction of Rate Controlled Stabilize (R) and Altitude Hold (A). The bidirectional implication (↔) captures the 'also known as' relationship."
+    },
+    {
+        "sentence": "It was designed to be useful for flying FPV and filming dolly shots or fly bys because you can set the vehicle at a particular angle and it will maintain that angle.",
+        "formula": "G(S → (A → G(MA)))",
+        "explanation": "This formula expresses that globally (G), when in Sport Mode (S), if an angle is set (A), it will be maintained indefinitely (G(MA))."
+    },
+    {
+        "sentence": "The pilot's roll, pitch and yaw sticks control the rate of rotation of the vehicle so when the sticks are released the vehicle will remain in its current attitude.",
+        "formula": "G((C → X(R)) ∧ (¬C → G(A)))",
+        "explanation": "This formula states that globally (G), when control inputs are applied (C), it leads to rotation in the next state (X(R)). When controls are released (¬C), the attitude (A) is maintained globally (G(A))."
+    },
+    {
+        "sentence": "The vehicle will not lean more than 45 degrees (this angle is adjustable with the :ref:ACRO_BAL_ROLL <ACRO_BAL_ROLL> and :ref:ACRO_BAL_PITCH <ACRO_BAL_PITCH> parameters)",
+        "formula": "G(¬L)",
+        "explanation": "This formula expresses that globally (G), the vehicle never (¬) leans more than 45 degrees (L). The adjustability of parameters is not directly represented in the formula but is implicit in the definition of L."
+    },
+    {
+        "sentence": "The altitude is maintained with the altitude hold controller so the vehicle will attempt to hold its current altitude when the sticks are placed with 10% of mid-throttle.",
+        "formula": "G(M → G(H))",
+        "explanation": "This formula states that globally (G), when the sticks are placed at mid-throttle (M), it leads to a global (G) holding of the current altitude (H)."
+    },
+    {
+        "sentence": "It will climb or descend at up to 2.5m/s (this speed is adjustable with the :ref:PILOT_SPEED_UP<PILOT_SPEED_UP> and :ref:PILOT_SPEED_DN<PILOT_SPEED_DN> parameters).",
+        "formula": "G(C → (UP ∨ DW))",
+        "explanation": "This formula expresses that globally (G), when climbing or descending (C), the speed is either upward (UP) or downward (DW), implicitly bounded by 2.5m/s. The adjustability of parameters is not directly represented in the formula."
+    },
+    {
+        "sentence": "The acceleration used to establish these speeds is set by :ref:PILOT_ACCEL_Z<PILOT_ACCEL_Z>.",
+        "formula": "G(A → F(S))",
+        "explanation": "This formula states that globally (G), the presence of acceleration (A) implies the establishment of speed (S). The specific parameter setting is not directly represented in the formula but is implicit in the definition of A."
+    }
+]

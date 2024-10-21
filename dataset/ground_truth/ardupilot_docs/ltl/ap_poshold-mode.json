@@ -1,0 +1,57 @@
+[
+    {
+        "sentence": "The PosHold flight mode is similar to Loiter in that the vehicle maintains a constant location, heading, and altitude but is generally more popular because the pilot stick inputs directly control the vehicle's lean angle providing a more \"natural\" feel.",
+        "formula": "G(PH → (CL ∧ CH ∧ CA ∧ (PC → LA)))",
+        "explanation": "This formula states that globally (G), when PosHold mode (PH) is active, it implies constant location (CL), constant heading (CH), constant altitude (CA), and pilot control of lean angle (PCLA). The formula captures the core characteristics of PosHold mode."
+    },
+    {
+        "sentence": "When switched on, PosHold mode will automatically attempts to maintain the current location, heading, and altitude.",
+        "formula": "G(PH → X(MCL ∧ MCH ∧ MCA))",
+        "explanation": "This formula expresses that globally (G), when PosHold mode (PH) is activated, in the next state (X), it maintains current location (MCL), current heading (MCH), and current altitude (MCA). The 'X' operator captures the immediate effect of switching on PosHold mode."
+    },
+    {
+        "sentence": "The pilot can control the copter's location horizontally and vertically with the control sticks.",
+        "formula": "G(PH → (PCH → HC) ∧ (PCV → VC))",
+        "explanation": "This formula states that globally (G), when in PosHold mode (PH), the pilot can control horizontal movement (PCH) and vertical movement (PCV). It captures the pilot's ability to control the copter's position in 3D space."
+    },
+    {
+        "sentence": "Horizontal location can be adjusted with the Roll and Pitch control sticks with the default maximum lean angle being 45 degrees (angle can be adjusted with the :ref:ANGLE_MAX<ANGLE_MAX> parameter).",
+        "formula": "G(PH → (PCR → RC) ∧ (PCP → PC) ∧ LA)",
+        "explanation": "This formula expresses that globally (G), in PosHold mode (PH), pilot can control roll (PCR) and pitch (PCP), and the lean angle is less than or equal to :ref:ANGLE_MAX<ANGLE_MAX> degrees(LA). It captures the control mechanism and the default angle limitation."
+    },
+    {
+        "sentence": "When the pilot releases the sticks the copter will lean back to bring the vehicle to a stop.",
+        "formula": "G(PH ∧ SR → LB ∧ F(VS))",
+        "explanation": "This formula states that globally (G), in PosHold mode (PH) when sticks are released (SR), it will eventually (F) lead to the copter leaning back (LB) and vehicle stopping (VS). It captures the automatic stabilization behavior."
+    },
+    {
+        "sentence": "Altitude can be controlled with the Throttle control stick just as in :ref:AltHold mode <altholdmode_controls>",
+        "formula": "G(PH → (PCA → AC))",
+        "explanation": "This formula expresses that globally (G), in PosHold mode (PH), pilot can control altitude (PCA). It captures the altitude control mechanism similar to AltHold mode."
+    },
+    {
+        "sentence": "The heading can be set with the Yaw control stick",
+        "formula": "G(PH → (PCY → YC))",
+        "explanation": "This formula states that globally (G), in PosHold mode (PH), pilot can control yaw (PCY). It captures the heading control mechanism."
+    },
+    {
+        "sentence": "You may arm in PosHold mode but only once the GPS has 3D lock and the HDOP has dropped to 2.0 or lower.",
+        "formula": "G(PH ∧ GPL ∧ HDOP → CA)",
+        "explanation": "This formula expresses that globally (G), in PosHold mode (PH), if GPS has 3D lock (GPL) and HDOP is less than or equal to 2.0 (HDDP), then pilot can arm (CA). It captures the preconditions for arming in PosHold mode."
+    },
+    {
+        "sentence": "On a Pixhawk the LED will become green (more details on LED patterns here).",
+        "formula": "G(PH ∧ GPL ∧ HDOP → LG)",
+        "explanation": "This formula states that globally (G), in PosHold mode (PH), if GPS has 3D lock (GPL) and HDOP is less than or equal to 2.0, then LED becomes green (LG). It captures the visual indicator for meeting arming conditions."
+    },
+    {
+        "sentence": "The maximum brake-angle can be set with the :ref:PHLD_BRAKE_ANGLE<PHLD_BRAKE_ANGLE> parameter (i.e. 3000 = the vehicle will lean back up to 30degrees)",
+        "formula": "G(PH → BA)",
+        "explanation": "This formula expresses that globally (G), in PosHold mode (PH), the brake angle is less than or equal to the PHLD_BRAKE_ANGLE parameter(BA). It captures the configurable nature of the maximum brake angle."
+    },
+    {
+        "sentence": "The speed the vehicle rotates back to the maximum angle can be set with the :ref:PHLD_BRAKE_RATE<PHLD_BRAKE_RATE> parameter (i.e. 8 = rotates back at 8 degrees per second))",
+        "formula": "G(PH → BR)",
+        "explanation": "This formula states that globally (G), in PosHold mode (PH), the brake rate equals the PHLD_BRAKE_RATE parameter(BR). It captures the configurable nature of the rotation speed during braking."
+    }
+]

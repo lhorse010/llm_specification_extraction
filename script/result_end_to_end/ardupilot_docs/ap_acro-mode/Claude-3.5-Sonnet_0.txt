@@ -1,0 +1,42 @@
+Let's extract the specifications from the document and express them using Metric Temporal Logic (MTL) formulas.
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(throttle = 0 → X(motor_rate = min_rate))",
+            "explanation": "Globally, if the throttle is completely down (0), then in the next state, the motors will go to their minimum rate."
+        },
+        {
+            "formula": "G(acro_trainer = 1 → F(attitude = level))",
+            "explanation": "Globally, if Acro Trainer is set to 1 (automatic leveling), then eventually the vehicle's attitude will return to level when the pilot releases the sticks."
+        },
+        {
+            "formula": "G(acro_trainer = 2 → (F(attitude = level) ∧ G(lean_angle ≤ 45)))",
+            "explanation": "Globally, if Acro Trainer is set to 2 (automatic leveling and lean angle limited), then eventually the attitude will return to level and the lean angle will always be less than or equal to 45 degrees."
+        },
+        {
+            "formula": "G(airmode_enabled ∧ throttle = 0 → stabilization_active)",
+            "explanation": "Globally, if AirMode is enabled and throttle is at 0, then stabilization remains active."
+        },
+        {
+            "formula": "G(stick_input ∧ ¬(ACRO_TRAINER_active) → body_frame_interpretation)",
+            "explanation": "Globally, if there's stick input and ACRO_TRAINER is not active, then the input is interpreted in the body frame."
+        },
+        {
+            "formula": "G(ACRO_RP_RATE = 4.5 → rotation_rate = 200)",
+            "explanation": "Globally, if ACRO_RP_RATE is set to 4.5, then the rotation rate for roll and pitch axes will be 200 degrees per second."
+        },
+        {
+            "formula": "G(ACRO_Y_RATE = 4.5 → yaw_rotation_rate = 200)",
+            "explanation": "Globally, if ACRO_Y_RATE is set to 4.5, then the rotation rate for the yaw axis will be 200 degrees per second."
+        },
+        {
+            "formula": "G(virtual_flybar_enabled → (ACRO_BAL_ROLL > 0 ∧ ACRO_BAL_PITCH > 0))",
+            "explanation": "Globally, the Virtual Flybar feature is enabled if and only if both ACRO_BAL_ROLL and ACRO_BAL_PITCH are set to non-zero values."
+        }
+    ]
+}
+```
+
+These MTL formulas capture the key specifications from the document. They express important behaviors and constraints of the Acro mode, including throttle control, Acro Trainer functionality, AirMode behavior, stick input interpretation, rotation rates, and the Virtual Flybar feature for traditional helicopters.

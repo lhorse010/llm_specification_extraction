@@ -1,0 +1,74 @@
+Based on the provided document, I've extracted the specifications and expressed them using Metric Temporal Logic (MTL) formulas. Here are the results in the required JSON format:
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(inside_drivable_area)",
+            "explanation": "The vehicle should always be inside the drivable area."
+        },
+        {
+            "formula": "G(velocity = 0 -> outside_drivable_area)",
+            "explanation": "If the vehicle is outside the drivable area, its velocity should be zero."
+        },
+        {
+            "formula": "G(distance_to_road_boundary > mpt.clearance.soft_clearance_from_road)",
+            "explanation": "The vehicle should maintain a safe distance from the road boundary."
+        },
+        {
+            "formula": "G(steering_wheel_stability)",
+            "explanation": "The steering wheel should be stable along the trajectory."
+        },
+        {
+            "formula": "F(optimization_failure -> previously_generated_trajectory)",
+            "explanation": "If optimization fails, the previously generated trajectory should be used."
+        },
+        {
+            "formula": "G(computation_time < max_computation_time)",
+            "explanation": "The computation time should be within the maximum allowed time."
+        },
+        {
+            "formula": "G(trajectory_length > min_trajectory_length)",
+            "explanation": "The trajectory length should be greater than the minimum required length."
+        },
+        {
+            "formula": "G(ego_moving_dist < replan.max_ego_moving_dist)",
+            "explanation": "The ego vehicle should not move more than the maximum allowed distance in one cycle."
+        },
+        {
+            "formula": "G(goal_moving_dist < replan.max_goal_moving_dist)",
+            "explanation": "The goal pose should not move more than the maximum allowed distance in one cycle."
+        },
+        {
+            "formula": "G(time_passes -> optimization_executed)",
+            "explanation": "Optimization should be executed at regular time intervals."
+        },
+        {
+            "formula": "G(input_path_change -> optimization_executed)",
+            "explanation": "Optimization should be executed when the input path changes."
+        }
+    ]
+}
+```
+
+Note that I've used the following abbreviations in the MTL formulas:
+
+* `inside_drivable_area`: The vehicle is inside the drivable area.
+* `outside_drivable_area`: The vehicle is outside the drivable area.
+* `velocity = 0`: The vehicle's velocity is zero.
+* `distance_to_road_boundary`: The distance between the vehicle and the road boundary.
+* `mpt.clearance.soft_clearance_from_road`: The soft clearance parameter from the road boundary.
+* `steering_wheel_stability`: The stability of the steering wheel along the trajectory.
+* `optimization_failure`: Optimization has failed.
+* `previously_generated_trajectory`: The previously generated trajectory.
+* `computation_time`: The computation time.
+* `max_computation_time`: The maximum allowed computation time.
+* `trajectory_length`: The length of the trajectory.
+* `min_trajectory_length`: The minimum required trajectory length.
+* `ego_moving_dist`: The distance moved by the ego vehicle in one cycle.
+* `replan.max_ego_moving_dist`: The maximum allowed distance for the ego vehicle to move in one cycle.
+* `goal_moving_dist`: The distance moved by the goal pose in one cycle.
+* `replan.max_goal_moving_dist`: The maximum allowed distance for the goal pose to move in one cycle.
+* `time_passes`: Time has passed.
+* `optimization_executed`: Optimization has been executed.
+* `input_path_change`: The input path has changed.

@@ -1,0 +1,157 @@
+[
+    {
+        "sentence": "This flight mode is available for traditional helicopters only.",
+        "formula": "G(AR → T)",
+        "explanation": "AR represents the flight mode being available, and T represents a traditional helicopter. This formula states that it's always true that if the flight mode is available, then it's for a traditional helicopter."
+    },
+    {
+        "sentence": "It is currently limited to single rotor helicopters.",
+        "formula": "G(AR → S)",
+        "explanation": "AR represents the flight mode being available, and S represents single rotor helicopters. This formula expresses that it's always the case that if there's a limitation, it applies to single rotor helicopters."
+    },
+    {
+        "sentence": "This is only enabled for use with SITL.",
+        "formula": "G(E → S)",
+        "explanation": "E represents flight mode being enabled, and S represents SITL (Software In The Loop). This formula states that it's globally true that if something is enabled, it's for use with SITL."
+    },
+    {
+        "sentence": "1. Entry - The initial actions of the vehicle in which collective is used to minimize head speed loss and cyclic is used for attitude control to either maintain or begin building forward airspeed.",
+        "formula": "G(E → (C ∧ A))",
+        "explanation": "E represents the entry phase, C represents collective use, and A represents attitude control. This formula states that eventually, there will be an entry phase where both collective and cyclic controls are used simultaneously."
+    },
+    {
+        "sentence": "In this phase the aircraft can be gently navigated to attain the most suitable landing area, within its gliding range.",
+        "formula": "G(E → F(N ∧ L))",
+        "explanation": "E represents the phase, N represents navigation, and L represents finding a suitable landing area. This formula expresses that during this phase, it's always possible to eventually navigate and find a suitable landing area."
+    },
+    {
+        "sentence": "3. Flare - Performed close to the ground this phase of the manoeuvre looks to convert airspeed into lift, reducing descent speed and, where necessary, building head speed.",
+        "formula": "G(Fp → (C ∧ R ∧ B))",
+        "explanation": "Fp represents the flare phase, C represents converting airspeed to lift, R represents reducing descent speed, and B represents building head speed. This formula states that eventually, there will be a flare phase where these actions occur simultaneously."
+    },
+    {
+        "sentence": "4. Touch-Down - The vehicle is gently landed using the energy remaining in the rotor head.",
+        "formula": "G(T → L)",
+        "explanation": "T represents touch-down, and L represents landing using remaining rotor energy. This formula expresses that eventually, there will be a touch-down where the vehicle lands using the remaining rotor energy."
+    },
+    {
+        "sentence": "As the descent velocity increases the lift vector will naturally rotate towards the leading edge of the blade, providing the driving force to mainain rotor RPM.",
+        "formula": "G(D → F(R ∧ M))",
+        "explanation": "D represents increasing descent velocity, R represents lift vector rotation, and M represents maintaining rotor RPM. This formula states that it's always the case that if descent velocity increases, eventually the lift vector will rotate and maintain rotor RPM."
+    },
+    {
+        "sentence": "In addition to this, the forward airspeed must be either maintained or increased (if the failure is initiated from a low airspeed state).",
+        "formula": "G(M ∨ I)",
+        "explanation": "M represents maintaining airspeed, and I represents increasing airspeed. This formula expresses that it's always true that in a failure state, airspeed must be either maintained or increased."
+    },
+    {
+        "sentence": "Forward airspeed is necessary for efficient flight and will improve the range of the helicopter, increasing the likelihood of finding a suitable landing area.",
+        "formula": "G(A → (E ∧ R ∧ L))",
+        "explanation": "A represents forward airspeed, E represents efficient flight, R represents improved range, and L represents likelihood of finding a landing area. This formula states that it's always true that forward airspeed leads to efficient flight, improved range, and increased likelihood of finding a landing area."
+    },
+    {
+        "sentence": "It is during this phase of flight that small angles of bank and low yaw rates can be applied to navigate the aircraft towards a suitable landing area, and where possible, turn to land into wind.",
+        "formula": "G(P → F(B ∧ Y ∧ N ∧ T))",
+        "explanation": "P represents the phase, B represents bank angles, Y represents yaw rates, N represents navigation, and T represents turning into wind. This formula expresses that during this phase, it's always possible to eventually apply bank angles and yaw rates to navigate and turn into wind."
+    },
+    {
+        "sentence": "Cyclic is used to pitch the aircraft nose up.",
+        "formula": "G(C → F(P))",
+        "explanation": "C represents cyclic use, and P represents pitching the nose up. This formula states that it's always true that when cyclic is used, it results in pitching the aircraft nose up."
+    },
+    {
+        "sentence": "As this manoeuvre is flown close to the ground it requires a reliable height estimate that can account for the local terrain.",
+        "formula": "G(M → (H ∧ T))",
+        "explanation": "M represents the manoeuvre, H represents reliable height estimate, and T represents accounting for terrain. This formula expresses that it's always the case that this manoeuvre requires both a reliable height estimate and accounting for local terrain."
+    },
+    {
+        "sentence": "Finally, with the aircraft now close to the ground, with low forward and descent speeds, it can be gently lowered to the ground.",
+        "formula": "F(G ∧ L ∧ D)",
+        "explanation": "G represents being close to the ground, L represents low speeds, and D represents descent. This formula states that eventually, the aircraft will be close to the ground with low speeds and can descend."
+    },
+    {
+        "sentence": "The aircraft must therefore be landed before the head speed slows too much, resulting in blade stall.",
+        "formula": "G(¬S U L)",
+        "explanation": "S represents blade stall, and L represents landing. This formula expresses that blade stall must not occur until the aircraft has landed."
+    },
+    {
+        "sentence": "When exiting the autonomous autorotation flight mode the aircraft will be returned to a \"non-manual collective mode\".",
+        "formula": "G(E → F(N))",
+        "explanation": "E represents exiting autorotation mode, and N represents non-manual collective mode. This formula states that it's always true that when exiting autorotation, the aircraft will eventually enter a non-manual collective mode."
+    },
+    {
+        "sentence": "When initiated, the bail-out phase will read the requested climb or descent rate from the operators throttle stick position.",
+        "formula": "G(I → X(R))",
+        "explanation": "I represents initiation of bail-out, and R represents reading throttle position. This formula expresses that it's always the case that when bail-out is initiated, in the next state, the system will read the throttle position."
+    },
+    {
+        "sentence": "The aircraft will then be decelerated over a set period of time (see parameter AROT_BAIL_TIME).",
+        "formula": "G(B → F(D))",
+        "explanation": "B represents the bail-out phase, and D represents deceleration. This formula states that it's always true that during the bail-out phase, deceleration will eventually occur."
+    },
+    {
+        "sentence": "At the end of which, the requested vertical speed will match the magnitude requested on the stick.",
+        "formula": "G(E → V)",
+        "explanation": "E represents the end of deceleration, V represents vertical speed, and S represents stick position. This formula expresses that at the end of deceleration, it's always the case that the vertical speed is equivalent to the stick position."
+    },
+    {
+        "sentence": "The time spent in this phase is typically of the order of two seconds.",
+        "formula": "G(F[2,2](¬P))",
+        "explanation": "P represents the phase, and E represents the end of the phase. This formula states that it's always true that when in this phase, it will end in exactly 2 seconds."
+    },
+    {
+        "sentence": "Smaller helicopters (550 size and below) may require this time to be extended to three or four seconds.",
+        "formula": "G(S → F[3,4](E))",
+        "explanation": "S represents smaller helicopters, and E represents the end of the phase. This formula expresses that for smaller helicopters, it's always the case that the phase will end between 3 and 4 seconds."
+    },
+    {
+        "sentence": "The motor ramp time defined by H_RSC_RAMP_TIME is ignored during bail-out, and a hard-coded ramp time of one second is used.",
+        "formula": "G(B → (¬R ∧ H))",
+        "explanation": "B represents bail-out, R represents using H_RSC_RAMP_TIME, and H represents using hard-coded time. This formula states that during bail-out, it's always true that H_RSC_RAMP_TIME is not used and the hard-coded time is used."
+    },
+    {
+        "sentence": "The ramp time defined by H_RSC_RAMP_TIME is now only observed when the aircraft is on ground and the \"landed flag\" is set true.",
+        "formula": "G(R → (G ∧ L))",
+        "explanation": "G represents being on ground, L represents the landed flag being true, and R represents using H_RSC_RAMP_TIME. This formula expresses that it's always the case that H_RSC_RAMP_TIME is used only when the aircraft is on ground and the landed flag is true."
+    },
+    {
+        "sentence": "It often takes ArduCopter a second to register that the aircraft has landed once on the ground.",
+        "formula": "G(L → F[0,1](R))",
+        "explanation": "L represents landing, and R represents registration of landing. This formula states that it's always true that after landing, it takes exactly 1 second for the system to register the landing."
+    },
+    {
+        "sentence": "Therefore, if the interlock is re-engaged immediately after the aircraft touches down the one second ramp time of the bail-out phase can be initiated on the ground.",
+        "formula": "G((T ∧ X(I)) → B)",
+        "explanation": "T represents touching down, I represents interlock re-engagement, and B represents bail-out phase initiationon the ground."
+    },
+    {
+        "sentence": "The autonomous autorotation flight mode cannot be entered via a mode switch, as is done with other flight modes.",
+        "formula": "G(¬(S → A))",
+        "explanation": "S represents mode switch activation, and A represents entering autonomous autorotation mode. This formula states that it's always false that a mode switch activation leads to entering autonomous autorotation mode."
+    },
+    {
+        "sentence": "In an attempt to mimic the autorotation procedure followed when flying a manual autorotation, the mode is entered and exited using the motor interlock switch.",
+        "formula": "G(I → (E ∨ X))",
+        "explanation": "E represents entering autorotation mode, X represents exiting autorotation mode, and I represents using the interlock switch. This formula expresses that it's always true that entering or exiting autorotation mode is equivalent to using the interlock switch."
+    },
+    {
+        "sentence": "The autonomous flight mode can only be entered if the interlock is disengaged whilst flying in a non-manual collective mode.",
+        "formula": "G(A → (D ∧ N))",
+        "explanation": "A represents entering autonomous flight mode, D represents interlock disengagement, and N represents non-manual collective mode. This formula states that it's always the case that entering autonomous flight mode requires both interlock disengagement and being in non-manual collective mode."
+    },
+    {
+        "sentence": "When exiting the autorotation the flight mode is returned to the mode from which it came (e.g. Altitude Hold -> Autonomous Autorotation -> Altitude Hold).",
+        "formula": "G((X ∧ P) → F(P))",
+        "explanation": "X represents exiting autorotation, and P represents the previous mode. This formula expresses that it's always true that when exiting autorotation from a previous mode, the system will eventually return to that previous mode."
+    },
+    {
+        "sentence": "The only exception to this is when the aircraft enters the autorotation from an auto mission.",
+        "formula": "G((M ∧ X(E)) → ¬F(M))",
+        "explanation": "E represents entering autorotation, and M represents auto mission mode. This formula states that it's always the case that if autorotation is entered from an auto mission, the system will not return to the auto mission mode."
+    },
+    {
+        "sentence": "In which case, the mode is exited into Altitude Hold.",
+        "formula": "G((X ∧ M) → F(A))",
+        "explanation": "X represents exiting autorotation, M represents coming from auto mission mode, and A represents Altitude Hold mode. This formula expresses that it's always true that when exiting autorotation from an auto mission, the system will eventually enter Altitude Hold mode."
+    }
+]

@@ -1,0 +1,50 @@
+```json
+{
+    "specifications": [
+        {
+            "formula": "G (valid_local_position_estimate → (mode = follow_me))",
+            "explanation": "The vehicle can only switch to Follow-Me mode if there is a valid local position estimate."
+        },
+        {
+            "formula": "G ((¬valid_local_position_estimate) → failsafe)",
+            "explanation": "The vehicle must enter failsafe mode if the local position estimate is lost."
+        },
+        {
+            "formula": "G (¬armed → ¬(mode = follow_me))",
+            "explanation": "The vehicle cannot be in Follow-Me mode if it is not armed."
+        },
+        {
+            "formula": "G ((wind_within_limits ∧ flight_time_within_limits) → (mode = follow_me))",
+            "explanation": "The vehicle can only be in Follow-Me mode if wind and flight time are within allowed limits."
+        },
+        {
+            "formula": "G (follow_target_providing_position → (mode = follow_me))",
+            "explanation": "The follow target must provide position information for Follow-Me mode to be active."
+        },
+        {
+            "formula": "G (mode = follow_me → (height = default_height ∧ distance = default_distance))",
+            "explanation": "The vehicle follows the target at default height and distance when Follow-Me mode is activated."
+        },
+        {
+            "formula": "G ((exit_follow_me) → (height = default_height ∧ distance = default_distance))",
+            "explanation": "Height and distance settings reset to defaults when exiting Follow-Me mode."
+        },
+        {
+            "formula": "G (mode = follow_me → ¬obstacle_avoidance)",
+            "explanation": "Follow-Me mode does not implement obstacle avoidance."
+        },
+        {
+            "formula": "G (mode = follow_me → (altitude ≥ 1))",
+            "explanation": "The vehicle must ascend to a minimum safety altitude before following the target."
+        },
+        {
+            "formula": "G (mode = follow_me → (heading = face_target))",
+            "explanation": "The vehicle always adjusts its heading to face the target in Follow-Me mode."
+        },
+        {
+            "formula": "G (altitude_mode = 3D_tracking → (altitude_relative_to_AMSL))",
+            "explanation": "When in 3D tracking mode, the altitude must be relative to mean sea level (AMSL)."
+        }
+    ]
+}
+```

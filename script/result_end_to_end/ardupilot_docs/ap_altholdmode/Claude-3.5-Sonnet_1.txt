@@ -1,0 +1,38 @@
+I'll extract the specifications from the document and express them using Metric Temporal Logic (MTL) formulas. Then I'll format the results in JSON as requested.
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(altitude_hold_mode → (G(|current_altitude - target_altitude| < ε)))",
+            "explanation": "Globally, when in altitude hold mode, the copter should always maintain its current altitude within a small error margin ε."
+        },
+        {
+            "formula": "G(altitude_hold_mode ∧ (throttle_position > 60%) → F(climb_rate = 2.5))",
+            "explanation": "Globally, when in altitude hold mode and throttle position is above 60%, the copter should eventually reach a climb rate of 2.5 m/s."
+        },
+        {
+            "formula": "G(altitude_hold_mode ∧ (throttle_position < 40%) → F(descent_rate = 2.5))",
+            "explanation": "Globally, when in altitude hold mode and throttle position is below 40%, the copter should eventually reach a descent rate of 2.5 m/s."
+        },
+        {
+            "formula": "G(altitude_hold_mode ∧ (40% ≤ throttle_position ≤ 60%) → X(maintain_current_altitude))",
+            "explanation": "Globally, when in altitude hold mode and throttle position is between 40% and 60%, the copter should maintain its current altitude in the next state."
+        },
+        {
+            "formula": "G(altitude_hold_mode → (roll_control ∧ pitch_control ∧ yaw_control))",
+            "explanation": "Globally, when in altitude hold mode, the pilot should always have control over roll, pitch, and yaw."
+        },
+        {
+            "formula": "G(landing_checker_active → F(disarm_allowed))",
+            "explanation": "Globally, when the landing checker is active, it should eventually allow disarming if the copter has landed."
+        },
+        {
+            "formula": "G(hover_throttle ≤ 70%)",
+            "explanation": "Globally, the hover throttle should always be at or below 70% to ensure adequate power."
+        }
+    ]
+}
+```
+
+These MTL formulas capture the key specifications extracted from the document. They cover altitude maintenance, climb and descent rates, throttle control, pilot control over roll/pitch/yaw, disarming conditions, and power requirements. Note that some specific parameters (like ε for error margin) would need to be defined based on system requirements.

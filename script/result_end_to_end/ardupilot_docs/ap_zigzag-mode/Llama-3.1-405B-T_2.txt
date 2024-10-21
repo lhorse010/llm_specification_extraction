@@ -1,0 +1,55 @@
+Based on the provided document, I've extracted the specifications and expressed them using Metric Temporal Logic (MTL) formulas. Here are the results in the required JSON format:
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G((ZigZag_SaveWP ∧ Loiter_mode) → X(Manual_control))",
+            "explanation": "When the auxiliary switch is set to 'ZigZag SaveWP' and the vehicle is in Loiter mode, it will transition to manual control in the next state."
+        },
+        {
+            "formula": "G((ZigZag_mode ∧ Record_side) → F(Autonomous_flight))",
+            "explanation": "When the vehicle is in ZigZag mode and a side is recorded, it will eventually start flying autonomously."
+        },
+        {
+            "formula": "G((Autonomous_flight ∧ Reach_opposite_side) → X(Manual_control))",
+            "explanation": "When the vehicle reaches the opposite side while flying autonomously, it will transition to manual control in the next state."
+        },
+        {
+            "formula": "G((Range_finder_unhealthy ∧ Autonomous_flight) → X(Manual_control ∧ Stop_vehicle))",
+            "explanation": "When the range finder becomes unhealthy while the vehicle is flying autonomously, it will transition to manual control and come to a stop in the next state."
+        },
+        {
+            "formula": "G((ZigZag_Auto_Mode ∧ Registered_sides) → F(Automatic_operation))",
+            "explanation": "When the ZigZag Auto Mode is enabled and the field's side points are registered, the vehicle will eventually start automatic operation."
+        },
+        {
+            "formula": "G((Automatic_operation ∧ Sprayer_enabled) → F(Enable_sprayer))",
+            "explanation": "When the vehicle is in automatic operation and the sprayer is enabled, it will eventually enable the sprayer."
+        },
+        {
+            "formula": "G((ZigZag_Auto_Mode ∧ Low_position) → X(Stop_automatic_operation))",
+            "explanation": "When the ZigZag Auto Mode switch is moved to the low position, the automatic operation will stop in the next state."
+        }
+    ]
+}
+```
+
+Note that I've used the following abbreviations in the MTL formulas:
+
+* `ZigZag_SaveWP`: The auxiliary switch is set to "ZigZag SaveWP".
+* `Loiter_mode`: The vehicle is in Loiter mode.
+* `Manual_control`: The vehicle is in manual control.
+* `ZigZag_mode`: The vehicle is in ZigZag mode.
+* `Record_side`: A side is recorded.
+* `Autonomous_flight`: The vehicle is flying autonomously.
+* `Reach_opposite_side`: The vehicle reaches the opposite side.
+* `Range_finder_unhealthy`: The range finder becomes unhealthy.
+* `Stop_vehicle`: The vehicle comes to a stop.
+* `ZigZag_Auto_Mode`: The ZigZag Auto Mode is enabled.
+* `Registered_sides`: The field's side points are registered.
+* `Automatic_operation`: The vehicle is in automatic operation.
+* `Sprayer_enabled`: The sprayer is enabled.
+* `Enable_sprayer`: The sprayer is enabled.
+* `Low_position`: The ZigZag Auto Mode switch is moved to the low position.
+* `Stop_automatic_operation`: The automatic operation stops.

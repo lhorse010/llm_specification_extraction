@@ -1,0 +1,55 @@
+Let's go through the steps to extract specifications from the document and express them using Metric Temporal Logic (MTL) formulas.
+
+Step 1: Read the document thoroughly.
+I have carefully read the document about ZigZag Mode and its automatic operation.
+
+Step 4: Extract specifications and express them using metric temporal logic formula.
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(armed ∧ zigzag_mode → F(manual_control ∨ autonomous_control))",
+            "explanation": "Globally, when the vehicle is armed and in ZigZag mode, it will eventually be either under manual control or autonomous control."
+        },
+        {
+            "formula": "G(zigzag_mode ∧ switch_high → X(record_side_A))",
+            "explanation": "Globally, when in ZigZag mode and the switch is moved to the high position, in the next state, side A of the field is recorded."
+        },
+        {
+            "formula": "G(zigzag_mode ∧ switch_low → X(record_side_B))",
+            "explanation": "Globally, when in ZigZag mode and the switch is moved to the low position, in the next state, side B of the field is recorded."
+        },
+        {
+            "formula": "G(autonomous_control ∧ reach_field_side → X(manual_control))",
+            "explanation": "Globally, when under autonomous control and reaching the other side of the field, in the next state, the vehicle reverts to manual control."
+        },
+        {
+            "formula": "G(autonomous_control ∧ (switch_middle ∨ mode_change) → X(manual_control))",
+            "explanation": "Globally, when under autonomous control and either the switch is moved to the middle position or the flight mode is changed, in the next state, the vehicle reverts to manual control."
+        },
+        {
+            "formula": "G(range_finder_healthy → follow_terrain)",
+            "explanation": "Globally, if the downward facing range finder is healthy, the vehicle will follow the terrain."
+        },
+        {
+            "formula": "G(autonomous_control ∧ ¬range_finder_healthy → X(manual_control ∧ stop))",
+            "explanation": "Globally, when under autonomous control and the range finder becomes unhealthy, in the next state, the vehicle reverts to manual control and comes to a stop."
+        },
+        {
+            "formula": "G(zigzag_auto_mode ∧ wp_A_set ∧ wp_B_set → F(auto_field_coverage))",
+            "explanation": "Globally, when in ZigZag Auto Mode and both waypoints A and B are set, eventually the vehicle will start automatic field coverage."
+        },
+        {
+            "formula": "G(auto_field_coverage ∧ reach_zigzag_wp → X(wait[ZIGZ_WP_DELAY] ∧ X(move[ZIGZ_SIDE_DIST])))",
+            "explanation": "Globally, during automatic field coverage, when reaching a ZigZag waypoint, in the next state, the vehicle waits for ZIGZ_WP_DELAY, and then in the following state, moves ZIGZ_SIDE_DIST."
+        },
+        {
+            "formula": "G(zigzag_auto_mode ∧ switch_low → X(¬auto_field_coverage ∧ normal_zigzag_mode))",
+            "explanation": "Globally, when in ZigZag Auto Mode and the switch is moved to the low position, in the next state, automatic field coverage stops and the vehicle returns to normal ZigZag mode."
+        }
+    ]
+}
+```
+
+Step 5: The converted sentences have been formatted in JSON as per the required output format.

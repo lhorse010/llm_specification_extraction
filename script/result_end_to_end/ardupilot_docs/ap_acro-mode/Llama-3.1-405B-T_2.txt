@@ -1,0 +1,63 @@
+Based on the provided document, I will extract the specifications and express them using Metric Temporal Logic (MTL) formulas.
+
+Here are the extracted specifications in MTL:
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(throttle_manual -> X(motor_rate = minimum))",
+            "explanation": "If the throttle is completely manual, then the motors will go to their minimum rate and stabilization will cease."
+        },
+        {
+            "formula": "G(airmode_enabled -> G(full_stabilization))",
+            "explanation": "If AirMode is enabled, then full stabilization will be provided at idle throttle."
+        },
+        {
+            "formula": "G(acro_trainer_enabled -> F(automatic_leveling))",
+            "explanation": "If the Acro Trainer is enabled, then the vehicle will automatically return to level when the pilot releases the sticks."
+        },
+        {
+            "formula": "G(acro_trainer_enabled -> G(lean_angle <= 45))",
+            "explanation": "If the Acro Trainer is enabled, then the vehicle will not lean more than 45 degrees."
+        },
+        {
+            "formula": "G(stick_inputs_interpreted_in_body_frame -> G(stick_inputs_transformed_correctly))",
+            "explanation": "If stick inputs are interpreted in the body frame, then they will be transformed correctly to maintain the vehicle's attitude."
+        },
+        {
+            "formula": "G(gps_position_estimate_reliable -> G(emergency_rtl_possible))",
+            "explanation": "If a reliable GPS position estimate is available, then emergency RTL will be possible."
+        },
+        {
+            "formula": "G(acro_mode_enabled -> G(no_attitude_feedback_from_accelerometers))",
+            "explanation": "If Acro mode is enabled, then no attitude feedback will be used from the accelerometers."
+        },
+        {
+            "formula": "G(acro_options_bit_1_set -> G(pure_rate_mode_stabilization))",
+            "explanation": "If bit 1 of ACRO_OPTIONS is set, then pure rate mode stabilization will be used."
+        }
+    ]
+}
+```
+
+Note that I have used the following abbreviations in the MTL formulas:
+
+* `throttle_manual`: The throttle is completely manual.
+* `motor_rate`: The motor rate.
+* `minimum`: The minimum motor rate.
+* `airmode_enabled`: AirMode is enabled.
+* `full_stabilization`: Full stabilization is provided.
+* `acro_trainer_enabled`: The Acro Trainer is enabled.
+* `automatic_leveling`: The vehicle will automatically return to level.
+* `lean_angle`: The lean angle of the vehicle.
+* `stick_inputs_interpreted_in_body_frame`: Stick inputs are interpreted in the body frame.
+* `stick_inputs_transformed_correctly`: Stick inputs are transformed correctly to maintain the vehicle's attitude.
+* `gps_position_estimate_reliable`: A reliable GPS position estimate is available.
+* `emergency_rtl_possible`: Emergency RTL is possible.
+* `acro_mode_enabled`: Acro mode is enabled.
+* `no_attitude_feedback_from_accelerometers`: No attitude feedback is used from the accelerometers.
+* `acro_options_bit_1_set`: Bit 1 of ACRO_OPTIONS is set.
+* `pure_rate_mode_stabilization`: Pure rate mode stabilization is used.
+
+These abbreviations are used to make the MTL formulas more readable and concise.

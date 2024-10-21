@@ -1,0 +1,42 @@
+I've read through the document and extracted the relevant specifications. I'll now express them using Metric Temporal Logic (MTL) formulas and provide explanations for each.
+
+```json
+{
+    "specifications": [
+        {
+            "formula": "G(throttle_stick ∈ [40%, 60%] → altitude = current_altitude)",
+            "explanation": "Globally, if the throttle stick is in the middle range (40% to 60%), the altitude should be maintained at the current altitude."
+        },
+        {
+            "formula": "G(throttle_stick < 40% → F[0,∞] (descent_rate = 2.5m/s))",
+            "explanation": "Globally, if the throttle stick is below 40%, eventually the descent rate should reach 2.5m/s."
+        },
+        {
+            "formula": "G(throttle_stick > 60% → F[0,∞] (climb_rate = 2.5m/s))",
+            "explanation": "Globally, if the throttle stick is above 60%, eventually the climb rate should reach 2.5m/s."
+        },
+        {
+            "formula": "G(disarm_request ∧ (landing_time > few_seconds) → X(disarmed))",
+            "explanation": "Globally, if a disarm request is made and the copter has been in the landing position for a few seconds, in the next state it should be disarmed."
+        },
+        {
+            "formula": "G(vibration > high_threshold → X(rapid_climb))",
+            "explanation": "Globally, if vibrations exceed a high threshold, in the next state there should not be a rapid climb."
+        },
+        {
+            "formula": "G(hover_throttle ≈ 50% ∧ max_hover_throttle ≤ 70%)",
+            "explanation": "Globally, the hover throttle should be close to 50% and the maximum hover throttle should not exceed 70%."
+        },
+        {
+            "formula": "G(¬(altitude_hold_engaged ∧ high_speed_forward_flight) U level_flight)",
+            "explanation": "Globally, altitude hold should not be engaged during high-speed forward flight until the copter has leveled out."
+        },
+        {
+            "formula": "G(close_to_ground → ¬erratic_altitude_hold)",
+            "explanation": "Globally, when close to the ground, altitude hold should not become erratic."
+        }
+    ]
+}
+```
+
+These MTL formulas capture the key specifications from the document, focusing on the behavior of the altitude hold mode, throttle control, disarming conditions, and potential issues to avoid. The formulas use the provided logical and temporal operators to express the requirements in a formal manner.

@@ -16,7 +16,7 @@ declare -a px4_files
 store_files() {
     local dir=$1
     local array_name=$2
-    local full_path="../dataset/input/${dir}/text_only/"
+    local full_path="../dataset/document_after_manual_check/${dir}/text_only/"
     
     if [ -d "$full_path" ]; then
         local IFS=$'\n'  # Change IFS to newline
@@ -55,7 +55,7 @@ for file in "${ardupilot_files[@]}"; do
     # Loop through the array
     for model in "${models[@]}"; do
         echo "Processing model: $model"
-        python llm_doc_spec_annotate.py $model "ardupilot_docs" $file
+        python llm_doc_spec_extraction_end_to_end.py $model "ardupilot_docs" $file
     done
 done
 
@@ -64,7 +64,7 @@ for file in "${autoware_files[@]}"; do
     # Loop through the array
     for model in "${models[@]}"; do
         echo "Processing model: $model"
-        python llm_doc_spec_annotate.py $model "autoware_docs" $file
+        python llm_doc_spec_extraction_end_to_end.py $model "autoware_docs" $file
     done
 done
 
@@ -73,6 +73,6 @@ for file in "${px4_files[@]}"; do
     # Loop through the array
     for model in "${models[@]}"; do
         echo "Processing model: $model"
-        python llm_doc_spec_annotate.py $model "px4_docs" $file
+        python llm_doc_spec_extraction_end_to_end.py $model "px4_docs" $file
     done
 done
