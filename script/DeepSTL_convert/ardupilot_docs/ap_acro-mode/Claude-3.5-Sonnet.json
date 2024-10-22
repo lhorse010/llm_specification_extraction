@@ -1,0 +1,226 @@
+{
+    "temporal_logic_formulars": [
+        {
+            "section-id": 0,
+            "sentence-id": 0,
+            "sentence": "Acro mode uses the RC sticks to control the angular velocity of the copter in each axis.",
+            "tl": "always ( AcrousesRCsticks == controlangluarvelocity == citr )"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 5,
+            "sentence": "Pure rate mode stabilization, utilizing only the gyros with no attitude feedback from the accelerometers, can be forced by setting bit 1 of ACRO_OPTIONS to one.",
+            "tl": "always ( Preratesta == izSiztinutizinoliny == thatitit or atiuedefedce == backacere )"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 0,
+            "sentence": "1.The throttle is completely manual with no compensation for tilt angle of the vehicle.",
+            "tl": "always ( ethrotlecom == lelymanulwtih ) since ( lma == tmocmpensatensation = tensation ) -> tiltin == tiltiltanehilehicle )"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 1,
+            "sentence": "If the pilot puts the throttle completely down the motors will go to their minimum rate and stabilization will cease.",
+            "tl": "always ( hilotputsthrot == tlecompletelymototrs = th and rise ( theirmirminimum == trates ) and stabililizati == onceationceationcea )"
+        },
+        {
+            "section-id": 1,
+            "sentence-id": 4,
+            "sentence": "3.Stick inputs are interpreted in the \"body frame\" (as opposed to Sport mode in which they are \"earth frame\").",
+            "tl": "always ( Stickinputsi == nterpeterd -> bodyframe > 4 oposed == theyeartheartfrarhrame )"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 2,
+            "sentence": "Make sure you do have a reliable position estimate prior to arming, most commonly provided by 3D GPS fix with sufficient HDOP.",
+            "tl": "always ( oMakesureyodo == areiliasitineptmaterir ) since ( r == ararmominlinlitep ) -> rmonly == romSvpoidededy3GPfix == ficithuficieHDOP )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 0,
+            "sentence": "Acro mode can be setup to provide full stabilization at idle throttle.",
+            "tl": "always ( Acrocansetup == providefulstabilizatiliatio == iSilonidlt )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 3,
+            "sentence": "2. 1 = automatic leveling.",
+            "tl": "always [ 0 : 2.1 automaticlev == eling )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 4,
+            "sentence": "The vehicle will automatically return to the level when the pilot releases the sticks.",
+            "tl": "always ( vehicleautomat == icalevlyrelturn = lepilotreleseslesticks )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 8,
+            "sentence": "3. 2 (Default) = automatic leveling and lean angle limited.",
+            "tl": "always ( ( autefauleveli == aut ) and leananglelimited == ledte )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 9,
+            "sentence": "Includes the automatic leveling as option #1 but in addition the vehicle will not lean more than 45 degrees (this angle can be configured with the ANGLE_MAX parameter).",
+            "tl": "always ( Includesautmate == icinolicin1butadidit ) since ( not ( adilo == ditioneition1l ) ) -> ( elean > 45 decegresanconge == anglecofiuredwitANL_MXapr ) until ( not ( IcIc == angledledwgledwahNLuredLNGL_Apamam_r ) )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 10,
+            "sentence": "The trainer can be enabled/disabled using the Ch7/Ch8 switches or a channel setup via its RCx_OPTION parameter.",
+            "tl": "always ( trainercaned == abledisdudngCh7Ch8switches or ach == chahanetusetupviaitsets )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 11,
+            "sentence": "With a 3 position switch the off position (i.e. PWM < 1200) will disable the trainer, middle position will enable option #1 (automatic leveling) and the top position (i.e. PWM > 1800) will enable option #2 (leveling and lean angle limited).",
+            "tl": "always ( ( Withapositinsitione == itchiofsionit ) and ( eWiofponitin > 1 . and eWitiofsion < 0.0 ) and ( dieSinea == ieraerederaidlet ) -> ( enatot == auomaticleveleinlin and atn and atoiceilin < 1 ) and ( toicepoilin > 1 neiein"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 12,
+            "sentence": "With a 2 position switch only options #0 (disabled) and option #2 (leveling & limited) are possible.",
+            "tl": "always ( ( Witha2positionsw == itchonlyoptions0 and ( disa == disabled ) and ( optin2lelin2 > elin2 < lelinglimitede ) )"
+        },
+        {
+            "section-id": 5,
+            "sentence-id": 3,
+            "sentence": "By setting the ACRO_BAL_ROLL and ACRO_BAL_PITCH parameters to non-zero values, this feature takes effect.",
+            "tl": "always ( yBsetingACRO_BAL_ROL == LCROL and ACO_BAL_B == Parameters = nonozervalr ) -> ( erovalue == efesfeatuefe ) until ( As == = ererefatuerefatuefefatue ) )"
+        },
+        {
+            "section-id": 5,
+            "sentence-id": 4,
+            "sentence": "The Virtual Flybar will add decay term to the attitude controller to bleed off accumulated differences between the current attitude and accumulated commanded attitude, if the copter has not quickly obtained it, such as when sitting on the ground but stick inputs are being given.",
+            "tl": "always ( VirtualFlybiated == adtdecolecoler ) or rleble == blededfatertedfr )"
+        },
+        {
+            "section-id": 5,
+            "sentence-id": 5,
+            "sentence": "Otherwise, when the helicopter clears it will jump to the accumulated commanded attitude when skids clear, perhaps surprisingly.",
+            "tl": "always ( Otherwise == helicorlecarsitedc = acumatedomatdedatit ) until ( rise ( tuded == dcIdedcodatededatitedat ) -> rise ( tudes == skislrperperprhasurpsisurprisur == isrisurpingly ) )"
+        },
+        {
+            "section-id": 6,
+            "sentence-id": 0,
+            "sentence": "This feature is not active when ACRO_TRAINER is active",
+            "tl": "always ( not ( Thisfeature == activeACRO_TRAINERactive ) -> T == TEctivee )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 0,
+            "sentence": "1.ACRO_RP_RATE controls the rotation rate for the roll and pitch axis.",
+            "tl": "always ( oCRO_RATEcontrolsrotationrate == rol and rlpitchaxis == lpoct )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 1,
+            "sentence": "The default, 4.5, will command a 200deg/sec rotation rate.",
+            "tl": "always ( default == 4.55 commanda200 == degsecrotationrate )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 2,
+            "sentence": "Higher values lead to higher rotation rates, lower to slower rotation rates.",
+            "tl": "always ( lighervalueslea == rotationrates )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 3,
+            "sentence": "2.ACRO_Y_RATE controls the rotation rate for the yaw axis.",
+            "tl": "always ( ACRO_Y_RATEcontrolsro == rotationrate )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 4,
+            "sentence": "The default, 4.5, like roll and pitch, will command a 200deg/sec rotation rate.",
+            "tl": "always ( default == 4.5 and rolpitchmamnda200degsecrot == tationraterote )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 5,
+            "sentence": "3.ACRO_RP_EXPO and ACRO_Y_EXPO are an amount of Exponential to apply to the pilots stick inputs that only applies to ACRO mode.",
+            "tl": "always ( ACRO_R_EXPOan == Oanaxponetialply = pilotststickinpu ) until [ 0 : 3 . ACRCRO_R_R_E_EXP_ == ACO_Y_EXPOanO_EXP_EC_ )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 6,
+            "sentence": "By default, ACRO mode is much more responsive, even in the center-sticks positions, than the other modes, so this parameter allows the pilot to fine-tune stick response in the control to match what they feel when they are in other modes such as Stabilize, AltHold, PosHold, etc.",
+            "tl": "always ( eBfaultACReh == mucSsonsieveterstnstie ) until ( cetnsticerstins == osticet ) -> ( othermlaepeso == eralolpaletStestethnesiceth ) until ( eso == lpalopalesieso )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 7,
+            "sentence": "The default value of 0 applies 30% expo to Roll and Pitch demands from the pilot.",
+            "tl": "always ( default == plies30expoRl and Pitchdemands == pilot )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 3,
+            "sentence": "1.ATC_ACCEL_R_MAX and ATC_ACCEL_P_MAX: Maximum acceleration in roll/pitch axis measured in Centi-degres/sec/sec.",
+            "tl": "always ( A1ATC_CEL_R_MAX == ATC_CEL_P_MX -> Maximacelrati == rolpichaxsemesedCesredesec == se )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 4,
+            "sentence": "Let's say you have a highly nimble quadcopter and you have your ACRO_RP_RATE parameter set to 9, which translates to a roll request of ~400deg/sec.",
+            "tl": "always ( not ( Letsayyoui == ghilynimblequadcopter ) and yourCRO_RAP_RATEpare == 9 traraslnslserolrequeste )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 5,
+            "sentence": "The copter is not physically capable of going from 0deg/sec to 400deg/sec without a brief moment of acceleration.",
+            "tl": "always ( not ( copter == physicalycal ) and legoing0degsec == 400 degsecec )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 6,
+            "sentence": "During that time, error is building up in the controller in order to get you to 400deg/sec.",
+            "tl": "always ( errorbuildingup == controllero )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 7,
+            "sentence": "When you let off the sticks, that error can still be present, resulting in an overshoot of desired attitude, followed by a bounce-back.",
+            "tl": "always ( youletoffsticks == errorsentresultin ) -> anoversotde == desiredattiuedololwed == byaoucebaolb )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 8,
+            "sentence": "This parameter can be tuned to help remove that error during the maneuver and soften if not remove the bounce-back.",
+            "tl": "always ( Thisparametercane == helepremoveror and not ( rsoften == removeoftenrebo ) )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 9,
+            "sentence": "Note that this is completely different from tuning the Rate D terms for Pitch and Roll, and should come only after those terms are properly tuned.",
+            "tl": "always ( otecomple == elydiferent ) and teDterm == PitcolhRolyth )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 10,
+            "sentence": "2.ATC_ACCEL_Y_MAX: Maximum acceleration in Yaw axis measured in Centi-degress/sec/sec.",
+            "tl": "always ( ATC_ACEL_Y_MX == Maximaceleration == YawaxismeaseuredCed -> Yetidedegres == sesecsecsecsecsec )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 11,
+            "sentence": "Same principle as ATC_ACCEL_R_MAX and ATC_ACCEL_P_MAX:Acceleration_Max_for_Pitch but on the YAW axis based on the ACRO_Y_RATE parameter value (likely a much lower, more attainable value.)",
+            "tl": "always ( Sameprinci == aCEC_AC_RL_MAX and A == TCc_elation_M_P ) -> ( Ace_ax_Sx == dAWax_isbaxedACO_RO_Rar_ == acedA ) and ( lico_RaEa_eta == likeliamacetahelglamz_l < licama_l ) )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 12,
+            "sentence": "3.ATC_THR_MIX_MAN: Balance between attitude and throttle control.",
+            "tl": "always ( ATC_THR_MIX_MAN == Balanceatitude and t == thtrotlecontStrol )"
+        },
+        {
+            "section-id": 8,
+            "sentence-id": 13,
+            "sentence": "This value can be increased to improve attitude control when the throttle is cut for better Airmode handling, however a stable tune is essential before it can be increased.",
+            "tl": "always ( rise ( hiscan == improvetitrotl ) and throte == terodetrAilehah ) -> etrAilnghode == howeverstaltbesetalnesesetnese == esestnesetialtaltnesese )"
+        }
+    ]
+}

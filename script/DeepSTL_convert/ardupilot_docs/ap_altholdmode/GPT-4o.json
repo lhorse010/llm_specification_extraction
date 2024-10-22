@@ -1,0 +1,118 @@
+{
+    "temporal_logic_formulars": [
+        {
+            "section-id": 1,
+            "sentence-id": 0,
+            "sentence": "When altitude hold mode (aka AltHold) is selected, the throttle is automatically controlled to maintain the current altitude.",
+            "tl": "always ( altitude > akalAltHolde < selethrotltatlo == tmatratlSloc ) until ( trlmtlycoled == trolBolatroledmtrol ) -> troled == matataintatintatincuretlredtat == ataintatintatincuretlretintlretiuretud"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 1,
+            "sentence": "1.If the throttle stick is in the middle (40% ~ 60%) the vehicle will maintain the current altitude.",
+            "tl": "always ( throttlestick == midle040 and vehiclemaintaincure == taltaltntaituretdtude )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 2,
+            "sentence": "2.Outside of the mid-throttle deadzone (i.e. below 40% or above 60%) the vehicle will descend or climb depending upon the deflection of the stick.",
+            "tl": "always ( ( m2Outsidemidt == hrotledzoedzei ) or ( vehicled == scedcendce ) or licep == dclinedendepende )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 4,
+            "sentence": "These speeds can be adjusted with the PILOT_SPEED_UP and PILOT_SPEED_DN parameters.",
+            "tl": "always ( ahesepedsca == adjustedwithPILOT_SED_UP and PILOT_SED_N == aramesesepamedetersce )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 5,
+            "sentence": "The acceleration used to establish these speeds is set by PILOT_ACCEL_Z.",
+            "tl": "always ( acelerationused == establhesespeds )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 6,
+            "sentence": "3.The size of the deadband can be adjusted with the THR_DZ parameter.",
+            "tl": "always ( sizedeadbandcan == adjustedwithTHR_DZparameter )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 7,
+            "sentence": "This param's value should be between \"0\" and \"400\" with \"0\" meaning no deadband.",
+            "tl": "always ( not ( Thisparam == 0 ) and with0meaning == deadband )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 10,
+            "sentence": "When disarming, the copter may need to rest in the landing position for a few seconds to allow the \"landing checker\" to verify that the copter has landed before you are able to disarm.",
+            "tl": "always ( disarminge == coermaynedersitin and afewscondnlion == alelowlondsalowl )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 4,
+            "sentence": "The 1:2 ratio of P to I (i.e. I is twice the size of P) should be maintained if you modify these parameters.",
+            "tl": "always ( I12ratioPI > 0 . eiceicesizeP < 1 . Itainedytained == youmodifytesepesepararameteters )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 5,
+            "sentence": "These values should never be increased but for very powerful copters you may get better response by reducing both by 50% (i.e P to 0.5, I to 1.0).",
+            "tl": "always ( not rise ( Thesevalues == buteryrfucopersyoumay == eterbeterdu ) ) since ( rise ( Thes == dnboyredu ) ) -> rise ( cingbothby50 > 0.5 and iesevalothby50 < 1.0 ) )"
+        },
+        {
+            "section-id": 6,
+            "sentence-id": 3,
+            "sentence": "Normally this is caused by not having the throttle stick in the mid position.",
+            "tl": "always ( not ( Normallysedby == havingthrotlestick ) -> always [ 0 : midpostin == midposition )"
+        },
+        {
+            "section-id": 6,
+            "sentence-id": 8,
+            "sentence": "The target altitude is set at the moment the pilot switches into alt hold but because the vehicle is rising quickly it flies above the target.",
+            "tl": "always ( rise ( targetaltitude == pilotswichesaltbecau == lecause ) until ( tbecalse ) -> risevhinglic == singquickliest )"
+        },
+        {
+            "section-id": 6,
+            "sentence-id": 10,
+            "sentence": "The workaround is to enter AltHold while the copter is flying at a stable altitude.",
+            "tl": "always ( workaround == AltHoldcoperflyingastableale )"
+        },
+        {
+            "section-id": 7,
+            "sentence-id": 2,
+            "sentence": "Ideally the vehicle should be able to hover at about 50% throttle (mid stick) and anything higher than 70% is dangerous.",
+            "tl": "always ( Idealyvehicle == hoverabout50th and ( tlemidstl > 70 and thidtlei < dnything > 70 ) )"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 0,
+            "sentence": "In altitude hold mode, Copter maintains a consistent altitude while allowing roll, pitch, and yaw to be controlled normally.",
+            "tl": "always ( altitude == Copermaintasintin == ltetaltinlt ) and lalowinrlp == loitchaw )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 3,
+            "sentence": "When the stick is completely down the copter will descend at 2.5m/s and if at the very top it will climb by 2.5m/s.",
+            "tl": "always ( stickcompletely == coperdescend2 . 5 ms and verytopit == clitcliby2 . 5 ms )"
+        },
+        {
+            "section-id": 6,
+            "sentence-id": 0,
+            "sentence": "1.High vibrations can lead to the copter rapidly climbing as soon as altitude hold is engaged.",
+            "tl": "always ( Highvibrationsca == copteraidlyclimbing = al )"
+        },
+        {
+            "section-id": 6,
+            "sentence-id": 2,
+            "sentence": "2.Copter slowly descends or climbs until the pilot retakes control in stabilize.",
+            "tl": "always ( Copterslowlyde == scends or climbspilotretretakescontrolro == lstakestakescontrolizerol )"
+        },
+        {
+            "section-id": 4,
+            "sentence-id": 0,
+            "sentence": "The Altitude Hold P is used to convert the altitude error (the difference between the desired altitude and the actual altitude) to a desired climb or descent rate.",
+            "tl": "always ( AltitudeHoldPused == convertaliteroderor and ( didere == dactlaledetiltitude ) and ( edealaltudtitudede ) )"
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "temporal_logic_formulars": [
+        {
+            "section-id": 0,
+            "sentence-id": 2,
+            "sentence": "1.A two or preferably three position auxiliary switch is set to \"ZigZag SaveWP\" (i.e. RC7_OPTION = 61)",
+            "tl": "always ( Atreferabl == ythrepositio == ionauxiliarysi ) -> h == ZigZagSaveWPieWP > 1 . eRC7_OPTION61 and RC7_OPTIera < 961 )"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 3,
+            "sentence": "2.The pilot arms the vehicle in Loiter mode, takes off and then changes to ZigZag mode (in the future we may make it possible to arm and take-off in ZigZag mode)",
+            "tl": "always ( rise ( pilotarmsvehicle == Loiteroff ) -> ( ZigZakeitposible == armof ) until ( rise ( Zimaxeitpsible == armoffZiZigZigZale ) ) )"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 6,
+            "sentence": "5.The switch can now be used to start the vehicle flying autonomously (at the current height) to either side of the field.",
+            "tl": "always ( switchcanowused == vehicleflyingautono ) since [ 0 : 5 . sl == cutonmously and ( curerentheigheight < eighteil ) )"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 9,
+            "sentence": "6.If a downward facing range finder is used, the vehicle will follow the terrain when flying.",
+            "tl": "always ( adownwardfacing == finederusedvhedvheiclefol == lrainflr )"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 10,
+            "sentence": "If the range finder becomes unhealthy while traversing from one side to the other, the vehicle will revert to manual control and come to a stop.",
+            "tl": "always ( finderomunh == ealtherversingoneside -> oereververt == manulcolcmasor ) and coe == stolcmeasop )"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 0,
+            "sentence": "After the field's side points are registered, if you have an RC switch configured with RCx_OPTION = 83 (ZigZag Auto Mode), you can automatically cover the field side to side at a programmable distance interval, also enabling a sprayer, if equipped.",
+            "tl": "always ( not ( aserfiedied == siedntseinlaserednts ) and e == ganRhconichedured = witch -> ( withRCx_OPTION83 > 3 ZigoMau == ocatgatatedatedatedcilicedsi == iedasiedasiedaedasice ) until ( elalaslica == = sedaseda"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 6,
+            "sentence": "3.Upon activation, the vehicle will move in ZIGZ_DIRECTION with respect to its heading for ZIGZ_SIDE_DIST, then proceed to cross the field until the opposite ZigZagWP is reached.",
+            "tl": "always ( rise ( Uponactivativae == evehiclemove ) and ZGZ_DIRTwit == itsheseadinct -> ( troced == filopedopsiZeZiteZaWgPred ) until ( rise ( i == filoeded ) ) )"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 8,
+            "sentence": "It will do this for ZIGZ_LINE_NUM times (-1 = infinite until switched out of this mode, =0 will only move to the first field crossing position, but not proceed further).",
+            "tl": "always ( not ( doZIGZ_LINE_UMtimes1in == inwitched ) until [ 0 : 10 onlymove == fieldcrsinposinpsiositonbut ) -> ( not ( f == fpocsinutosio ) ) until ( tred == pocedfuredfurthr ) )"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 9,
+            "sentence": "Moving the ZigZag Auto switch to the low position immediately stops this mode and returns to normal ZIGZAG mode.",
+            "tl": "always ( MovingZigZaAutoswitch == lowpositionstops and returns == normrmalZIGZIGZAGZ )"
+        },
+        {
+            "section-id": 3,
+            "sentence-id": 1,
+            "sentence": "this function must be enabled with ZIGZ_AUTO_ENABLE = 1, and parameters reloaded, before any parameters are visible and the feature enabled.",
+            "tl": "always ( efunctioned == abledwithZIGZ_AUTO_NABLE1 and parmetersrloadede == pararsetrametersrsetervis = ersedledae )"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 4,
+            "sentence": "3.The vehicle is flown manually (it flies like Loiter) to one side of the field and then the auxiliary switch is moved to the highest or lowest position (it doesn't matter which) to record that side",
+            "tl": "always ( ( vehicleflownmal > 4.1 and vehiclefleflonmal < ilyiteSl ) and i == onesiedeside -> auxiliaryswt == highesthest or not ( lowitoinito > mteitoi < matrerecoder = tmterderdtodecoiterdsito == reco ) )"
+        },
+        {
+            "section-id": 0,
+            "sentence-id": 5,
+            "sentence": "4.The vehicle is flown to the other side of the field and the switch is moved to the opposite position",
+            "tl": "always ( vehicleflown == othersidefield and switchmoved == opipositepositepositepositepositeposi == sitositositosiepositos )"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 4,
+            "sentence": "The vehicle will proceed as shown in the diagram, automatically enabling a sprayer, if setup.",
+            "tl": "always ( vehicleprocedshown == diagramautomatical = lyenalgal )"
+        },
+        {
+            "section-id": 2,
+            "sentence-id": 7,
+            "sentence": "It will then wait for ZIGZ_WP_DELAY to allow sprayer to fully stop and then move ZIGZ_SIDE_DIST down the side of the field again to proceed back across the area.",
+            "tl": "always ( waitZIGZ_WP_DELA == alowspralyer == fullsystop and mo == le -> moveZIGZ_SDE_DISTdede == iefiedacedacrosarsaredare )"
+        }
+    ]
+}
