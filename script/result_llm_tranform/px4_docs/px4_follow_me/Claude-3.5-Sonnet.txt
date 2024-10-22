@@ -1,0 +1,77 @@
+[
+  {
+    "sentence": "2.Mode requires at least a valid local position estimate (does not require a global position).",
+    "formula": "G(M → L)",
+    "explanation": "M represents the mode being active, and L represents a valid local position estimate. The formula states that globally (at all times), if the mode is active, then there must be a valid local position estimate."
+  },
+  {
+    "sentence": "Flying vehicles can't switch to this mode without valid local position.",
+    "formula": "G(¬L → ¬X(M))",
+    "explanation": "L represents a valid local position, and M represents the mode. The formula states that globally, if there is no valid local position, then in the next state, the mode cannot be active. This captures the inability to switch to the mode without a valid local position."
+  },
+  {
+    "sentence": "Flying vehicles will failsafe if they lose the position estimate.",
+    "formula": "G((M ∧ X(¬L)) → X(F))",
+    "explanation": "M represents the mode, L represents a valid position estimate, and F represents failsafe. The formula states that globally, if the mode is active and in the next state the position estimate is lost, then in the next state, the failsafe will be activated."
+  },
+  {
+    "sentence": "4.Mode prevents arming (vehicle must be armed when switching to this mode).",
+    "formula": "G((¬A ∧ X(M)) → X(A))",
+    "explanation": "A represents the vehicle being armed, and M represents the mode. The formula states that globally, if the vehicle is not armed and in the next state the mode becomes active, then in the next state the vehicle must be armed. This captures the requirement of being armed when switching to this mode."
+  },
+  {
+    "sentence": "5.Mode requires wind and flight time are within allowed limits (specified via parameters).",
+    "formula": "G(M → (W ∧ T))",
+    "explanation": "M represents the mode, W represents wind within allowed limits, and T represents flight time within allowed limits. The formula states that globally, if the mode is active, then both wind and flight time must be within allowed limits."
+  },
+  {
+    "sentence": "6.This mode is currently only supported on multicopter (or VTOL in MC mode).",
+    "formula": "G(M → (C ∨ V))",
+    "explanation": "M represents the mode, C represents a multicopter, and V represents a VTOL in MC mode. The formula states that globally, if the mode is active, then the vehicle must be either a multicopter or a VTOL in MC mode."
+  },
+  {
+    "sentence": "7.The follow target must also be able to supply position information.",
+    "formula": "G(M → P)",
+    "explanation": "M represents the mode, and P represents the follow target supplying position information. The formula states that globally, if the mode is active, then the follow target must be able to supply position information."
+  },
+  {
+    "sentence": "The vehicle will automatically yaw to face and follow the target from a specified relative angle, distance and height and altitude, depending on the altitude control mode.",
+    "formula": "G(M → F(Y ∧ F ∧ A))",
+    "explanation": "M represents the mode, Y represents yawing to face the target, F represents following the target, and A represents maintaining specified angle, distance, height, and altitude. The formula states that globally, when the mode is active, eventually the vehicle will yaw to face the target and then eventually follow the target while maintaining the specified parameters."
+  },
+  {
+    "sentence": "By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home (arming) position.",
+    "formula": "G(M ∧ ¬C → F(B ∧ D ∧ H))",
+    "explanation": "M represents the mode, C represents custom settings, B represents following from behind, D represents maintaining 8 meters distance, and H represents maintaining 8 meters height. The formula states that globally, when the mode is active and there are no custom settings, eventually the vehicle will follow from behind at the specified distance and height."
+  },
+  {
+    "sentence": "The copter will first ascend to minimum safety altitude of 1 meters above the ground or home, depending on the presence of a distance sensor.",
+    "formula": "G(M → X(A U S))",
+    "explanation": "M represents the mode activation, A represents ascending, and S represents reaching the safety altitude. The formula states that globally, when the mode is activated, in the next state, the copter will ascend until it reaches the safety altitude. This captures the immediate ascent to a safe height before proceeding with other actions."
+  },
+  {
+    "sentence": "It will ascend until it is 3 meters within the follow height to avoid potential collisions before moving horizontally.",
+    "formula": "(A ∧ ¬H) U (D ∧ X(H))",
+    "explanation": "A represents ascending, H represents horizontal movement, and D represents being within 3 meters of the follow height. The formula states that the system will ascend (A) and not move horizontally (¬H) until it reaches the desired height (D), after which it will immediately start moving horizontally (X(H))."
+  },
+  {
+    "sentence": "Copter will always adjust it's heading to face the target",
+    "formula": "G(T → F(F))",
+    "explanation": "T represents the target's position changing, and F represents the copter facing the target. The formula states that globally (G), whenever the target's position changes (T), the copter will eventually (F) face the target (F). This captures the continuous adjustment behavior."
+  },
+  {
+    "sentence": "1.2D tracking (the default altitude mode) makes the drone follow at a height relative to the fixed home position (takeoff altitude).",
+    "formula": "G(D → H)",
+    "explanation": "D represents 2D tracking mode being active, and H represents maintaining height relative to the fixed home position. The formula states that globally (G), when 2D tracking is active (D), the drone maintains its height relative to the home position (H)."
+  },
+  {
+    "sentence": "2.2D + Terrain makes the drone follow at a fixed height relative to the terrain underneath it, using information from a distance sensor.",
+    "formula": "G(T → (S ∧ F))",
+    "explanation": "T represents 2D + Terrain mode being active, S represents using the distance sensor, and F represents following at a fixed height relative to the terrain. The formula states that globally (G), when 2D + Terrain mode is active (T), the drone uses the sensor (S) and maintains a fixed height relative to the terrain (F)."
+  },
+  {
+    "sentence": "3.3D tracking mode makes the drone follow at a height relative to the follow target, as supplied by its GPS sensor.",
+    "formula": "G(M → (G ∧ R))",
+    "explanation": "M represents 3D tracking mode being active, G represents using the GPS sensor, and R represents maintaining height relative to the follow target. The formula states that globally (G), when 3D tracking mode is active (M), the drone uses the GPS sensor (G) and maintains its height relative to the follow target (R)."
+  }
+]

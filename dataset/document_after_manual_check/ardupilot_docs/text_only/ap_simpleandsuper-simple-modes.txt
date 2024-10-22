@@ -8,8 +8,7 @@ Overview
 This is useful for new pilots who have not mastered adjusting their roll and pitch inputs depending upon which way the vehicle is facing and for cases when the copter is far enough away that it's heading is not apparent.
 1."Simple" and "Super Simple" modes can be used in combination with nearly all flight modes except the Acro and Drift (in these flight modes the setting is ignored).
 2.Simple Mode allows you to control the copter relative to the copters heading at take off and relies only on a good compass heading.
-3.Super Simple Mode allows you to control the copter relative to it's direction from home (i.e.
-where it was armed) but requires a good GPS position.
+3.Super Simple Mode allows you to control the copter relative to it's direction from home (i.e. where it was armed) but requires a good GPS position.
 4.Either mode can be assigned to a particular flight mode switch position or can be enabled/disabled from the Ch7/Ch8 switches.
 
 Normal Mode

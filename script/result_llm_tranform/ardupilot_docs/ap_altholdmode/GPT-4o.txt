@@ -1,0 +1,97 @@
+[
+  {
+    "sentence": "When altitude hold mode (aka AltHold) is selected, the throttle is automatically controlled to maintain the current altitude.",
+    "formula": "G(AltHold → G(MaintainAltitude))",
+    "explanation": "Whenever AltHold is selected, the system continuously ensures that the current altitude is maintained."
+  },
+  {
+    "sentence": "1.If the throttle stick is in the middle (40% ~ 60%) the vehicle will maintain the current altitude.",
+    "formula": "G(MidThrottle → G(MaintainAltitude))",
+    "explanation": "If the throttle stick is within the middle range, the altitude remains constant."
+  },
+  {
+    "sentence": "2.Outside of the mid-throttle deadzone (i.e. below 40% or above 60%) the vehicle will descend or climb depending upon the deflection of the stick.",
+    "formula": "G((¬MidThrottle) → (Descend ∨ Climb))",
+    "explanation": "When throttle is outside the mid-range, the vehicle will either descend or climb based on stick position."
+  },
+  {
+    "sentence": "These speeds can be adjusted with the PILOT_SPEED_UP and PILOT_SPEED_DN parameters.",
+    "formula": "G(AdjustSpeeds)",
+    "explanation": "PILOT_SPEED_UP and PILOT_SPEED_DN parameters enable speed adjustments at any time."
+  },
+  {
+    "sentence": "The acceleration used to establish these speeds is set by PILOT_ACCEL_Z.",
+    "formula": "G(SetAcceleration)",
+    "explanation": "The parameter PILOT_ACCEL_Z determines the acceleration for speed changes."
+  },
+  {
+    "sentence": "3.The size of the deadband can be adjusted with the THR_DZ parameter.",
+    "formula": "G(AdjustDeadband)",
+    "explanation": "The THR_DZ parameter allows adjustments to the throttle deadband size at any time."
+  },
+  {
+    "sentence": "This param's value should be between \"0\" and \"400\" with \"0\" meaning no deadband.",
+    "formula": "G(ValidateParameterRange)",
+    "explanation": "The parameter value must always remain within the specified range for valid operation."
+  },
+  {
+    "sentence": "When disarming, the copter may need to rest in the landing position for a few seconds to allow the \"landing checker\" to verify that the copter has landed before you are able to disarm.",
+    "formula": "G(Disarm → F[0, a few seconds](LandingPosition ∧ VerifyLanding))",
+    "explanation": "After landing, a brief wait is required for verification before disarming is possible."
+  },
+  {
+    "sentence": "The 1:2 ratio of P to I (i.e. I is twice the size of P) should be maintained if you modify these parameters.",
+    "formula": "G(MaintainRatio)",
+    "explanation": "The ratio between P and I must always be maintained during parameter modifications."
+  },
+  {
+    "sentence": "These values should never be increased but for very powerful copters you may get better response by reducing both by 50% (i.e P to 0.5, I to 1.0).",
+    "formula": "G((¬IncreaseValues) ∧ (PowerfulCopter → ReduceValues))",
+    "explanation": "Values should not be increased; for powerful copters, reducing values may improve response."
+  },
+  {
+    "sentence": "Normally this is caused by not having the throttle stick in the mid position.",
+    "formula": "¬M → C",
+    "explanation": "Here, M represents the throttle stick being in the mid position, and C represents the cause mentioned. The formula implies that when the throttle stick is not in the mid position (¬M), it leads to the cause (C)."
+  },
+  {
+    "sentence": "The target altitude is set at the moment the pilot switches into alt hold but because the vehicle is rising quickly it flies above the target.",
+    "formula": "S ∧ (R → F(A))",
+    "explanation": "S represents the setting of the target altitude, R represents the vehicle rising quickly, and A represents flying above the target altitude. The formula captures that once the altitude is set (S) and if the vehicle is rising quickly (R), it will eventually fly above the target altitude (F(A))."
+  },
+  {
+    "sentence": "The workaround is to enter AltHold while the copter is flying at a stable altitude.",
+    "formula": "G(S → A)",
+    "explanation": "S represents the copter flying at a stable altitude, and A represents entering AltHold. The formula globally ensures that if the copter is stable (S), then AltHold should be entered (A)."
+  },
+  {
+    "sentence": "Ideally the vehicle should be able to hover at about 50% throttle (mid stick) and anything higher than 70% is dangerous.",
+    "formula": "H ∧ G(T > 70 → D)",
+    "explanation": "H represents hovering at 50% throttle, T represents throttle percentage, and D represents danger. The formula states that hovering should occur at 50% (H) and globally, any throttle above 70% (T > 70) implies danger (D)."
+  },
+  {
+    "sentence": "In altitude hold mode, Copter maintains a consistent altitude while allowing roll, pitch, and yaw to be controlled normally.",
+    "formula": "A ∧ G(C)",
+    "explanation": "A represents entering altitude hold mode, and C represents the consistent altitude while controlling roll, pitch, and yaw. The formula ensures that in altitude hold mode (A), globally the copter maintains consistency (G(C))."
+  },
+  {
+    "sentence": "When the stick is completely down the copter will descend at 2.5m/s and if at the very top it will climb by 2.5m/s.",
+    "formula": "D → F(DR) ∧ T → F(CR)",
+    "explanation": "D represents the stick down, DR represents descending at 2.5m/s, T represents the stick at the top, and CR represents climbing at 2.5m/s. The formula captures that if the stick is down (D), it will eventually descend (F(DR)), and if the stick is at the top (T), it will climb (F(CR))."
+  },
+  {
+    "sentence": "High vibrations can lead to the copter rapidly climbing as soon as altitude hold is engaged.",
+    "formula": "V ∧ A → F(RC)",
+    "explanation": "V represents high vibrations, A represents altitude hold engagement, and RC represents rapid climbing. The formula indicates that high vibrations with altitude hold (V ∧ A) will eventually cause rapid climbing (F(RC))."
+  },
+  {
+    "sentence": "Copter slowly descends or climbs until the pilot retakes control in stabilize.",
+    "formula": "(SD ∨ SC) U P",
+    "explanation": "SD represents slow descent, SC represents slow climb, and P represents the pilot retaking control. The formula describes that the copter will slowly descend or climb (SD ∨ SC) until the pilot retakes control (U P)."
+  },
+  {
+    "sentence": "The Altitude Hold P is used to convert the altitude error (the difference between the desired altitude and the actual altitude) to a desired climb or descent rate.",
+    "formula": "E → (C ∨ D)",
+    "explanation": "E represents altitude error, C represents desired climb rate, and D represents descent rate. The formula implies that the presence of an altitude error (E) leads to a desired climb (C) or descent rate (D)."
+  }
+]

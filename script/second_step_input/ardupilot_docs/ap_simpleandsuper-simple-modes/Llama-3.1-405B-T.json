@@ -12,16 +12,11 @@
   {
     "section-id": 1,
     "sentence-id": 4,
-    "sentence": "3.Super Simple Mode allows you to control the copter relative to it's direction from home (i.e."
+    "sentence": "3.Super Simple Mode allows you to control the copter relative to it's direction from home (i.e. where it was armed) but requires a good GPS position."
   },
   {
     "section-id": 1,
     "sentence-id": 5,
-    "sentence": "where it was armed) but requires a good GPS position."
-  },
-  {
-    "section-id": 1,
-    "sentence-id": 6,
     "sentence": "4.Either mode can be assigned to a particular flight mode switch position or can be enabled/disabled from the Ch7/Ch8 switches."
   },
   {

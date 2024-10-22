@@ -1,0 +1,312 @@
+[
+  {
+    "sentence": "2.Mode requires at least a valid local position estimate (does not require a global position).",
+    "formula": "G(V → L)",
+    "explanation": "Here, V represents the mode being active, and L represents the presence of a valid local position estimate. The formula states that globally, if the mode is active, then a valid local position estimate must be present."
+  },
+  {
+    "sentence": "Flying vehicles can't switch to this mode without valid local position.",
+    "formula": "G(¬L → ¬XV)",
+    "explanation": "Here, L represents the presence of a valid local position estimate, and V represents the mode being active. The formula states that globally, if a valid local position estimate is not present, then the vehicle cannot switch to this mode at the next time step."
+  },
+  {
+    "sentence": "Flying vehicles will failsafe if they lose the position estimate.",
+    "formula": "G(L ∧ ¬XL → XF)",
+    "explanation": "Here, L represents the presence of a valid position estimate, and F represents the failsafe mode. The formula states that globally, if the position estimate is lost (i.e., it is present now but not at the next time step), then the vehicle will enter failsafe mode at some future time step."
+  },
+  {
+    "sentence": "4.Mode prevents arming (vehicle must be armed when switching to this mode).",
+    "formula": "G(¬A → ¬XV)",
+    "explanation": "Here, A represents the vehicle being armed, and V represents the mode being active. The formula states that globally, if the vehicle is not armed, then it cannot switch to this mode at the next time step."
+  },
+  {
+    "sentence": "5.Mode requires wind and flight time are within allowed limits (specified via parameters).",
+    "formula": "G(V → (W ∧ T))",
+    "explanation": "Here, V represents the mode being active, W represents the wind being within allowed limits, and T represents the flight time being within allowed limits. The formula states that globally, if the mode is active, then both wind and flight time must be within allowed limits."
+  },
+  {
+    "sentence": "6.This mode is currently only supported on multicopter (or VTOL in MC mode).",
+    "formula": "G(V → (M ∨ (V ∧ MC)))",
+    "explanation": "Here, V represents the mode being active, M represents the vehicle being a multicopter, and MC represents the VTOL being in MC mode. The formula states that globally, if the mode is active, then the vehicle must be either a multicopter or a VTOL in MC mode."
+  },
+  {
+    "sentence": "7.The follow target must also be able to supply position information.",
+    "formula": "G(F → P)",
+    "explanation": "Here, F represents the follow target being active, and P represents the presence of position information. The formula states that globally, if the follow target is active, then position information must be present."
+  },
+  {
+    "sentence": "The vehicle will automatically yaw to face and follow the target from a specified relative angle, distance and height and altitude, depending on the altitude control mode.",
+    "formula": "G(V → (Y ∧ F ∧ (A ∨ H)))",
+    "explanation": "Here, V represents the vehicle being active, Y represents the yaw being adjusted to face the target, F represents the vehicle following the target, A represents the altitude being controlled, and H represents the height being controlled. The formula states that globally, if the vehicle is active, then it will adjust its yaw to face the target, follow the target, and control either altitude or height."
+  },
+  {
+    "sentence": "By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home (arming) position.",
+    "formula": "G(V → (D ∧ H))",
+    "explanation": "Here, V represents the vehicle being active, D represents the distance being 8 meters, and H represents the height being 8 meters above the home position. The formula states that globally, if the vehicle is active, then it will follow the target at a distance of 8 meters and a height of 8 meters above the home position."
+  },
+  {
+    "sentence": "1._Follow Height_ is controlled with the up-down input (\"Throttle\").",
+    "formula": "G(F → (T → H))",
+    "explanation": "Here, F represents the follow height mode being active, T represents the throttle input being applied, and H represents the height being controlled. The formula states that globally, if the follow height mode is active, then if the throttle input is applied, the height will be controlled."
+  },
+  {
+    "sentence": "Center the stick to keep follow the target at a constant height.",
+    "formula": "G(C → F)",
+    "explanation": "Here, C represents the stick being centered, and F represents the system following the target at a constant height. The formula states that globally, if the stick is centered, then the system will follow the target at a constant height."
+  },
+  {
+    "sentence": "2._Follow Distance_ is controlled with the forward-back input (\"Pitch\").",
+    "formula": "G(P → D)",
+    "explanation": "Here, P represents the forward-back input (\"Pitch\"), and D represents the follow distance. The formula states that globally, the pitch input controls the follow distance."
+  },
+  {
+    "sentence": "Pushing the stick forward increases the follow distance, pulling it back decreases the distance.",
+    "formula": "G(F → X(D)) ∧ G(B → X(¬D))",
+    "explanation": "Here, F represents pushing the stick forward, B represents pulling the stick back, and D represents the follow distance. The formula states that globally, pushing the stick forward will increase the follow distance at the next time step, and pulling the stick back will decrease the follow distance at the next time step."
+  },
+  {
+    "sentence": "3._Follow Angle_ is controlled with the left-right input (\"Roll\").",
+    "formula": "G(R → A)",
+    "explanation": "Here, R represents the left-right input (\"Roll\"), and A represents the follow angle. The formula states that globally, the roll input controls the follow angle."
+  },
+  {
+    "sentence": "Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode.",
+    "formula": "G(E → ¬(A ∧ H ∧ D))",
+    "explanation": "Here, E represents exiting follow-me mode, A represents the angle value, H represents the height value, and D represents the distance value. The formula states that globally, when follow-me mode is exited, the angle, height, and distance values are discarded."
+  },
+  {
+    "sentence": "If you exit Follow-Me mode and activate it again the values will be reset to their defaults.",
+    "formula": "G(E ∧ A → X(D))",
+    "explanation": "Here, E represents exiting follow-me mode, A represents activating follow-me mode again, and D represents the default values. The formula states that globally, if follow-me mode is exited and then activated again, the values will be reset to their defaults at the next time step."
+  },
+  {
+    "sentence": "1.Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc.",
+    "formula": "G(F → W)",
+    "explanation": "Here, F represents follow-me mode, and W represents wide open areas that are unobstructed. The formula states that globally, follow-me mode should only be used in wide open areas that are unobstructed."
+  },
+  {
+    "sentence": "Set the follow-me height to a value that is well above any surrounding obstructions.",
+    "formula": "G(H → O)",
+    "explanation": "Here, H represents the follow-me height, and O represents the surrounding obstructions. The formula states that globally, the follow-me height should be set to a value that is well above any surrounding obstructions."
+  },
+  {
+    "sentence": "By _default_ this is 8 metres above the home (arming) position.",
+    "formula": "G(D → H)",
+    "explanation": "Here, D represents the default value, and H represents the height of 8 metres above the home position. The formula states that globally, the default height is 8 metres above the home position."
+  },
+  {
+    "sentence": "2.It is _safer_ to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off).",
+    "formula": "G(S → F) ∧ G(L → ¬F)",
+    "explanation": "Here, S represents manually flying to a safe height, F represents engaging follow-me mode, and L represents engaging follow-me mode when landed. The formula states that globally, it is safer to manually fly to a safe height before engaging follow-me mode, and it is not safe to engage follow-me mode when landed."
+  },
+  {
+    "sentence": "Give your vehicle sufficient room to stop, especially when it is moving fast.",
+    "formula": "G(V → S)",
+    "explanation": "Here, V represents the vehicle moving fast, and S represents giving the vehicle sufficient room to stop. The formula ensures that whenever the vehicle is moving fast, sufficient room to stop is always provided."
+  },
+  {
+    "sentence": "Be ready to switch back to Position mode if something goes wrong, in particular when using follow-me mode for the first time.",
+    "formula": "G(F ∧ ¬P → X(P))",
+    "explanation": "Here, F represents follow-me mode being used for the first time, P represents Position mode, and ¬P represents something going wrong. The formula ensures that whenever follow-me mode is used for the first time and something goes wrong, the system is ready to switch back to Position mode at the next time step."
+  },
+  {
+    "sentence": "You can't switch follow-me mode off using RC stick movements (as that will adjust the properties).",
+    "formula": "G(R → ¬F)",
+    "explanation": "Here, R represents RC stick movements, and F represents switching follow-me mode off. The formula ensures that RC stick movements never switch follow-me mode off."
+  },
+  {
+    "sentence": "You either need to have a GroundStation that can send flight mode switch signals or a flight mode switch configured in your RC transmitter.",
+    "formula": "G(F → (G ∨ R))",
+    "explanation": "Here, F represents switching flight modes, G represents having a GroundStation that can send flight mode switch signals, and R represents having a flight mode switch configured in the RC transmitter. The formula ensures that whenever flight modes need to be switched, either a GroundStation or a configured RC transmitter is available."
+  },
+  {
+    "sentence": "Follow-me mode does not implement any type of obstacle avoidance.",
+    "formula": "G(F → ¬O)",
+    "explanation": "Here, F represents follow-me mode, and O represents obstacle avoidance. The formula ensures that follow-me mode never implements obstacle avoidance."
+  },
+  {
+    "sentence": "Special care must be taken when this mode is used.",
+    "formula": "G(F → S)",
+    "explanation": "Here, F represents follow-me mode, and S represents special care being taken. The formula ensures that whenever follow-me mode is used, special care is always taken."
+  },
+  {
+    "sentence": "Connect a telemetry radio to your ground station device and another to the vehicle (this allows positioning information to be relayed between the two radios).",
+    "formula": "G(C → (T ∧ V))",
+    "explanation": "Here, C represents connecting telemetry radios, T represents a telemetry radio connected to the ground station device, and V represents a telemetry radio connected to the vehicle. The formula ensures that whenever telemetry radios are connected, both the ground station device and the vehicle have a telemetry radio connected."
+  },
+  {
+    "sentence": "Disable sleep-mode on your Android device:",
+    "formula": "G(A → ¬S)",
+    "explanation": "Here, A represents the Android device, and S represents sleep-mode. The formula ensures that the Android device never enters sleep-mode."
+  },
+  {
+    "sentence": "This setting can usually be found under: Settings > Display.",
+    "formula": "G(S → D)",
+    "explanation": "Here, S represents the setting, and D represents the Display menu. The formula ensures that the setting is always found under the Display menu."
+  },
+  {
+    "sentence": "It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals.",
+    "formula": "G(A → (¬S ∧ G))",
+    "explanation": "Here, A represents the Android device, S represents sleep-mode, and G represents the GPS signal being emitted at regular intervals. The formula ensures that the Android device is set to not enter sleep-mode, which in turn ensures that the GPS signal is always emitted at regular intervals."
+  },
+  {
+    "sentence": "Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported).",
+    "formula": "F(H ≥ 2 ∧ H ≤ 3)",
+    "explanation": "Here, H represents the height of the vehicle. The formula states that eventually (F), the height will be between 2 and 3 meters."
+  },
+  {
+    "sentence": "Set the vehicle on the ground, press the safety switch and step back at least 10 meters.",
+    "formula": "G(V ∧ S ∧ D ≥ 10)",
+    "explanation": "Here, V represents the vehicle being on the ground, S represents the safety switch being pressed, and D represents the distance from the vehicle. The formula states that globally (G), the vehicle is on the ground, the safety switch is pressed, and the distance is at least 10 meters."
+  },
+  {
+    "sentence": "Arm the vehicle and takeoff.",
+    "formula": "F(A ∧ T)",
+    "explanation": "Here, A represents the vehicle being armed, and T represents the vehicle taking off. The formula states that eventually (F), the vehicle will be armed and take off."
+  },
+  {
+    "sentence": "Switch into follow-me mode.",
+    "formula": "F(M)",
+    "explanation": "Here, M represents the follow-me mode. The formula states that eventually (F), the vehicle will switch into follow-me mode."
+  },
+  {
+    "sentence": "The copter will first ascend to minimum safety altitude of 1 meters above the ground or home, depending on the presence of a distance sensor.",
+    "formula": "F(H ≥ 1 ∧ (G ∨ D))",
+    "explanation": "Here, H represents the height of the copter, G represents the ground, and D represents the distance sensor. The formula states that eventually (F), the copter will ascend to a height of at least 1 meter above the ground or home, depending on the presence of a distance sensor."
+  },
+  {
+    "sentence": "It will ascend until it is 3 meters within the follow height to avoid potential collisions before moving horizontally.",
+    "formula": "F(H ≤ Fh - 3)",
+    "explanation": "Here, H represents the height of the copter, and Fh represents the follow height. The formula states that eventually (F), the copter will ascend until it is 3 meters within the follow height."
+  },
+  {
+    "sentence": "Copter will always adjust it's heading to face the target",
+    "formula": "G(Hd = Td)",
+    "explanation": "Here, Hd represents the heading of the copter, and Td represents the direction of the target. The formula states that globally (G), the copter will adjust its heading to face the target."
+  },
+  {
+    "sentence": "At this point you can start moving, and the drone will be following you.",
+    "formula": "F(M ∧ Fd = Hd)",
+    "explanation": "Here, M represents the movement of the person, Fd represents the direction of the follower (drone), and Hd represents the heading of the drone. The formula states that eventually (F), the person can start moving, and the drone will follow."
+  },
+  {
+    "sentence": "The altitude control mode determine whether the vehicle altitude is relative to the home position, terrain height, or the altitude reported by the follow target.",
+    "formula": "G(ACM = H ∨ ACM = T ∨ ACM = F)",
+    "explanation": "Here, ACM represents the altitude control mode, H represents the home position, T represents the terrain height, and F represents the follow target. The formula states that globally (G), the altitude control mode determines whether the vehicle altitude is relative to the home position, terrain height, or the altitude reported by the follow target."
+  },
+  {
+    "sentence": "1.2D tracking (the default altitude mode) makes the drone follow at a height relative to the fixed home position (takeoff altitude).",
+    "formula": "G(Fh = H + O)",
+    "explanation": "Here, Fh represents the follow height, H represents the home position, and O represents the offset (takeoff altitude). The formula states that globally (G), the follow height is relative to the fixed home position (takeoff altitude)."
+  },
+  {
+    "sentence": "The relative distance to the drone to the target will change as you ascend and descend (use with care in hilly terrain).",
+    "formula": "G(Ascend ∨ Descend → F(Δ(DroneToTargetDistance)))",
+    "explanation": "Here, Ascend and Descend represent the actions of ascending and descending, respectively. Δ(DroneToTargetDistance) represents the change in the relative distance between the drone and the target. The formula states that whenever the drone ascends or descends, the relative distance to the target will eventually change."
+  },
+  {
+    "sentence": "2.2D + Terrain makes the drone follow at a fixed height relative to the terrain underneath it, using information from a distance sensor.",
+    "formula": "G(FixedHeight ∧ TerrainFollowing → G(DroneHeight = TerrainHeight))",
+    "explanation": "Here, FixedHeight and TerrainFollowing represent the drone's mode of following the terrain at a fixed height. DroneHeight and TerrainHeight represent the height of the drone and the terrain, respectively. The formula states that whenever the drone is in this mode, it will always maintain a height equal to the terrain height."
+  },
+  {
+    "sentence": "If the vehicle does not have a distance sensor following will be identical to 2D tracking.",
+    "formula": "G(¬DistanceSensor → (2DTracking FollowerMode))",
+    "explanation": "Here, DistanceSensor represents the presence of a distance sensor, and 2DTracking represents the mode of 2D tracking. FollowerMode represents the mode of the drone. The formula states that if the vehicle does not have a distance sensor, the follower mode will be identical to 2D tracking."
+  },
+  {
+    "sentence": "Distance sensors aren't always accurate and vehicles may be \"jumpy\" when flying in this mode.",
+    "formula": "F(InaccurateDistanceSensor ∧ JumpyVehicle)",
+    "explanation": "Here, InaccurateDistanceSensor represents the inaccuracy of the distance sensor, and JumpyVehicle represents the vehicle's 'jumpy' behavior. The formula states that it is possible for the distance sensor to be inaccurate and the vehicle to be 'jumpy' at some point in the future."
+  },
+  {
+    "sentence": "Note that that height is relative to the ground underneath the vehicle, not the follow target.",
+    "formula": "G(DroneHeight = GroundHeight ∧ ¬DroneHeight = FollowTargetHeight)",
+    "explanation": "Here, DroneHeight, GroundHeight, and FollowTargetHeight represent the height of the drone, the ground, and the follow target, respectively. The formula states that the drone's height is always relative to the ground underneath it, and not relative to the follow target."
+  },
+  {
+    "sentence": "The drone may not follow altitude changes of the target!",
+    "formula": "F(¬DroneFollowsTargetAltitude)",
+    "explanation": "Here, DroneFollowsTargetAltitude represents the drone's ability to follow the target's altitude changes. The formula states that it is possible for the drone to not follow the target's altitude changes at some point in the future."
+  },
+  {
+    "sentence": "3.3D tracking mode makes the drone follow at a height relative to the follow target, as supplied by its GPS sensor.",
+    "formula": "G(3DTrackingMode → G(DroneHeight = FollowTargetHeight))",
+    "explanation": "Here, 3DTrackingMode represents the mode of 3D tracking, and DroneHeight and FollowTargetHeight represent the height of the drone and the follow target, respectively. The formula states that whenever the drone is in 3D tracking mode, it will always maintain a height relative to the follow target."
+  },
+  {
+    "sentence": "This adapts to target altitude changes, such as when you walk up a hill.",
+    "formula": "G(TargetAltitudeChange → F(DroneAltitudeChange))",
+    "explanation": "Here, TargetAltitudeChange and DroneAltitudeChange represent the changes in the target's altitude and the drone's altitude, respectively. The formula states that whenever the target's altitude changes, the drone's altitude will eventually change as well."
+  },
+  {
+    "sentence": "Do not set the Altitude mode (FLW_TGT_ALT_M) to 3D Tracking when using QGC for Android (or more generally, without checking that FOLLOW_TARGET.altitude is an AMSL value).",
+    "formula": "G(QGCAndroid ∧ ¬CheckedAMSL → ¬3DTrackingMode)",
+    "explanation": "Here, QGCAndroid represents the use of QGC for Android, CheckedAMSL represents the verification that FOLLOW_TARGET.altitude is an AMSL value, and 3DTrackingMode represents the mode of 3D tracking. The formula states that whenever QGC for Android is used and the AMSL value is not verified, the 3D tracking mode should not be used."
+  },
+  {
+    "sentence": "The MAVLink FOLLOW_TARGET message definition expects an altitude relative to mean sea level (AMSL) while QGC on Android is sending an altitude relative to the GPS ellipsoid.",
+    "formula": "G(MAVLinkFollowTarget → AMSL) ∧ G(QGCAndroid → GPSAltitude)",
+    "explanation": "Here, MAVLinkFollowTarget represents the MAVLink FOLLOW_TARGET message definition, AMSL represents the altitude relative to mean sea level, QGCAndroid represents the use of QGC for Android, and GPSAltitude represents the altitude relative to the GPS ellipsoid. The formula states that the MAVLink FOLLOW_TARGET message definition always expects an AMSL altitude, while QGC for Android always sends a GPS altitude."
+  },
+  {
+    "sentence": "This can differ as much as 200 meters!",
+    "formula": "F(|P - Q| ≤ 200)",
+    "explanation": "Here, P and Q represent the two differing values, and the formula states that the absolute difference between them can be as much as 200 meters at some point in the future."
+  },
+  {
+    "sentence": "The drone probably won't crash due to the built-in minimum safety altitude limit (1 meter), but it may fly much higher than expected.",
+    "formula": "G(A ≥ 1) ∧ F(H > E)",
+    "explanation": "Here, A represents the drone's altitude, H represents the drone's actual height, and E represents the expected height. The formula states that the drone's altitude will always be greater than or equal to 1 meter (the safety limit), and at some point in the future, the drone's actual height may be greater than the expected height."
+  },
+  {
+    "sentence": "If the drone's altitude is significantly different than specified, assume that the ground station's altitude output is wrong and use 2D tracking.",
+    "formula": "(|A - S| > δ) → (¬G ∧ T)",
+    "explanation": "Here, A represents the drone's altitude, S represents the specified altitude, δ represents the threshold for significant difference, G represents the ground station's altitude output, and T represents the use of 2D tracking. The formula states that if the drone's altitude is significantly different from the specified altitude, then assume the ground station's altitude output is wrong and use 2D tracking."
+  },
+  {
+    "sentence": "1.Set the follow distance to more than 12 meters (8 meters is a \"recommended minimum\").",
+    "formula": "F(D > 12)",
+    "explanation": "Here, D represents the follow distance. The formula states that the follow distance should be set to more than 12 meters at some point in the future."
+  },
+  {
+    "sentence": "There is an inherent position bias (3 ~ 5 meters) between the target and the drone's GPS sensor, which makes the drone follow a 'ghost target' somewhere near the actual target.",
+    "formula": "G(|T - G| ≤ ε)",
+    "explanation": "Here, T represents the target position, G represents the drone's GPS sensor position, and ε represents the position bias (between 3 and 5 meters). The formula states that there is always a position bias between the target and the drone's GPS sensor, which is less than or equal to ε."
+  },
+  {
+    "sentence": "This is more obvious when the follow distance is very small.",
+    "formula": "(D < δ) → (|T - G| > ε)",
+    "explanation": "Here, D represents the follow distance, δ represents the threshold for small distance, T represents the target position, G represents the drone's GPS sensor position, and ε represents the position bias. The formula states that when the follow distance is very small, the position bias between the target and the drone's GPS sensor is more obvious."
+  },
+  {
+    "sentence": "We recommend that the follow distance is set to be large enough such that the GPS bias is not significant.",
+    "formula": "F(D > δ) → (|T - G| ≤ ε)",
+    "explanation": "Here, D represents the follow distance, δ represents the threshold for large distance, T represents the target position, G represents the drone's GPS sensor position, and ε represents the position bias. The formula states that if the follow distance is set to be large enough, then the GPS bias is not significant."
+  },
+  {
+    "sentence": "2.The speed at which you can change the follow angle depends on the maximum tangential velocity setting.",
+    "formula": "(∃v)(V ≤ v) → (∃θ)(Θ ≤ θ)",
+    "explanation": "Here, V represents the speed at which the follow angle can be changed, v represents the maximum tangential velocity setting, Θ represents the follow angle, and θ represents the maximum follow angle. The formula states that there exists a maximum tangential velocity setting that determines the speed at which the follow angle can be changed."
+  },
+  {
+    "sentence": "1.The SiK 915 Mhz telemetry radio is known to interfere with the GPS signal being received by some Android devices.",
+    "formula": "G(R → ¬G)",
+    "explanation": "Here, R represents the presence of the SiK 915 Mhz telemetry radio, and G represents the GPS signal being received by the Android device. The formula states that the presence of the radio always interferes with the GPS signal."
+  },
+  {
+    "sentence": "Keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.",
+    "formula": "G(D > δ) → ¬I",
+    "explanation": "Here, D represents the distance between the radio and the Android device, δ represents the threshold for large distance, and I represents the interference. The formula states that keeping the radio and Android device far apart always avoids interference."
+  },
+  {
+    "sentence": "QGC for Android reports an incorrect altitude (altitude above elipsoid rather than AMSL).",
+    "formula": "G(I ∧ ¬A)",
+    "explanation": "Here, I represents QGC for Android reporting an incorrect altitude, and A represents the altitude being above mean sea level (AMSL). The formula states that globally (G), it is the case that I is true and A is false, indicating the incorrect altitude reporting."
+  },
+  {
+    "sentence": "The follow altitude can be off by up to 200m!",
+    "formula": "G(F ∧ (|a - e| ≤ 200))",
+    "explanation": "Here, F represents the follow altitude, a represents the actual altitude, and e represents the expected altitude. The formula states that globally (G), it is the case that the follow altitude (F) can be off by up to 200 meters, represented by the absolute difference between the actual and expected altitudes being less than or equal to 200."
+  }
+]

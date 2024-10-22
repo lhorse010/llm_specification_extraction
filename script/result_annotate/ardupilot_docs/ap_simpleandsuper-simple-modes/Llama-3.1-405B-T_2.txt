@@ -20,10 +20,6 @@ After carefully reading the document and following the steps outlined, I have an
             "sentence-id": 5
         },
         {
-            "section-id": 1,
-            "sentence-id": 6
-        },
-        {
             "section-id": 3,
             "sentence-id": 0
         },

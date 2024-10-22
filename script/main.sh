@@ -13,7 +13,7 @@ declare -a px4_files
 store_files() {
     local dir=$1
     local array_name=$2
-    local full_path="../dataset/repeat/${dir}/text_only/"
+    local full_path="../dataset/input/${dir}/text_only/"
     
     if [ -d "$full_path" ]; then
         local IFS=$'\n'  # Change IFS to newline
