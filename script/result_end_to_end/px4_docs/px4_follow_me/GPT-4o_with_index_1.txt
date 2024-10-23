@@ -1,0 +1,47 @@
+[
+  {
+    "index": 0,
+    "formula": "G (¬armed → ¬mode_follow_me)",
+    "explanation": "The vehicle cannot switch to Follow-Me mode unless it is armed."
+  },
+  {
+    "index": 1,
+    "formula": "G (mode_follow_me → valid_local_position)",
+    "explanation": "Follow-Me mode requires a valid local position estimate."
+  },
+  {
+    "index": 2,
+    "formula": "G (mode_follow_me → (wind_within_limits ∧ flight_time_within_limits))",
+    "explanation": "Follow-Me mode requires wind and flight time to be within allowed limits."
+  },
+  {
+    "index": 3,
+    "formula": "G (mode_follow_me → follow_target_position_available)",
+    "explanation": "The follow target must supply position information for Follow-Me mode."
+  },
+  {
+    "index": 4,
+    "formula": "G (mode_follow_me → altitude ≥ 1)",
+    "explanation": "The multicopter must ascend to a minimum safety altitude of 1 meter before moving horizontally in Follow-Me mode."
+  },
+  {
+    "index": 5,
+    "formula": "G (mode_follow_me → ¬obstacle_avoidance)",
+    "explanation": "Follow-Me mode does not implement obstacle avoidance."
+  },
+  {
+    "index": 6,
+    "formula": "G (mode_follow_me → F (altitude ≥ follow_height - 3))",
+    "explanation": "The multicopter must ascend within 3 meters of the follow height to avoid potential collisions."
+  },
+  {
+    "index": 7,
+    "formula": "G (mode_follow_me → F (distance ≥ 8))",
+    "explanation": "The follow distance should be at least 8 meters to account for GPS bias."
+  },
+  {
+    "index": 8,
+    "formula": "G (mode_follow_me → (altitude_control_mode = 2D ∨ altitude_control_mode = 2D_Terrain))",
+    "explanation": "Altitude control mode should be 2D or 2D + Terrain when using QGC for Android to avoid altitude discrepancies."
+  }
+]

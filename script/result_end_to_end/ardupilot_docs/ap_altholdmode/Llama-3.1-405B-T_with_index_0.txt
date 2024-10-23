@@ -1,0 +1,47 @@
+[
+  {
+    "index": 0,
+    "formula": "G(altitude_error -> F(corr_altitude))",
+    "explanation": "The system should always correct the altitude error."
+  },
+  {
+    "index": 1,
+    "formula": "G(throttle_stick_middle -> altitude_maintained)",
+    "explanation": "When the throttle stick is in the middle position, the system should maintain the current altitude."
+  },
+  {
+    "index": 2,
+    "formula": "G(throttle_stick_outside_deadzone -> (climb | descend))",
+    "explanation": "When the throttle stick is outside the deadzone, the system should either climb or descend."
+  },
+  {
+    "index": 3,
+    "formula": "G(climb_rate <= 2.5m/s)",
+    "explanation": "The climb rate should not exceed 2.5m/s."
+  },
+  {
+    "index": 4,
+    "formula": "G(descend_rate <= 2.5m/s)",
+    "explanation": "The descend rate should not exceed 2.5m/s."
+  },
+  {
+    "index": 5,
+    "formula": "G(adequate_power -> (attitude_control & altitude_control))",
+    "explanation": "The system should have adequate power to maintain attitude and altitude control."
+  },
+  {
+    "index": 6,
+    "formula": "G(barometer_error -> F(corr_altitude))",
+    "explanation": "The system should correct altitude errors caused by barometer errors."
+  },
+  {
+    "index": 7,
+    "formula": "G(rangefinder_enabled -> accurate_altitude_maintenance)",
+    "explanation": "When the rangefinder is enabled, the system should maintain accurate altitude."
+  },
+  {
+    "index": 8,
+    "formula": "G(disarming -> (landing_checker_verify & copter_landed))",
+    "explanation": "When disarming, the system should verify that the copter has landed using the landing checker."
+  }
+]

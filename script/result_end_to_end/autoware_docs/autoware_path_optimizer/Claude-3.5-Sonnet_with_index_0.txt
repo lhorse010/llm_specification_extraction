@@ -1,0 +1,42 @@
+[
+  {
+    "index": 0,
+    "formula": "G(inside_drivable_area → ¬collision)",
+    "explanation": "The trajectory should always be collision-free when inside the drivable area. This is derived from the purpose statement that the trajectory should be 'collision-free based on the input path, drivable area.'"
+  },
+  {
+    "index": 1,
+    "formula": "G(outside_drivable_area → X(velocity = 0))",
+    "explanation": "When the trajectory goes outside the drivable area, the next state should have zero velocity. This is based on the feature to 'insert stop point before the planned footprint will be outside the drivable area.'"
+  },
+  {
+    "index": 2,
+    "formula": "G(kinematically_feasible)",
+    "explanation": "The trajectory should always be kinematically feasible. This is derived from the purpose statement that the trajectory should be 'kinematically-feasible to drive.'"
+  },
+  {
+    "index": 3,
+    "formula": "G(ego_move_dist > 3.0 → X(replan))",
+    "explanation": "If the ego vehicle moves more than 3.0 meters, replanning should occur in the next state. This is based on the replan condition 'Ego moves longer than replan.max_ego_moving_dist in one cycle. (default: 3.0 [m]).'"
+  },
+  {
+    "index": 4,
+    "formula": "G(goal_move_dist > 15.0 → X(replan))",
+    "explanation": "If the goal moves more than 15.0 meters, replanning should occur in the next state. This is based on the replan condition 'Trajectory's end, which is considered as the goal pose, moves longer than replan.max_goal_moving_dist in one cycle. (default: 15.0 [ms]).'"
+  },
+  {
+    "index": 5,
+    "formula": "G(time_passed > 1.0 → X(replan))",
+    "explanation": "If more than 1.0 second has passed since the last replan, replanning should occur in the next state. This is based on the replan condition 'Time passes. (default: 1.0 [s]).'"
+  },
+  {
+    "index": 6,
+    "formula": "G(path_lat_change > 2.0 → X(replan))",
+    "explanation": "If the input path changes laterally by more than 2.0 units, replanning should occur in the next state. This is based on the replan condition 'The input path changes laterally longer than replan.max_path_shape_around_ego_lat_dist in one cycle. (default: 2.0).'"
+  },
+  {
+    "index": 7,
+    "formula": "G(optimization_failure → use_previous_trajectory)",
+    "explanation": "In case of optimization failure, the system should always use the previously generated trajectory. This is derived from the statement 'Optimization failure is dealt with the same as if the optimized trajectory is outside the drivable area.'"
+  }
+]

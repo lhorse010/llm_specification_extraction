@@ -1,0 +1,37 @@
+[
+  {
+    "index": 0,
+    "formula": "G(¬armed → ¬followMeMode)",
+    "explanation": "The vehicle must be armed when switching to Follow-Me mode. This is represented as: globally, if the vehicle is not armed, it cannot be in Follow-Me mode."
+  },
+  {
+    "index": 1,
+    "formula": "G(followMeMode → validLocalPosition)",
+    "explanation": "Follow-Me mode requires at least a valid local position estimate. This is expressed as: globally, if the vehicle is in Follow-Me mode, it must have a valid local position."
+  },
+  {
+    "index": 2,
+    "formula": "G(followMeMode ∧ ¬validLocalPosition → X(¬followMeMode))",
+    "explanation": "Flying vehicles will failsafe if they lose the position estimate. This is represented as: globally, if the vehicle is in Follow-Me mode and loses valid local position, in the next state it will not be in Follow-Me mode."
+  },
+  {
+    "index": 3,
+    "formula": "G(followMeMode → (windWithinLimits ∧ flightTimeWithinLimits))",
+    "explanation": "Follow-Me mode requires wind and flight time to be within allowed limits. This is expressed as: globally, if the vehicle is in Follow-Me mode, both wind and flight time must be within their specified limits."
+  },
+  {
+    "index": 4,
+    "formula": "G(followMeMode → followTargetPositionAvailable)",
+    "explanation": "The follow target must be able to supply position information. This is represented as: globally, if the vehicle is in Follow-Me mode, the follow target's position must be available."
+  },
+  {
+    "index": 5,
+    "formula": "G(followMeMode → F(altitude ≥ minSafetyAltitude))",
+    "explanation": "When switching to Follow-Me mode, the copter will first ascend to a minimum safety altitude. This is expressed as: globally, if the vehicle enters Follow-Me mode, it will eventually reach an altitude greater than or equal to the minimum safety altitude."
+  },
+  {
+    "index": 6,
+    "formula": "G(followMeMode → vehicleFacingTarget)",
+    "explanation": "The copter will always adjust its heading to face the target. This is represented as: globally, if the vehicle is in Follow-Me mode, it must be facing the target."
+  }
+]

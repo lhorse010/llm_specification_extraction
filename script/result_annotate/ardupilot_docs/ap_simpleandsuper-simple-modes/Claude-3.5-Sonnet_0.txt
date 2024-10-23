@@ -45,10 +45,6 @@ Step 4: Format the annotated sentences in JSON.
             "sentence-id": 5
         },
         {
-            "section-id": 1,
-            "sentence-id": 6
-        },
-        {
             "section-id": 4,
             "sentence-id": 4
         },

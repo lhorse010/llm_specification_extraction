@@ -1,0 +1,32 @@
+[
+  {
+    "index": 0,
+    "formula": "G(armed_mode = Loiter → X(change_mode = ZigZag))",
+    "explanation": "If the vehicle is armed in Loiter mode, it must change to ZigZag mode next."
+  },
+  {
+    "index": 1,
+    "formula": "G((range_finder_unhealthy ∧ autonomous_flight) → X(manual_control ∧ stop))",
+    "explanation": "If the range finder becomes unhealthy during autonomous flight, the vehicle must switch to manual control and stop."
+  },
+  {
+    "index": 2,
+    "formula": "G((aux_switch_position = middle ∨ flight_mode_change) → manual_control)",
+    "explanation": "If the auxiliary switch is in the middle position or the flight mode changes, the vehicle should revert to manual control."
+  },
+  {
+    "index": 3,
+    "formula": "G((ZigZag_auto_enable = 1 ∧ RCx_OPTION = 83) → F(ZigZag_auto_operation))",
+    "explanation": "If ZigZag Auto Mode is enabled and configured, the vehicle will eventually operate in ZigZag Auto Mode."
+  },
+  {
+    "index": 4,
+    "formula": "G(ZigZag_auto_switch = low → X(normal_ZigZag_mode))",
+    "explanation": "If the ZigZag Auto switch is moved to the low position, the vehicle must return to normal ZigZag mode next."
+  },
+  {
+    "index": 5,
+    "formula": "G(autonomous_flight → (use_Auto_mode_params ∧ speed = WPNAV_SPEED))",
+    "explanation": "During autonomous flight, the vehicle must use Auto mode parameters, and the speed should be set to WPNAV_SPEED."
+  }
+]

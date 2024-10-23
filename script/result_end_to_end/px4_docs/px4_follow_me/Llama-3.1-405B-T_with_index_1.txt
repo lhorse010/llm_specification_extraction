@@ -1,0 +1,52 @@
+[
+  {
+    "index": 0,
+    "formula": "G(valid_local_position_estimate → can_switch_to_follow_me_mode)",
+    "explanation": "The vehicle can switch to Follow-Me mode only if it has a valid local position estimate."
+  },
+  {
+    "index": 1,
+    "formula": "G(in_follow_me_mode → ¬can_arm)",
+    "explanation": "The vehicle cannot be armed while in Follow-Me mode."
+  },
+  {
+    "index": 2,
+    "formula": "G(in_follow_me_mode → (wind_within_limits ∧ flight_time_within_limits))",
+    "explanation": "The vehicle can be in Follow-Me mode only if the wind and flight time are within allowed limits."
+  },
+  {
+    "index": 3,
+    "formula": "G(in_follow_me_mode → (follow_target_supplies_position_information ∧ follow_target_is_multicopter))",
+    "explanation": "The vehicle can be in Follow-Me mode only if the follow target supplies position information and is a multicopter."
+  },
+  {
+    "index": 4,
+    "formula": "G(in_follow_me_mode → (follow_height ≥ 1m ∧ follow_distance ≥ 8m))",
+    "explanation": "The vehicle will follow the target at a height of at least 1 meter and a distance of at least 8 meters."
+  },
+  {
+    "index": 5,
+    "formula": "G(in_follow_me_mode → (follow_angle ≥ 0° ∧ follow_angle ≤ 360°))",
+    "explanation": "The vehicle will follow the target at an angle between 0 degrees and 360 degrees."
+  },
+  {
+    "index": 6,
+    "formula": "G(in_follow_me_mode → (follow_height_controlled_by_throttle ∧ follow_distance_controlled_by_pitch ∧ follow_angle_controlled_by_roll))",
+    "explanation": "The vehicle's follow height, distance, and angle are controlled by the throttle, pitch, and roll inputs, respectively."
+  },
+  {
+    "index": 7,
+    "formula": "G(exit_follow_me_mode → (follow_height_reset ∧ follow_distance_reset ∧ follow_angle_reset))",
+    "explanation": "When exiting Follow-Me mode, the vehicle's follow height, distance, and angle are reset to their default values."
+  },
+  {
+    "index": 8,
+    "formula": "G(in_follow_me_mode → (safety_altitude ≥ 1m ∧ follow_height ≥ safety_altitude))",
+    "explanation": "The vehicle will follow the target at a height that is at least as high as the safety altitude."
+  },
+  {
+    "index": 9,
+    "formula": "G(in_follow_me_mode → (follow_distance ≥ 12m → GPS_bias_not_significant))",
+    "explanation": "If the follow distance is set to more than 12 meters, the GPS bias is not significant."
+  }
+]

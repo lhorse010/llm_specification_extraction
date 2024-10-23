@@ -1,0 +1,27 @@
+[
+  {
+    "index": 0,
+    "formula": "G(armed ∧ mode = ZigZag → F((¬manual_control ∧ autonomous_flight) U manual_control))",
+    "explanation": "Once armed and in ZigZag mode, the vehicle should eventually switch from manual to autonomous flight until manual control is regained."
+  },
+  {
+    "index": 1,
+    "formula": "G((range_finder_unhealthy ∧ autonomous_flight) → F(manual_control ∧ stopped))",
+    "explanation": "If the range finder becomes unhealthy during autonomous flight, the vehicle should eventually revert to manual control and stop."
+  },
+  {
+    "index": 2,
+    "formula": "G(ZigZag Auto Mode ∧ ZIGZ_AUTO_ENABLE = 1 → F(autonomous_zigzag_operation))",
+    "explanation": "When ZigZag Auto Mode is enabled and activated, the vehicle should eventually perform the automatic zigzag operation."
+  },
+  {
+    "index": 3,
+    "formula": "G((mode = ZigZag ∧ parameter_change) → X(parameter_applied))",
+    "explanation": "Any parameter changes in ZigZag mode should be applied in the next state."
+  },
+  {
+    "index": 4,
+    "formula": "G((switch_position = low ∧ mode = ZigZag Auto) → F(normal_zigzag_mode))",
+    "explanation": "Switching to the low position in ZigZag Auto Mode should eventually stop this mode and return to normal ZigZag mode."
+  }
+]

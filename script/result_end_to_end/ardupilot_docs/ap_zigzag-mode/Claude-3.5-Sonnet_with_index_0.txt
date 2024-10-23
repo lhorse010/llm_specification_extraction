@@ -1,0 +1,47 @@
+[
+  {
+    "index": 0,
+    "formula": "G(armed ∧ zigzag_mode → F(manual_control ∨ autonomous_control))",
+    "explanation": "Globally, when the vehicle is armed and in ZigZag mode, it will eventually be either under manual control or autonomous control."
+  },
+  {
+    "index": 1,
+    "formula": "G(zigzag_mode ∧ switch_high → X(wp_a_recorded))",
+    "explanation": "Globally, when in ZigZag mode and the switch is moved to the high position, in the next state, waypoint A will be recorded."
+  },
+  {
+    "index": 2,
+    "formula": "G(zigzag_mode ∧ switch_low → X(wp_b_recorded))",
+    "explanation": "Globally, when in ZigZag mode and the switch is moved to the low position, in the next state, waypoint B will be recorded."
+  },
+  {
+    "index": 3,
+    "formula": "G(autonomous_control ∧ reach_waypoint → X(manual_control))",
+    "explanation": "Globally, when under autonomous control and reaching a waypoint, in the next state, the vehicle will revert to manual control."
+  },
+  {
+    "index": 4,
+    "formula": "G(zigzag_mode ∧ switch_middle → X(manual_control))",
+    "explanation": "Globally, when in ZigZag mode and the switch is moved to the middle position, in the next state, the vehicle will revert to manual control."
+  },
+  {
+    "index": 5,
+    "formula": "G(autonomous_control ∧ rangefinder_unhealthy → X(manual_control))",
+    "explanation": "Globally, when under autonomous control and the rangefinder becomes unhealthy, in the next state, the vehicle will revert to manual control."
+  },
+  {
+    "index": 6,
+    "formula": "G(zigzag_auto_mode ∧ wp_a_recorded ∧ wp_b_recorded → F(auto_spraying))",
+    "explanation": "Globally, when in ZigZag Auto mode and both waypoints A and B are recorded, eventually the vehicle will start automatic spraying."
+  },
+  {
+    "index": 7,
+    "formula": "G(zigzag_auto_mode ∧ reach_waypoint → X(wait_delay U move_side))",
+    "explanation": "Globally, when in ZigZag Auto mode and reaching a waypoint, in the next state, the vehicle will wait for a delay until it moves to the side."
+  },
+  {
+    "index": 8,
+    "formula": "G(zigzag_auto_mode ∧ switch_low → X(¬zigzag_auto_mode ∧ zigzag_mode))",
+    "explanation": "Globally, when in ZigZag Auto mode and the switch is moved to the low position, in the next state, the vehicle will exit ZigZag Auto mode and enter normal ZigZag mode."
+  }
+]
