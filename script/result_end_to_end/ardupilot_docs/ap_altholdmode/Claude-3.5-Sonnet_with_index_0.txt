@@ -1,0 +1,42 @@
+[
+  {
+    "index": 0,
+    "formula": "G(altitude_hold_mode → (|current_altitude - desired_altitude| < ε))",
+    "explanation": "Globally, when in altitude hold mode, the absolute difference between the current altitude and desired altitude should always be less than some small value ε."
+  },
+  {
+    "index": 1,
+    "formula": "G(40% ≤ throttle_stick ≤ 60% → X(altitude = altitude))",
+    "explanation": "Globally, if the throttle stick is between 40% and 60%, in the next state the altitude should remain the same."
+  },
+  {
+    "index": 2,
+    "formula": "G(throttle_stick < 40% → X(descent_rate ≤ 2.5 m/s))",
+    "explanation": "Globally, if the throttle stick is below 40%, in the next state the descent rate should be at most 2.5 m/s."
+  },
+  {
+    "index": 3,
+    "formula": "G(throttle_stick > 60% → X(climb_rate ≤ 2.5 m/s))",
+    "explanation": "Globally, if the throttle stick is above 60%, in the next state the climb rate should be at most 2.5 m/s."
+  },
+  {
+    "index": 4,
+    "formula": "G(disarm_command → F(landed ∧ F(disarmed)))",
+    "explanation": "Globally, if a disarm command is given, eventually the copter should be landed, and then eventually it should be disarmed."
+  },
+  {
+    "index": 5,
+    "formula": "G(altitude_hold_mode ∧ high_vibration → F(rapid_climb))",
+    "explanation": "Globally, if in altitude hold mode and high vibration is detected, eventually rapid climbing may occur (this is a problem to be avoided)."
+  },
+  {
+    "index": 6,
+    "formula": "G(rangefinder_enabled → |actual_altitude - measured_altitude| < δ)",
+    "explanation": "Globally, if a rangefinder is enabled, the absolute difference between the actual altitude and measured altitude should always be less than some small value δ."
+  },
+  {
+    "index": 7,
+    "formula": "G(hover_throttle > 70% → unsafe_flight_condition)",
+    "explanation": "Globally, if the hover throttle is above 70%, it indicates an unsafe flight condition."
+  }
+]

@@ -1,4 +1,4 @@
-Based on the provided document, I've extracted the specifications and expressed them using Metric Temporal Logic (MTL) formulas. Here are the results in the required output format:
+Based on the provided document, I've extracted the specifications and expressed them using Metric Temporal Logic (MTL) formulas. Here are the results in the required JSON format:
 
 ```json
 {
@@ -41,7 +41,7 @@ Based on the provided document, I've extracted the specifications and expressed 
         },
         {
             "formula": "G(mode = Takeoff → F(altitude = MIS_TAKEOFF_ALT))",
-            "explanation": "A multi-rotor ascends vertically to the altitude defined in MIS_TAKEOFF_ALT and holds position."
+            "explanation": "The vehicle will ascend vertically to the altitude defined in MIS_TAKEOFF_ALT and hold position."
         }
     ]
 }

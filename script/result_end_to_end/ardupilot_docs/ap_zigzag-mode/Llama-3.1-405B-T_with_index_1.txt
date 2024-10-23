@@ -1,0 +1,42 @@
+[
+  {
+    "index": 0,
+    "formula": "G((ZigZag_SaveWP ∧ Loiter_mode) → F(Manual_control))",
+    "explanation": "Whenever the vehicle is in ZigZag SaveWP mode and Loiter mode, it will eventually enter manual control mode."
+  },
+  {
+    "index": 1,
+    "formula": "G((Auxiliary_switch = High ∨ Auxiliary_switch = Low) → F(Record_side))",
+    "explanation": "Whenever the auxiliary switch is moved to the highest or lowest position, the vehicle will record the current side of the field."
+  },
+  {
+    "index": 2,
+    "formula": "G((Auxiliary_switch = Middle ∨ Flight_mode_change) → F(Manual_control))",
+    "explanation": "Whenever the auxiliary switch is moved to the middle position or the flight mode is changed, the vehicle will enter manual control mode."
+  },
+  {
+    "index": 3,
+    "formula": "G((Downward_facing_range_finder_unhealthy) → F(Manual_control ∧ Stop))",
+    "explanation": "Whenever the downward facing range finder becomes unhealthy, the vehicle will enter manual control mode and come to a stop."
+  },
+  {
+    "index": 4,
+    "formula": "G((ZigZag_Auto_Mode ∧ Registered_sides) → F(Automatic_operation))",
+    "explanation": "Whenever the ZigZag Auto Mode is enabled and the field's side points are registered, the vehicle will automatically cover the field side to side at a programmable distance interval."
+  },
+  {
+    "index": 5,
+    "formula": "G((ZigZag_Auto_Mode ∧ Sprayer_equipped) → F(Enable_sprayer))",
+    "explanation": "Whenever the ZigZag Auto Mode is enabled and a sprayer is equipped, the vehicle will automatically enable the sprayer."
+  },
+  {
+    "index": 6,
+    "formula": "G((ZigZag_Auto_Mode ∧ ZIGZ_LINE_NUM = -1) → G(Automatic_operation))",
+    "explanation": "Whenever the ZigZag Auto Mode is enabled and the number of lines is set to infinite, the vehicle will continue automatic operation indefinitely."
+  },
+  {
+    "index": 7,
+    "formula": "G((ZigZag_Auto_Mode ∧ ZIGZ_LINE_NUM = 0) → F(Stop_after_first_crossing))",
+    "explanation": "Whenever the ZigZag Auto Mode is enabled and the number of lines is set to 0, the vehicle will stop after the first field crossing."
+  }
+]

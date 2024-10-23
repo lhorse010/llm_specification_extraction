@@ -1,5 +1,5 @@
 # Define the array
-models=("Claude-3.5-Sonnet" "GPT-4o" "Llama-3.1-405B-T")
+models=("Llama-3.1-405B-T")
 
 # Define docs_dirs
 docs_dirs=("ardupilot_docs" "autoware_docs" "px4_docs")
@@ -13,7 +13,7 @@ declare -a px4_files
 store_files() {
     local dir=$1
     local array_name=$2
-    local full_path="../dataset/document_after_manual_check/${dir}/text_only/"
+    local full_path="../dataset/reapeat/${dir}/text_only/"
     
     if [ -d "$full_path" ]; then
         local IFS=$'\n'  # Change IFS to newline

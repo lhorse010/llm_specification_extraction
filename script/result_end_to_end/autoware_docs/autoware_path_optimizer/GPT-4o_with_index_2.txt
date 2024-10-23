@@ -1,0 +1,47 @@
+[
+  {
+    "index": 0,
+    "formula": "G (position ∈ drivable_area → F (¬collision))",
+    "explanation": "Globally, if the vehicle's position is within the drivable area, it should eventually not collide with obstacles."
+  },
+  {
+    "index": 1,
+    "formula": "G (¬outside_drivable_area → (X stop_point))",
+    "explanation": "Globally, if the trajectory is not outside the drivable area, a stop point should be inserted in the next step."
+  },
+  {
+    "index": 2,
+    "formula": "G (F (ego_moving_distance > 3.0) → replan)",
+    "explanation": "Globally, if the ego vehicle moves more than 3 meters, a replan should eventually occur."
+  },
+  {
+    "index": 3,
+    "formula": "G (F (goal_moving_distance > 15.0) → replan)",
+    "explanation": "Globally, if the goal pose moves more than 15 meters, a replan should eventually occur."
+  },
+  {
+    "index": 4,
+    "formula": "G (F (time_passed > 1.0) → replan)",
+    "explanation": "Globally, if more than one second has passed, a replan should eventually occur."
+  },
+  {
+    "index": 5,
+    "formula": "G (F (lateral_path_change > 2.0) → replan)",
+    "explanation": "Globally, if the lateral path change exceeds 2 meters, a replan should eventually occur."
+  },
+  {
+    "index": 6,
+    "formula": "G (trajectory_optimized → (X velocity_updated))",
+    "explanation": "Globally, if the trajectory is optimized, the velocity should be updated in the next step."
+  },
+  {
+    "index": 7,
+    "formula": "G (¬kinematic_violation → F (collision_free))",
+    "explanation": "Globally, if there is no kinematic violation, the trajectory should eventually be collision-free."
+  },
+  {
+    "index": 8,
+    "formula": "G (trajectory_stable → (X trajectory_front_unchanged))",
+    "explanation": "Globally, if the trajectory is stable, the front trajectory should remain unchanged in the next step."
+  }
+]

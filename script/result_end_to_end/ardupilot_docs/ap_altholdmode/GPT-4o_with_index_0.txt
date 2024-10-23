@@ -1,0 +1,37 @@
+[
+  {
+    "index": 0,
+    "formula": "G (throttle_stick ∈ [40%, 60%] → maintain_altitude)",
+    "explanation": "The vehicle should maintain its current altitude when the throttle stick is in the middle range (40% to 60%)."
+  },
+  {
+    "index": 1,
+    "formula": "G (throttle_stick > 60% → climb_rate = 2.5m/s)",
+    "explanation": "If the throttle stick is above 60%, the vehicle should climb at a rate of 2.5 meters per second."
+  },
+  {
+    "index": 2,
+    "formula": "G (throttle_stick < 40% → descent_rate = 2.5m/s)",
+    "explanation": "If the throttle stick is below 40%, the vehicle should descend at a rate of 2.5 meters per second."
+  },
+  {
+    "index": 3,
+    "formula": "G (vibration_detected → ¬engage_alt_hold)",
+    "explanation": "High vibrations should prevent the copter from engaging altitude hold mode to avoid rapid climbing."
+  },
+  {
+    "index": 4,
+    "formula": "G (air_pressure_change → altitude_change)",
+    "explanation": "Changes in air pressure should cause changes in altitude, as the copter follows pressure changes."
+  },
+  {
+    "index": 5,
+    "formula": "G (sufficient_power → maintain_control)",
+    "explanation": "The vehicle should maintain control when there is sufficient power, ideally hovering at about 50% throttle."
+  },
+  {
+    "index": 6,
+    "formula": "G (entering_alt_hold_while_climbing → motors_reduce_momentarily)",
+    "explanation": "If entering altitude hold mode while climbing rapidly, motors may reduce momentarily to correct altitude."
+  }
+]
