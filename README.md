@@ -15,11 +15,14 @@
 ### 1.2 data process
 
 ```shell
+####sentence slicing####
 # markdown
 python md_process.py document_dir_name
-
-# markdown
+# rst
 python rst_process.py document_dir_name
+
+####generate input(json)####
+python generate_input.py
 
 ```
 
@@ -39,25 +42,58 @@ export ENV_P_LAT='...'
 
 ## 3. To use
 
-### 3.1 Get formal groundtruth
+### 3.1 llm end to end
 
 ```shell
-# create ground_truth file
-# name: same as document_after_manual_check
-cd dataset/ground_truth/ardupilot_docs/text_only
-touch ...
-
-# generate formal ground_truth
-cd dataset
-# waring: backup?
-python groundtruth_process.py
-```
-
-### 3.2 run code
-
-```shell
+#### run ####
 cd script
-./main.sh
-# check ./result/result_all.txt
+# prompt: doc_spc_extraction_end_to_end_prompt.txt
+./main_spec_extract_end_to_end.sh
+
+#### result ####
+# check ./result_end_to_end
 ```
 
+### 3.2 llm annotate + transform
+
+#### 3.2.1 llm annotate
+
+```shell
+#### run ####
+cd script
+# prompt: doc_sentences_spec_annotate_prompt.txt
+./main_annotate.sh
+# to generate input json file of transform process
+./generate_second_step_input.sh
+
+#### result ####
+# check ./result_annotate
+# check ./second_step_input
+```
+
+#### 3.2.2 llm spec transform
+
+```shell
+#### run ####
+cd script
+# prompt: doc_spec_transform_prompt.txt
+./main_spec_transform.sh
+
+#### result ####
+# check ./result_llm_tranform
+```
+
+#### 3.2.3 deepstl spec transform
+
+```shell
+#### run ####
+# follow the set up guaidence in https://github.com/JieHE-2020/DeepSTL
+# to use input genetrate by our method
+# use
+# ./script/transformer_run.py
+
+#### result ####
+# check ./DeepSTL_convert
+```
+
+### 
