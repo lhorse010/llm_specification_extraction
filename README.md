@@ -50,8 +50,8 @@ cd script
 # prompt: doc_spc_extraction_end_to_end_prompt.txt
 ./main_spec_extract_end_to_end.sh
 
-#### result ####
-# check ./result_end_to_end
+#### check  result ####
+# cd ./result_end_to_end
 ```
 
 ### 3.2 llm annotate + transform
@@ -66,9 +66,9 @@ cd script
 # to generate input json file of transform process
 ./generate_second_step_input.sh
 
-#### result ####
-# check ./result_annotate
-# check ./second_step_input
+#### check result ####
+# cd ./result_annotate
+# cd ./second_step_input
 ```
 
 #### 3.2.2 llm spec transform
@@ -79,8 +79,8 @@ cd script
 # prompt: doc_spec_transform_prompt.txt
 ./main_spec_transform.sh
 
-#### result ####
-# check ./result_llm_tranform
+#### check result ####
+# cd ./result_llm_tranform
 ```
 
 #### 3.2.3 deepstl spec transform
@@ -92,8 +92,8 @@ cd script
 # use
 # ./script/transformer_run.py
 
-#### result ####
-# check ./DeepSTL_convert
+#### check result ####
+# cd ./DeepSTL_convert
 ```
 
 ### 
