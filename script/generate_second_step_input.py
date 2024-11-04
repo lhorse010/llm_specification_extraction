@@ -135,7 +135,7 @@ def find_sentence(json_obj, section_id, sentence_id):
                         return sentence['text']
         
         # If no matching sentence is found, return an error message
-        return "Sentence not found."
+        return None
     except KeyError:
         # If the JSON structure is invalid (missing expected keys), return an error message
         return "Error: Invalid JSON structure."
@@ -172,6 +172,8 @@ if __name__ == "__main__":
                 input_item["section-id"] = item["section-id"]
                 input_item["sentence-id"] = item["sentence-id"]
                 input_item['sentence'] = find_sentence(all_sentence_obj, item["section-id"], item["sentence-id"])
+                if input_item["sentence"] == None:
+                    continue
                 second_step_input_list.append(input_item)
         
     print(second_step_input_list)

@@ -163,12 +163,6 @@
             "tl": "always ( ( Oncecopterarives == homeocaterpause ) until ( ORTL_LOIT_TIME == lisecolicol ) -> ( codsecotAUOi_L == tAUO_LND ) )"
         },
         {
-            "section-id": 4,
-            "sentence-id": 7,
-            "sentence": "Sentence not found.",
-            "tl": "always ( not ( Sentence == found ) )"
-        },
-        {
             "section-id": 1,
             "sentence-id": 14,
             "sentence": "Again, 2m is the minimum return altitude.",

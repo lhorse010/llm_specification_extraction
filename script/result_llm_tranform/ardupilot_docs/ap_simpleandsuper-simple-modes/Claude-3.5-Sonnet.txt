@@ -53,10 +53,5 @@
     "sentence": "To ensure the controls are correct right at take-off, as with simple mode, you should arm with the pilot standing behind the vehicle and with both pilot and vehicle pointing in the same direction.",
     "formula": "G(A → (B ∧ D) → X(C))",
     "explanation": "Here, A represents arming the vehicle, B represents the pilot standing behind the vehicle, D represents pilot and vehicle pointing in the same direction, and C represents correct controls at take-off. The formula states that globally, if the vehicle is armed (A) and the conditions (B and D) are met, then in the next state (X), the controls will be correct (C)."
-  },
-  {
-    "sentence": "Sentence not found.",
-    "formula": "G(¬P)",
-    "explanation": "For a 'sentence not found' scenario, we use a simple formula stating that globally (G), the predicate P (representing a valid sentence) is not present (¬). This captures the absence of a meaningful sentence to convert."
   }
 ]

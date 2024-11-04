@@ -15,11 +15,6 @@
     "sentence": "In addition, setting bit 0 of ACRO_OPTIONS will activate AIRMODE in ACRO mode (only) all the time, except if overridden by the above switch, if used."
   },
   {
-    "section-id": 1,
-    "sentence-id": 6,
-    "sentence": "Sentence not found."
-  },
-  {
     "section-id": 2,
     "sentence-id": 0,
     "sentence": "to avoid enabling AIRMODE but still use an ARM/DISARM switch, use Auxiliary function option \"153\" for the switch."

@@ -5,11 +5,6 @@
     "explanation": "This formula states that globally (G), if the mode (M) is active, then GPS (G) must be available. The nested G operator ensures that GPS remains available throughout the mode's operation."
   },
   {
-    "sentence": "Sentence not found.",
-    "formula": "G(¬S)",
-    "explanation": "This formula represents the absence of a sentence (S) globally. In MTL, we can use negation to indicate the non-existence of a condition throughout the entire timeline."
-  },
-  {
     "sentence": "This flight mode is available for multirotors only.",
     "formula": "G(F → M)",
     "explanation": "Here, F represents the flight mode, and M represents multirotors. The formula states that globally, if the flight mode is available (F), then it implies the vehicle is a multirotor (M)."

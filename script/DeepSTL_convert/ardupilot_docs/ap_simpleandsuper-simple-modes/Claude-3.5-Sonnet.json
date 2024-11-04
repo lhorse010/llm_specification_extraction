@@ -55,12 +55,6 @@
             "tl": "always ( Tenablebothmodes == swicheSterSimple ) and ahacnelped == a3positSpe and ( capepedahp ) -> ( a3posihp == ihpgihposinSeSmlimdlepepoidli == itosiSmideplositindepoidiepoisidi ) until ( icloicl == inloicil"
         },
         {
-            "section-id": 5,
-            "sentence-id": 5,
-            "sentence": "Sentence not found.",
-            "tl": "always ( not ( Sentence == found ) )"
-        },
-        {
             "section-id": 1,
             "sentence-id": 4,
             "sentence": "3.Super Simple Mode allows you to control the copter relative to it's direction from home (i.e.",
@@ -71,12 +65,6 @@
             "sentence-id": 6,
             "sentence": "To ensure the controls are correct right at take-off, as with simple mode, you should arm with the pilot standing behind the vehicle and with both pilot and vehicle pointing in the same direction.",
             "tl": "always ( Toensurecor == trecorecolsctr ) until [ 0 : huarihimple == hpltsithpitsahtl )"
-        },
-        {
-            "section-id": 5,
-            "sentence-id": 4,
-            "sentence": "Sentence not found.",
-            "tl": "always ( not ( Sentence == found ) )"
         }
     ]
 }

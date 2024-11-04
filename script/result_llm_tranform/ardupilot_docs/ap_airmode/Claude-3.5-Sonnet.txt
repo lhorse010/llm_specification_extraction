@@ -15,11 +15,6 @@
     "explanation": "B represents setting bit 0 of ACRO_OPTIONS, C represents ACRO mode, S represents the switch override, and M represents AIRMODE. The formula states that globally, when bit 0 is set and the system is in ACRO mode, AIRMODE is active, unless overridden by the switch."
   },
   {
-    "sentence": "Sentence not found.",
-    "formula": "",
-    "explanation": "No MTL formula can be derived as the sentence is not provided."
-  },
-  {
     "sentence": "to avoid enabling AIRMODE but still use an ARM/DISARM switch, use Auxiliary function option \"153\" for the switch.",
     "formula": "G(A → (S ∧ ¬M))",
     "explanation": "A represents using Auxiliary function option 153, S represents using an ARM/DISARM switch, and M represents AIRMODE. The formula indicates that globally, when option 153 is used, an ARM/DISARM switch can be used without enabling AIRMODE."

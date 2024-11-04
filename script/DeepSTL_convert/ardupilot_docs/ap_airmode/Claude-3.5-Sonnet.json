@@ -19,12 +19,6 @@
             "tl": "always ( aditionseti == tingbit0ACRO_OPTIOSacti == aA ) until ( cteARIRODE > 4 and CdateACd < 9 ) -> excepto == exceptoveridenbysed == switchichusededed )"
         },
         {
-            "section-id": 1,
-            "sentence-id": 6,
-            "sentence": "Sentence not found.",
-            "tl": "always ( not ( Sentence == found ) )"
-        },
-        {
             "section-id": 2,
             "sentence-id": 0,
             "sentence": "to avoid enabling AIRMODE but still use an ARM/DISARM switch, use Auxiliary function option \"153\" for the switch.",

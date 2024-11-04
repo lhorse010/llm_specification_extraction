@@ -135,11 +135,6 @@
     "sentence": "7.Once the copter arrives at the home location the copter will pause for RTL_LOIT_TIME milliseconds, timeout (AUTO_LAND), then land."
   },
   {
-    "section-id": 4,
-    "sentence-id": 7,
-    "sentence": "Sentence not found."
-  },
-  {
     "section-id": 1,
     "sentence-id": 14,
     "sentence": "Again, 2m is the minimum return altitude."
