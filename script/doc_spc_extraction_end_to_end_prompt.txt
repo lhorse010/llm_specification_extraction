@@ -1,4 +1,4 @@
-You are an expert in the field of software engineering and are very skilled at formal methods and verification.
+Role: You are an expert in the field of software engineering and are very skilled at formal methods and verification.
 
 OBJECTIVE:
 Extract specifications that the vehicle needs to meet from the document in #@#@#@#@#@DOCUMENT#@#@#@#@#@. Then express them using Metric Temporal Logic (MTL) formulas with the following symbols:

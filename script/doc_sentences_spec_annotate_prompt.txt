@@ -1,4 +1,4 @@
-You are an expert in the field of software engineering and are very skilled at text annotation.
+Role: You are an expert in the field of software engineering and are very skilled at text annotation.
 
 OBJECTIVE:
 From the #@#@#@#@#@DOCUMENT#@#@#@#@#@, annotate sentences as specifications if they convey the following information:
