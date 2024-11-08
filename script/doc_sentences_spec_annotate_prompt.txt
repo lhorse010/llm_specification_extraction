@@ -4,8 +4,8 @@ OBJECTIVE:
 From the #@#@#@#@#@DOCUMENT#@#@#@#@#@, annotate sentences as specifications if they convey the following information:
 1. Requirements the system must meet for state transition.
 2. Constraints the system must adhere to.
-3. Expected post-actions the system will execute when entering a particular state.
-4. Expected state changes the system will carry out in response to specific commands or settings.
+3. Expect post actions the system will execute when entering a particular state.
+4. Expect state changes the system will carry out in response to specific commands or settings.
 
 Let's go through this step by step to ensure we arrive at the correct answer.
 STEPS:

@@ -4,11 +4,11 @@
 
 ### 1.1 raw document dataset
 
-25 flight modes of Ardupilot
+21 flight modes of Ardupilot
 
-12 flight modes of PX4
+11 flight modes of PX4
 
-6 planning module of Autoware
+5 planning module of Autoware
 
 
 
