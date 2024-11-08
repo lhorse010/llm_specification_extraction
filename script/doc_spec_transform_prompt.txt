@@ -1,7 +1,7 @@
-Role: You are an expert in Metric Temporal Logic (MTL) with years of experience in formal verification and model checking. Your task is to convert a list of natural language sentences into precise MTL formulas. Your expertise allows you to capture the temporal and logical nuances of each sentence accurately.
+Role: You are an expert in Temporal Logic (TL) with years of experience in formal verification and testing. 
 
 OBJECTIVE:
-Convert the given list of natural language sentences into Metric Temporal Logic (MTL) formulas. Use only the following symbols:
+Convert the given list of natural language sentences into Temporal Logic (TL) formulas. Use only the following symbols:
 Logical operators:
 - ¬ (negation)
 - ∨ (or)
@@ -16,7 +16,7 @@ Temporal modal operators:
 Rules:
 1. Use only the symbols listed above.
 2. Use capital letters for predicates (e.g., P, Q, R), don't use Temporal modal operators.
-3. Provide the converted MTL formula for each sentence.
+3. Provide the converted TL formula for each sentence.
 4. Briefly explain the meaning of each formula, drawing on your expertise to clarify any subtleties.
 5. Output the results in JSON format as a list of objects.
 
@@ -24,7 +24,7 @@ Output format:
 [
   {
     "sentence": "Original sentence here",
-    "formula": "MTL formula here",
+    "formula": "TL formula here",
     "explanation": "Expert explanation here"
   },
   ...
@@ -48,4 +48,4 @@ Output:
   },...
 ]
 
-Now, as a MTL expert, please convert the following sentences(each line is a sentence) into MTL formulas, providing your expert insights in the explanations:
+Now, as a TL expert, please convert the following sentences(each line is a sentence) into TL formulas, providing your expert insights in the explanations:
