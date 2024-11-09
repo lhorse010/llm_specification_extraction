@@ -4,7 +4,7 @@
 
 This project  explores the end-to-end specification extraction capabilities of LLMs and proposes a two-stage annotation-then-conversion method. 
 
-​	The method includes two agents: sentence annotation and temporal logic conversion. They are responsible for extracting sentences containing specification information from documents and converting a single sentence into a Temporal Logic Formula.
+​	The method includes two agents: sentence annotation and temporal logic conversion. They are responsible for extracting sentences containing specification information from documents and converting a single sentence into a temporal logic formula.
 
 
 
@@ -13,7 +13,7 @@ This project  explores the end-to-end specification extraction capabilities of L
 ```
 llm_specificaiton_extraction
 ├── dataset/              	             # Collected document and preprocess result
-├── experiement_/                        # raw data of empirical study and experiment 1 & 2 
+├── experiement_data/                        # raw data of empirical study and experiment 1 & 2 
 ├── script/                              # code of method 
 ├── test                                 # Scattered testing code
 └── README.md                            # Project documentation
@@ -25,11 +25,11 @@ llm_specificaiton_extraction
 
 ### 1.raw document dataset
 
-  21 modules of Ardupilot
+  21 documents of Ardupilot
 
-  11 modules of PX4
+  11 documents of PX4
 
-  5 modules of Autoware
+  5 documents of Autoware
 
 ### 2.data process
 
@@ -52,7 +52,7 @@ python generate_input.py
 
 ## Environment Set
 
-poe cookie set: https://github.com/snowby666/poe-api-wrapper
+Set cookies before invoking poe LLM agent: https://github.com/snowby666/poe-api-wrapper
 
 ```shell
 ## poe cookie
@@ -93,7 +93,7 @@ cd script
 # cd ./second_step_input
 ```
 
-#### 2.2 LLM spec conversion
+#### 2.2 LLM specificaiton conversion
 
 ```shell
 #### run ####
@@ -105,7 +105,7 @@ cd script
 # cd ./result_llm_tranform
 ```
 
-#### 2.3 DeeSTL spec conversion
+#### 2.3 DeeSTL specification conversion
 
 ```shell
 #### run ####
