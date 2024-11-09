@@ -16,11 +16,11 @@ Based on the provided document, I've extracted the specifications and expressed 
             "explanation": "The vehicle will attempt to hold its current altitude when the sticks are placed within 10% of mid-throttle."
         },
         {
-            "formula": "G(climbing → F(altitude_change_rate ≤ 2.5))",
+            "formula": "G(climbing → G(altitude_change_rate ≤ 2.5))",
             "explanation": "The vehicle will climb at a speed of up to 2.5m/s."
         },
         {
-            "formula": "G(descending → F(altitude_change_rate ≥ -2.5))",
+            "formula": "G(descending → G(altitude_change_rate ≥ -2.5))",
             "explanation": "The vehicle will descend at a speed of up to 2.5m/s."
         },
         {

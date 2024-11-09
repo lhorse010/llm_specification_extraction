@@ -16,11 +16,11 @@ After carefully reading the document, I have extracted the specifications that t
             "explanation": "When the throttle is within 10% of mid-throttle, the vehicle will attempt to hold its current altitude."
         },
         {
-            "formula": "G(climbing → F(altitude_change_rate ≤ 2.5))",
+            "formula": "G(climbing → G(altitude_change_rate ≤ 2.5))",
             "explanation": "The vehicle will climb at a rate of up to 2.5m/s."
         },
         {
-            "formula": "G(descending → F(altitude_change_rate ≥ -2.5))",
+            "formula": "G(descending → G(altitude_change_rate ≥ -2.5))",
             "explanation": "The vehicle will descend at a rate of up to 2.5m/s."
         },
         {
