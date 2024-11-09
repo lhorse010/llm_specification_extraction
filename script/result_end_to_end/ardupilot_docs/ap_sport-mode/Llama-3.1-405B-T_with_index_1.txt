@@ -16,12 +16,12 @@
   },
   {
     "index": 3,
-    "formula": "G(climbing → F(altitude_change_rate ≤ 2.5))",
+    "formula": "G(climbing → G(altitude_change_rate ≤ 2.5))",
     "explanation": "The vehicle will climb at a speed of up to 2.5m/s."
   },
   {
     "index": 4,
-    "formula": "G(descending → F(altitude_change_rate ≥ -2.5))",
+    "formula": "G(descending → G(altitude_change_rate ≥ -2.5))",
     "explanation": "The vehicle will descend at a speed of up to 2.5m/s."
   },
   {
