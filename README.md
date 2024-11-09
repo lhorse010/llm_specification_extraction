@@ -124,7 +124,7 @@ cd script
 
 ### 1. LLM end-to-end
 
-| Module              | Claude-3.5<br />-Sonnet |      | GPT-4o |      | Llama-3.1<br />-405B-T |      | GroundTruth |
+| Document              | Claude-3.5<br />-Sonnet |      | GPT-4o |      | Llama-3.1<br />-405B-T |      | GroundTruth |
 | ------------------- | ----------------------- | ---- | ------ | ---- | ---------------------- | ---- | ----------- |
 |                     | r                       | w    | r      | w    | r                      | w    |             |
 | AP:Airmode          | 6                       | 0    | 7      | 0    | 6                      | 0    | 8           |
@@ -172,7 +172,7 @@ cd script
 
 ## 2.LLM annotation + LLM conversion
 
-| Module              | Claude-3.5<br />-Sonnet |      | GPT-4o |      | Llama-3.1<br />-405B-T |      | GroundTruth |
+| Document              | Claude-3.5<br />-Sonnet |      | GPT-4o |      | Llama-3.1<br />-405B-T |      | GroundTruth |
 | ------------------- | ----------------------- | ---- | ------ | ---- | ---------------------- | ---- | ----------- |
 |                     | r                       | w    | r      | w    | r                      | w    |             |
 | AP:Airmode          | 7                       | 0    | 4      | 0    | 6                      | 0    | 8           |
@@ -218,7 +218,7 @@ cd script
 
 ## 3.LLM annotation + DeepSTL conversion
 
-| Module              | Claude-3.5<br />-Sonnet |      | GPT-4o |      | Llama-3.1<br />-405B-T |      | GroundTruth |
+| Document              | Claude-3.5<br />-Sonnet |      | GPT-4o |      | Llama-3.1<br />-405B-T |      | GroundTruth |
 | ------------------- | ----------------------- | ---- | ------ | ---- | ---------------------- | ---- | ----------- |
 |                     | r                       | w    | r      | w    | r                      | w    |             |
 | AP:Airmode          | 0                       | 6    | 0      | 4    | 0                      | 7    | 8           |
