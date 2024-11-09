@@ -258,6 +258,6 @@ cd script
 | AW:Detection Area   | 1                       | 7    | 1      | 6    | 1                      | 8    | 8           |
 | AW:No Drivable Lane | 0                       | 8    | 0      | 7    | 0                      | 8    | 8           |
 | AW:Out of Lane      | 2                       | 21   | 2      | 19   | 2                      | 12   | 21          |
-| Sum                 | 46                      | 447  | 32     | 346  | 42                     | 450  | 595         |
-| Accuracy            | 7.7%                    |      | 5.4%   |      | 7.1%                   |      | -           |
-| False Positive      | 90.7%                   |      | 91.5%  |      | 91.5%                  |      | -           |
+| Sum                 | 46                      | 453  | 32     | 350  | 42                     | 457  | 603         |
+| Accuracy            | 7.6%                    |      | 5.3%   |      | 7.0%                   |      | -           |
+| False Positive      | 90.8%                   |      | 91.6%  |      | 91.6%                  |      | -           |
